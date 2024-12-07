@@ -1,18 +1,18 @@
-# Projeto ABC 
+# Projeto Introdução a Programação II
 [Sistema de Treinos e Dietas]
 
 Ideias que inspiram o projeto: 
  * Nike Training Club
  * Gym WP
  * Jefit
- * Freeletics
+ * MyTrainingPal
 
 ## Integrantes do grupo 
  * Filipe Gabriel Montarroyos de Oliveira - filipe.montarroyos@ufrpe.br
- * Matheus Guilherme Moreira de lima 
- * Enzo Lourenço Rodrigues Veras 
+ * Matheus Guilherme Moreira de Lima - matheus.guilherme@ufrpe.br
+ * Enzo Lourenço Rodrigues Veras - enzo.veras06@gmail.com
  * Gabriel Leal de Queiroz - 2006gabrielleal@gmail.com
- * Victor Hugo Gomes Couto 
+ * Victor Hugo Gomes Couto - victor.couto@ufrpe.br
 
 ## Descrição geral do projeto 
 Este sistema será uma plataforma personalizada para treinos e dietas, projetada para ajudar usuários a melhorar sua forma física, atingir metas de saúde e bem-estar ou simplesmente manter uma rotina regular de exercícios. Ele oferecerá planos de treino ajustados ao nível de experiência, preferências e objetivos de cada pessoa, além de dietas balanceadas e adequadas ao tipo físico e às necessidades nutricionais individuais.
