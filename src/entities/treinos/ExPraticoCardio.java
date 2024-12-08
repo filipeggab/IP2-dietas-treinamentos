@@ -31,4 +31,15 @@ public class ExPraticoCardio extends ExercicioPratico{
     public double percaCalorica() {
         return exercicio.getPercaCaloricaMedia()*tempoEmSec;
     }
+
+    @Override
+    public String toString() {
+        int min = 0;
+        int sec = tempoEmSec;
+        if(tempoEmSec >= 60) {
+            min = tempoEmSec / 60;
+            sec = tempoEmSec % 60;
+        }
+        return exercicio.getNome() + " | " + min + "'" + sec + "''";
+    }
 }

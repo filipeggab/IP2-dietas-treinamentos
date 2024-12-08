@@ -5,6 +5,7 @@ public class Exercicio {
     private String descricao;
     private String materiais;
     private String dificuldade;
+    private String objetivo;
     private double percaCaloricaMedia;
 
     public Exercicio(String nome, String descricao, String materiais, String dificuldade, double percaCaloricaMedia) {
@@ -45,6 +46,14 @@ public class Exercicio {
 
     public void setDificuldade(String dificuldade) {
         this.dificuldade = dificuldade;
+    }
+
+    public String getObjetivo() {
+        return objetivo;
+    }
+
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
     }
 
     public double getPercaCaloricaMedia(){

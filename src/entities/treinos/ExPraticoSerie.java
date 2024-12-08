@@ -1,15 +1,13 @@
 package entities.treinos;
 
-public class ExPraticoSerie extends ExercicioPratico{
-    private int numDeSeries;
-    private int numDeRepeticoes;
-    private int peso;
-    private int tempoDescanso;
+public abstract class ExPraticoSerie extends ExercicioPratico{
+    protected int numDeSeries;
+    protected int peso;
+    protected int tempoDescanso;
 
-    public ExPraticoSerie(Exercicio exercicio, int numDeSeries, int numDeRepeticoes, int peso, int tempoDescanso) {
+    public ExPraticoSerie(Exercicio exercicio, int numDeSeries, int peso, int tempoDescanso) {
         super(exercicio);
         this.numDeSeries = numDeSeries;
-        this.numDeRepeticoes = numDeRepeticoes;
         this.peso = peso;
         this.tempoDescanso = tempoDescanso;
     }
@@ -20,14 +18,6 @@ public class ExPraticoSerie extends ExercicioPratico{
 
     public void setNumDeSeries(int numDeSeries) {
         this.numDeSeries = numDeSeries;
-    }
-
-    public int getNumDeRepeticoes() {
-        return numDeRepeticoes;
-    }
-
-    public void setNumDeRepeticoes(int numDeRepeticoes) {
-        this.numDeRepeticoes = numDeRepeticoes;
     }
 
     public int getPeso() {
@@ -44,11 +34,6 @@ public class ExPraticoSerie extends ExercicioPratico{
 
     public void setTempoDescanso(int tempoDescanso) {
         this.tempoDescanso = tempoDescanso;
-    }
-
-    @Override
-    public int tempoEstimado() {
-        return 60*tempoDescanso*numDeSeries; //Levando em conta uma média de 1 minuto por série
     }
 
     @Override

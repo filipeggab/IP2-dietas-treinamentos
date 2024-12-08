@@ -22,4 +22,6 @@ public abstract class ExercicioPratico {
     public abstract int tempoEstimado();
     public abstract double percaCalorica();
 
+    @Override
+    public abstract String toString();
 }
