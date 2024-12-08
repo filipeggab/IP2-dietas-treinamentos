@@ -20,7 +20,7 @@ public class Usuario {
     }
 
     public Metrica ultimaMetrica (){
-        //Parte que eu quero que tu veja
+        return metricas.getLast();
     }
     
     public void addMetrica (Metrica metrica){
