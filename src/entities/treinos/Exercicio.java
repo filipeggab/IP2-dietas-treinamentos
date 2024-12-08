@@ -5,12 +5,14 @@ public class Exercicio {
     private String descricao;
     private String materiais;
     private String dificuldade;
+    private double percaCaloricaMedia;
 
-    public Exercicio(String nome, String descricao, String materiais, String dificuldade) {
+    public Exercicio(String nome, String descricao, String materiais, String dificuldade, double percaCaloricaMedia) {
         this.nome = nome;
         this.descricao = descricao;
         this.materiais = materiais;
         this.dificuldade = dificuldade;
+        this.percaCaloricaMedia = percaCaloricaMedia;
     }
 
     public String getNome() {
@@ -43,5 +45,13 @@ public class Exercicio {
 
     public void setDificuldade(String dificuldade) {
         this.dificuldade = dificuldade;
+    }
+
+    public double getPercaCaloricaMedia(){
+        return percaCaloricaMedia;
+    }
+
+    public void setPercaCaloricaMedia(double percaCaloricaMedia){
+        this.percaCaloricaMedia = percaCaloricaMedia;
     }
 }
