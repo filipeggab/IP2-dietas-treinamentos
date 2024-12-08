@@ -12,10 +12,21 @@ public class Refeicao {
         this.horario = horario;
     }
 
+    public void addComida (Comida comida){
+        this.comidas.add(comida);
+    }
+
     public ArrayList<Comida> getComidas() {
         return comidas;
     }
 
+    public double carboidratosTotais (){
+        double total = 0;
+        for (Comida comida : comidas){
+            total += comida.getCarboidratos();
+        }
+        return total;
+    }
     public double proteinasTotais(){
         double total = 0;
         for (Comida comida : comidas){
@@ -36,7 +47,6 @@ public class Refeicao {
             total += comida.getGorduras();
         }
         return total;
-git p
     }
 
     public String getNome() {
