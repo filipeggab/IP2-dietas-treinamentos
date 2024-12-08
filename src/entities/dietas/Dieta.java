@@ -10,7 +10,7 @@ public class Dieta {
     }
 
     public boolean removerRefeicao(Refeicao refeicao){
-        boolean res = refeicoes.add(refeicao);
+        boolean res = refeicoes.remove(refeicao);
         return res;
     }
 
