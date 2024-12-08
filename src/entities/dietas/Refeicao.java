@@ -16,6 +16,11 @@ public class Refeicao {
         this.comidas.add(comida);
     }
 
+    public boolean removerComida (Comida comida){
+        boolean res = comidas.remove(comida);
+        return res;
+    }
+
     public ArrayList<Comida> getComidas() {
         return comidas;
     }

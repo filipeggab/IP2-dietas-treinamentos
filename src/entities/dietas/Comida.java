@@ -8,6 +8,15 @@ public class Comida {
     private double gorduras;
     private double calorias;
 
+    public Comida(String nome, String unDeMedida, double proteinas, double carboidratos, double gorduras, double calorias) {
+        this.nome = nome;
+        this.unDeMedida = unDeMedida;
+        this.proteinas = proteinas;
+        this.carboidratos = carboidratos;
+        this.gorduras = gorduras;
+        this.calorias = calorias;
+    }
+
     public String getNome() {
         return nome;
     }

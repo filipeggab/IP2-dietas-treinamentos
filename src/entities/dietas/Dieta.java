@@ -4,9 +4,16 @@ import java.util.ArrayList;
 
 public class Dieta {
     private ArrayList<Refeicao> refeicoes = new ArrayList<>();
+
     public void addRefeicao (Refeicao refeicao){
         this.refeicoes.add(refeicao);
     }
+
+    public boolean removerRefeicao(Refeicao refeicao){
+        boolean res = refeicoes.add(refeicao);
+        return res;
+    }
+
     public double caloriasDoDia() {
         double totalCaloriasDoDia = 0;
         for (Refeicao refeicao : refeicoes){
