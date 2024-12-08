@@ -1,0 +1,34 @@
+package entities.treinos;
+
+public class ExPraticoCardio extends ExercicioPratico{
+    private int tempoEmSec;
+    private String intensidade;
+
+    public ExPraticoCardio(Exercicio exercicio, int tempoEmSec, String intensidade) {
+        super(exercicio);
+        this.tempoEmSec = tempoEmSec;
+        this.intensidade = intensidade;
+    }
+
+    public void setTempoEmSec(int tempoEmSec) {
+        this.tempoEmSec = tempoEmSec;
+    }
+
+    public String getIntensidade() {
+        return intensidade;
+    }
+
+    public void setIntensidade(String intensidade) {
+        this.intensidade = intensidade;
+    }
+
+    @Override
+    public int tempoEstimado() {
+        return tempoEmSec;
+    }
+
+    @Override
+    public double percaCalorica() {
+        return exercicio.getPercaCaloricaMedia()*tempoEmSec;
+    }
+}
