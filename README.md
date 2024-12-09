@@ -1,5 +1,4 @@
-# Projeto Introdução a Programação II
-[Sistema de Treinos e Dietas]
+# Sistema de Treinos e Dietas
 
 Ideias que inspiram o projeto: 
  * Nike Training Club
