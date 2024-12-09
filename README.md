@@ -1,5 +1,7 @@
 # Sistema de Treinos e Dietas
 
+[Acesse aqui o repositório do projeto](https://github.com/filipeggab/IP2-dietas-treinamentos)
+
 Ideias que inspiram o projeto: 
  * Nike Training Club
  * Gym WP
