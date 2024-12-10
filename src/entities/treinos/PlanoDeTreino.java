@@ -1,14 +1,16 @@
 package entities.treinos;
 
+import entities.enums.EnumObjetivoDoPlano;
+
 import java.time.LocalDate;
 
 public abstract class PlanoDeTreino {
     protected String nome;
     protected String nivel;
-    protected String objetivo;
+    protected EnumObjetivoDoPlano objetivo;
     protected LocalDate dataInicial;
 
-    public PlanoDeTreino(String nome, String nivel, String objetivo, LocalDate dataInicial) {
+    public PlanoDeTreino(String nome, String nivel, EnumObjetivoDoPlano objetivo, LocalDate dataInicial) {
         this.nome = nome;
         this.nivel = nivel;
         this.objetivo = objetivo;
@@ -31,11 +33,11 @@ public abstract class PlanoDeTreino {
         this.nivel = nivel;
     }
 
-    public String getObjetivo() {
+    public EnumObjetivoDoPlano getObjetivo() {
         return objetivo;
     }
 
-    public void setObjetivo(String objetivo) {
+    public void setObjetivo(EnumObjetivoDoPlano objetivo) {
         this.objetivo = objetivo;
     }
 
