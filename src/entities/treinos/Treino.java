@@ -15,7 +15,7 @@ public class Treino {
         this.foco = foco;
         this.exercicioList = exercicioList;
     }
-    
+
     public Treino(String nome, List<EnumObjetivoDeExercicio> foco) {
         this.nome = nome;
         this.foco = foco;
