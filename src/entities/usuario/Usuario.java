@@ -72,5 +72,5 @@ public class Usuario {
     public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
-    
+
 }
