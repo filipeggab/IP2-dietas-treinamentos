@@ -22,7 +22,7 @@ public class Treino {
     }
 
     public boolean adicionarExercicio(ExercicioPratico exercicio){
-        if(exercicio instanceof ExPraticoSerie || exercicio instanceof ExPraticoCardio){
+        if(exercicio instanceof ExPraticoSerieReps || exercicio instanceof ExPraticoSerieTempo || exercicio instanceof ExPraticoCardio){
             exercicioList.add(exercicio);
             return true;
         }else{
@@ -31,7 +31,7 @@ public class Treino {
     }
 
     public boolean removerExercicio(ExercicioPratico exercicio){
-        if(exercicio instanceof ExPraticoSerie || exercicio instanceof ExPraticoCardio){
+        if(exercicio instanceof ExPraticoSerieReps || exercicio instanceof ExPraticoSerieTempo || exercicio instanceof ExPraticoCardio){
             boolean res = false;
             res = exercicioList.remove(exercicio);
             return res;
