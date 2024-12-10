@@ -1,18 +1,22 @@
 package entities.treinos;
 
+import entities.enums.EnumDificuldadeDeTreino;
+import entities.enums.EnumObjetivo;
+
 public class Exercicio {
     private String nome;
     private String descricao;
     private String materiais;
-    private String dificuldade;
-    private String objetivo;
+    private EnumDificuldadeDeTreino dificuldade;
+    private EnumObjetivo objetivo;
     private double percaCaloricaMedia;
 
-    public Exercicio(String nome, String descricao, String materiais, String dificuldade, double percaCaloricaMedia) {
+    public Exercicio(String nome, String descricao, String materiais, EnumDificuldadeDeTreino dificuldade, EnumObjetivo objetivo, double percaCaloricaMedia) {
         this.nome = nome;
         this.descricao = descricao;
         this.materiais = materiais;
         this.dificuldade = dificuldade;
+        this.objetivo = objetivo;
         this.percaCaloricaMedia = percaCaloricaMedia;
     }
 
@@ -40,27 +44,27 @@ public class Exercicio {
         this.materiais = materiais;
     }
 
-    public String getDificuldade() {
+    public EnumDificuldadeDeTreino getDificuldade() {
         return dificuldade;
     }
 
-    public void setDificuldade(String dificuldade) {
+    public void setDificuldade(EnumDificuldadeDeTreino dificuldade) {
         this.dificuldade = dificuldade;
     }
 
-    public String getObjetivo() {
+    public EnumObjetivo getObjetivo() {
         return objetivo;
     }
 
-    public void setObjetivo(String objetivo) {
+    public void setObjetivo(EnumObjetivo objetivo) {
         this.objetivo = objetivo;
     }
 
-    public double getPercaCaloricaMedia(){
+    public double getPercaCaloricaMedia() {
         return percaCaloricaMedia;
     }
 
-    public void setPercaCaloricaMedia(double percaCaloricaMedia){
+    public void setPercaCaloricaMedia(double percaCaloricaMedia) {
         this.percaCaloricaMedia = percaCaloricaMedia;
     }
 }
