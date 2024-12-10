@@ -1,5 +1,5 @@
 package entities.enums;
 
-public enum EnumDificuldadeDeTreino {
+public enum EnumDificuldadeDeExercicio {
     INICIANTE, INTERMEDIÁRIO, AVANCADO;
 }
