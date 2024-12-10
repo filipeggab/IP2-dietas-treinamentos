@@ -1,12 +1,25 @@
 package entities.treinos;
 
+import entities.enums.EnumObjetivoDeExercicio;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Treino {
     private String nome;
-    private String foco;
+    private List<EnumObjetivoDeExercicio> foco = new ArrayList<>();
     List<ExercicioPratico> exercicioList = new ArrayList<>();
+
+    public Treino(String nome, List<EnumObjetivoDeExercicio> foco, List<ExercicioPratico> exercicioList) {
+        this.nome = nome;
+        this.foco = foco;
+        this.exercicioList = exercicioList;
+    }
+    
+    public Treino(String nome, List<EnumObjetivoDeExercicio> foco) {
+        this.nome = nome;
+        this.foco = foco;
+    }
 
     public boolean adicionarExercicio(ExercicioPratico exercicio){
         if(exercicio instanceof ExPraticoSerie || exercicio instanceof ExPraticoCardio){
