@@ -1,4 +1,6 @@
 package entities.usuario;
+import entities.enums.EnumSexo;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -7,11 +9,11 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private char sexo;
+    private EnumSexo sexo;
     private LocalDate dataNasc;
     private ArrayList<Metrica> metricas = new ArrayList<Metrica>();
 
-    public Usuario(String nome, String email, String senha, char sexo, LocalDate dataNasc) {
+    public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -55,11 +57,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public char getSexo() {
+    public EnumSexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(EnumSexo sexo) {
         this.sexo = sexo;
     }
 
@@ -70,8 +72,5 @@ public class Usuario {
     public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
-
-
-
-
+    
 }
