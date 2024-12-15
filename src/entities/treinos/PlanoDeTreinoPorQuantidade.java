@@ -1,12 +1,14 @@
 package entities.treinos;
 
+import entities.enums.EnumObjetivoDoPlano;
+
 import java.time.LocalDate;
 
 public class PlanoDeTreinoPorQuantidade extends PlanoDeTreino{
     private int contadorDeDias;
     private int diasTotais;
 
-    public PlanoDeTreinoPorQuantidade(String nome, String nivel, String objetivo, LocalDate dataInicial, int contadorDeDias, int diasTotais) {
+    public PlanoDeTreinoPorQuantidade(String nome, String nivel, EnumObjetivoDoPlano objetivo, LocalDate dataInicial, int contadorDeDias, int diasTotais) {
         super(nome, nivel, objetivo, dataInicial);
         this.contadorDeDias = contadorDeDias;
         this.diasTotais = diasTotais;
