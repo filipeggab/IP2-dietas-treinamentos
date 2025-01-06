@@ -1,7 +1,7 @@
-package entities.treinos;
+package repository.treinos;
 
-import entities.enums.EnumDificuldadeDeExercicio;
-import entities.enums.EnumObjetivoDeExercicio;
+import repository.enums.EnumDificuldadeDeExercicio;
+import repository.enums.EnumObjetivoDeExercicio;
 
 public class Exercicio {
     private String nome;

@@ -1,4 +1,4 @@
-package entities.enums;
+package repository.enums;
 
 public enum EnumObjetivoDeExercicio {
     OMBROS, PEITO, COSTAS, BICEPS, TRICEPS, CORE, QUADRICEPS, POSTERIOR, PANTURRILHA, SUPERIORES, INFERIORES, CARDIO;

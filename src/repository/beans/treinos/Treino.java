@@ -1,6 +1,6 @@
-package entities.treinos;
+package repository.treinos;
 
-import entities.enums.EnumObjetivoDeExercicio;
+import repository.enums.EnumObjetivoDeExercicio;
 
 import java.util.ArrayList;
 import java.util.List;

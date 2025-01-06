@@ -1,4 +1,4 @@
-package entities.treinos;
+package repository.treinos;
 
 public class ExPraticoCardio extends ExercicioPratico{
     private int tempoEmSec;

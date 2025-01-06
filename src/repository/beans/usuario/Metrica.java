@@ -1,4 +1,4 @@
-package entities.usuario;
+package repository.usuario;
 
 import java.time.LocalDate;
 

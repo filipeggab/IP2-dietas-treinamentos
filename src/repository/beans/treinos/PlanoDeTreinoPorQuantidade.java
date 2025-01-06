@@ -1,6 +1,6 @@
-package entities.treinos;
+package repository.treinos;
 
-import entities.enums.EnumObjetivoDoPlano;
+import repository.enums.EnumObjetivoDoPlano;
 
 import java.time.LocalDate;
 

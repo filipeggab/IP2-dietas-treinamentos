@@ -1,4 +1,4 @@
-package entities.treinos;
+package repository.treinos;
 
 public abstract class ExPraticoSerie extends ExercicioPratico{
     protected int numDeSeries;

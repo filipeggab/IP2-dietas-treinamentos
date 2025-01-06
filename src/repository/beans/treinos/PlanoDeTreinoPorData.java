@@ -1,4 +1,4 @@
-package entities.treinos;
+package repository.treinos;
 
 import java.time.LocalDate;
 import java.time.Period;

@@ -1,7 +1,4 @@
-package entities.treinos;
-
-import java.util.ArrayList;
-import java.util.List;
+package repository.treinos;
 
 public abstract class ExercicioPratico {
 

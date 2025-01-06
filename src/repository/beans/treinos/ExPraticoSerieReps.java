@@ -1,4 +1,4 @@
-package entities.treinos;
+package repository.treinos;
 
 public class ExPraticoSerieReps extends ExPraticoSerie{
     private int numDeReps;

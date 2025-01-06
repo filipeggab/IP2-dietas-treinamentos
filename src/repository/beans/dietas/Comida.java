@@ -1,4 +1,4 @@
-package entities.dietas;
+package repository.entities.dietas;
 
 public class Comida {
     private String nome;

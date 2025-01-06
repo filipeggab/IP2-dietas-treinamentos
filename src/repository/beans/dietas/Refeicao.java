@@ -1,4 +1,4 @@
-package entities.dietas;
+package repository.entities.dietas;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 

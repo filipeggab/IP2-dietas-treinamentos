@@ -1,4 +1,4 @@
-package entities.treinos;
+package repository.treinos;
 
 public class ExPraticoSerieTempo extends ExPraticoSerie{
     private int tempoDeExec;

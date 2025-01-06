@@ -1,5 +1,5 @@
-package entities.usuario;
-import entities.enums.EnumSexo;
+package repository.usuario;
+import repository.enums.EnumSexo;
 
 import java.time.LocalDate;
 import java.time.Period;
