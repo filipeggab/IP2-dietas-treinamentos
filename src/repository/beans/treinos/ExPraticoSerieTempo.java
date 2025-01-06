@@ -1,4 +1,4 @@
-package repository.treinos;
+package repository.beans.treinos;
 
 public class ExPraticoSerieTempo extends ExPraticoSerie{
     private int tempoDeExec;

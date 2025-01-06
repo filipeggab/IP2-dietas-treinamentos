@@ -1,4 +1,4 @@
-package repository.usuario;
+package repository.beans.usuario;
 
 import java.time.LocalDate;
 

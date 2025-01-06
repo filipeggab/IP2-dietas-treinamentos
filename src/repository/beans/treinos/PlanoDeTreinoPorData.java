@@ -1,4 +1,4 @@
-package repository.treinos;
+package repository.beans.treinos;
 
 import java.time.LocalDate;
 import java.time.Period;

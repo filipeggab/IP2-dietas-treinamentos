@@ -1,4 +1,4 @@
-package repository.treinos;
+package repository.beans.treinos;
 
 public abstract class ExercicioPratico {
 

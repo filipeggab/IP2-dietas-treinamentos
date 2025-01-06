@@ -1,2 +1,4 @@
-package repository;public class IRepositorioExercio {
+package repository;
+
+public interface IRepositorioExercio {
 }
