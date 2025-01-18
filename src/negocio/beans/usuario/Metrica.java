@@ -1,4 +1,4 @@
-package repository.beans.usuario;
+package negocio.beans.usuario;
 
 import java.time.LocalDate;
 

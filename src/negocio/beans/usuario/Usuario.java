@@ -1,5 +1,5 @@
-package repository.beans.usuario;
-import repository.beans.enums.EnumSexo;
+package negocio.beans.usuario;
+import negocio.beans.enums.EnumSexo;
 
 import java.time.LocalDate;
 import java.time.Period;

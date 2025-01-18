@@ -1,4 +1,4 @@
-package repository.beans.treinos;
+package negocio.beans.treinos;
 
 public class ExPraticoCardio extends ExercicioPratico{
     private int tempoEmSec;

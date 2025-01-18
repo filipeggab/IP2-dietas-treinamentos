@@ -1,20 +1,26 @@
-package repository.beans.treinos;
+package negocio.beans.treinos;
 
-import repository.beans.enums.EnumObjetivoDoPlano;
+import negocio.beans.enums.EnumObjetivoDoPlano;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class PlanoDeTreino {
     protected String nome;
     protected String nivel;
     protected EnumObjetivoDoPlano objetivo;
     protected LocalDate dataInicial;
+    protected List<Treino> treinoList;
+    protected List<TreinoRealizado> treinoRealizadoList;
 
     public PlanoDeTreino(String nome, String nivel, EnumObjetivoDoPlano objetivo, LocalDate dataInicial) {
         this.nome = nome;
         this.nivel = nivel;
         this.objetivo = objetivo;
         this.dataInicial = dataInicial;
+        this.treinoList = new ArrayList<>();
+        this.treinoRealizadoList = new ArrayList<>();
     }
 
     public String getNome() {
@@ -50,4 +56,19 @@ public abstract class PlanoDeTreino {
     }
 
     public abstract int diasFaltando();
+
+    public void adicionarTreino(Treino treino){
+        treinoList.add(treino);
+    }
+
+    public void removerTreino(Treino treino){
+        treinoList.remove(treino);
+    }
+
+    public void adicionarTreinoRealizado(Treino treino){
+        if(treinoList.contains(treino)){
+            TreinoRealizado treinoRealizado = new TreinoRealizado(treino, LocalDate.now());
+            treinoRealizadoList.add(treinoRealizado);
+        }
+    }
 }

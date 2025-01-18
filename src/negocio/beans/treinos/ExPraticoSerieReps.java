@@ -1,4 +1,4 @@
-package repository.beans.treinos;
+package negocio.beans.treinos;
 
 public class ExPraticoSerieReps extends ExPraticoSerie{
     private int numDeReps;

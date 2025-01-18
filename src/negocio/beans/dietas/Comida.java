@@ -1,4 +1,4 @@
-package repository.beans.dietas;
+package negocio.beans.dietas;
 
 public class Comida {
     private String nome;

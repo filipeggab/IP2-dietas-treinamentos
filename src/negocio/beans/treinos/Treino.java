@@ -1,14 +1,14 @@
-package repository.beans.treinos;
+package negocio.beans.treinos;
 
-import repository.beans.enums.EnumObjetivoDeExercicio;
+import negocio.beans.enums.EnumObjetivoDeExercicio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Treino {
     private String nome;
-    private List<EnumObjetivoDeExercicio> foco = new ArrayList<>();
-    List<ExercicioPratico> exercicioList = new ArrayList<>();
+    private List<EnumObjetivoDeExercicio> foco;
+    private List<ExercicioPratico> exercicioList;
 
     public Treino(String nome, List<EnumObjetivoDeExercicio> foco, List<ExercicioPratico> exercicioList) {
         this.nome = nome;

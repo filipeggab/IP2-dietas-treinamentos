@@ -1,4 +1,4 @@
-package repository.beans.dietas;
+package negocio.beans.dietas;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package repository.beans.enums;
+package negocio.beans.enums;
 
 public enum EnumSexo {
     MASCULINO, FEMININO;

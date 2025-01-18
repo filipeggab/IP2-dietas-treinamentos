@@ -1,7 +1,7 @@
-package repository.beans.treinos;
+package negocio.beans.treinos;
 
-import repository.beans.enums.EnumDificuldadeDeExercicio;
-import repository.beans.enums.EnumObjetivoDeExercicio;
+import negocio.beans.enums.EnumDificuldadeDeExercicio;
+import negocio.beans.enums.EnumObjetivoDeExercicio;
 
 public class Exercicio {
     private String nome;

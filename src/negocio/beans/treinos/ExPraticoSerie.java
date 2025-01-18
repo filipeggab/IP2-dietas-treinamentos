@@ -1,4 +1,4 @@
-package repository.beans.treinos;
+package negocio.beans.treinos;
 
 public abstract class ExPraticoSerie extends ExercicioPratico{
     protected int numDeSeries;
