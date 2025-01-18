@@ -1,9 +1,42 @@
 package negocio.beans.dietas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Dieta {
-    private ArrayList<Refeicao> refeicoes = new ArrayList<>();
+    private ArrayList<Refeicao> refeicoes;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
+
+    public Dieta() {
+        this.refeicoes = new ArrayList<>();
+    }
+
+    public Dieta(LocalDate dataInicio, LocalDate dataFim) {
+        this.refeicoes = new ArrayList<>();
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+    }
+
+    public ArrayList<Refeicao> getRefeicoes() {
+        return refeicoes;
+    }
+
+    public LocalDate getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(LocalDate dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public LocalDate getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(LocalDate dataFim) {
+        this.dataFim = dataFim;
+    }
 
     public void addRefeicao (Refeicao refeicao){
         this.refeicoes.add(refeicao);
