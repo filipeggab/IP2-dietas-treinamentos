@@ -63,4 +63,28 @@ public class Treino {
         }
         return res.toString();
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public List<EnumObjetivoDeExercicio> getFoco() {
+        return foco;
+    }
+
+    public void setFoco(List<EnumObjetivoDeExercicio> foco) {
+        this.foco = foco;
+    }
+
+    public List<ExercicioPratico> getExercicioList() {
+        return exercicioList;
+    }
+
+    public void setExercicioList(List<ExercicioPratico> exercicioList) {
+        this.exercicioList = exercicioList;
+    }
 }

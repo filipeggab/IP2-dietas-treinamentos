@@ -17,10 +17,10 @@ public class RepositorioPlanoDeTreino {
         this.planos = new ArrayList<>();
     }
 
-    public void adicionarPlanoDeTreino(PlanoDeTreino planoDeTreino) {
+    public void criarPlanoDeTreino(PlanoDeTreino planoDeTreino) {
         planos.add(planoDeTreino);
     }
-    public void removerPlanoDeTreino(PlanoDeTreino planoDeTreino) throws PlanoNaoCadastradoException {
+    public void apagarPlanoDeTreino(PlanoDeTreino planoDeTreino) throws PlanoNaoCadastradoException {
         if(planos.contains(planoDeTreino)){
             planos.remove(planoDeTreino);
         }

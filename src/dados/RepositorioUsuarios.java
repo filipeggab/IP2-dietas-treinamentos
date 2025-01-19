@@ -9,10 +9,10 @@ import java.util.List;
 public class RepositorioUsuarios {
     private List<Usuario> usuarios;
 
-    public void adicionarUsuario(Usuario usuario){
+    public void criarUsuario(Usuario usuario){
         usuarios.add(usuario);
     }
-    public void removerUsuario(Usuario usuario) throws UsuarioNaoCadastradoException{
+    public void apagarUsuario(Usuario usuario) throws UsuarioNaoCadastradoException{
         if(usuarios.contains(usuario)){
             usuarios.remove(usuario);
         }else{
