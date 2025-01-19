@@ -46,4 +46,3 @@ public class RepositorioPlanoDeTreino {
         return this.treinos;
     }
 }
-//teste de commit
