@@ -19,6 +19,14 @@ public class RepositorioUsuarios {
             throw new UsuarioNaoCadastradoException(usuario.getEmail());
         }
     }
+    public void apagarUsuario(String email) throws UsuarioNaoCadastradoException{
+        try{
+            Usuario user = buscarUsuario(email);
+            usuarios.remove(user);
+        } catch (UsuarioNaoCadastradoException e) {
+            throw e;
+        }
+    }
     public Usuario buscarUsuario(String email) throws UsuarioNaoCadastradoException{
         Usuario e = usuarios.stream().filter(x -> x.getEmail() == email).findFirst().orElse(null);
         if(e != null){

@@ -34,7 +34,7 @@ public class RepositorioComidas {
     public void apagarComida(String nome) throws ComidaNaoCadastradaException {
         try{
             Comida comida = buscarComida(nome);
-            apagarComida(comida);
+            comidas.remove(comida);
         } catch (ComidaNaoCadastradaException e) {
             throw e;
         }
