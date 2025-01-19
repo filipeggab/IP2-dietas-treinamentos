@@ -15,7 +15,7 @@ public class CadastroUsuarios {
         this.repo = new RepositorioUsuarios();
     }
 
-    public void adicionarUsuario(String nome, String email, String senha,
+    public void cadastrarUsuario(String nome, String email, String senha,
                                  String sexo, LocalDate nascimento) throws DataInvalidaException, EmailInvalidoException, SexoInvalidoException {
 
         boolean emailUtilizado = repo.emailUtilizado(email);
