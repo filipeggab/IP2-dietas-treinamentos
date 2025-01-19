@@ -15,15 +15,15 @@ public class RepositorioUsuarios {
         if(usuarios.contains(usuario)){
             usuarios.remove(usuario);
         }else{
-            throw new UsuarioNaoCadastradoException();
+            throw new UsuarioNaoCadastradoException(usuario.getEmail());
         }
     }
-    public Usuario buscarUsuario(String nome) throws UsuarioNaoCadastradoException{
-        Usuario e = usuarios.stream().filter(x -> x.getNome() == nome).findFirst().orElse(null);
+    public Usuario buscarUsuario(String email) throws UsuarioNaoCadastradoException{
+        Usuario e = usuarios.stream().filter(x -> x.getEmail() == email).findFirst().orElse(null);
         if(e != null){
             return e;
         }else{
-            throw new UsuarioNaoCadastradoException();
+            throw new UsuarioNaoCadastradoException(email);
         }
     }
 }

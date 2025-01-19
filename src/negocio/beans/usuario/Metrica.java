@@ -10,7 +10,7 @@ public class Metrica {
         this.altura = altura;
         this.peso = peso;
     }
-    private double calcularIMC(){
+    public double calcularIMC(){
         return peso/altura*altura;
     }
 
