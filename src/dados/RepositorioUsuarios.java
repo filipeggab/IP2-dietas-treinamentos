@@ -26,4 +26,7 @@ public class RepositorioUsuarios {
             throw new UsuarioNaoCadastradoException(email);
         }
     }
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
 }

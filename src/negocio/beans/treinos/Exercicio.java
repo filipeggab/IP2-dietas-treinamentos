@@ -1,17 +1,17 @@
 package negocio.beans.treinos;
 
-import negocio.beans.enums.EnumDificuldadeDeExercicio;
+import negocio.beans.enums.EnumDificuldade;
 import negocio.beans.enums.EnumObjetivoDeExercicio;
 
 public class Exercicio {
     private String nome;
     private String descricao;
     private String materiais;
-    private EnumDificuldadeDeExercicio dificuldade;
+    private EnumDificuldade dificuldade;
     private EnumObjetivoDeExercicio objetivo;
     private double percaCaloricaMedia;
 
-    public Exercicio(String nome, String descricao, String materiais, EnumDificuldadeDeExercicio dificuldade, EnumObjetivoDeExercicio objetivo, double percaCaloricaMedia) {
+    public Exercicio(String nome, String descricao, String materiais, EnumDificuldade dificuldade, EnumObjetivoDeExercicio objetivo, double percaCaloricaMedia) {
         this.nome = nome;
         this.descricao = descricao;
         this.materiais = materiais;
@@ -44,11 +44,11 @@ public class Exercicio {
         this.materiais = materiais;
     }
 
-    public EnumDificuldadeDeExercicio getDificuldade() {
+    public EnumDificuldade getDificuldade() {
         return dificuldade;
     }
 
-    public void setDificuldade(EnumDificuldadeDeExercicio dificuldade) {
+    public void setDificuldade(EnumDificuldade dificuldade) {
         this.dificuldade = dificuldade;
     }
 

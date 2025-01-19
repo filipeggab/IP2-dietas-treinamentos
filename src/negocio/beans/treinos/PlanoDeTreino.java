@@ -1,5 +1,6 @@
 package negocio.beans.treinos;
 
+import negocio.beans.enums.EnumDificuldade;
 import negocio.beans.enums.EnumObjetivoDoPlano;
 
 import java.time.LocalDate;
@@ -8,13 +9,13 @@ import java.util.List;
 
 public abstract class PlanoDeTreino {
     protected String nome;
-    protected String nivel;
+    protected EnumDificuldade nivel;
     protected EnumObjetivoDoPlano objetivo;
     protected LocalDate dataInicial;
     protected List<Treino> treinoList;
     protected List<TreinoRealizado> treinoRealizadoList;
 
-    public PlanoDeTreino(String nome, String nivel, EnumObjetivoDoPlano objetivo, LocalDate dataInicial) {
+    public PlanoDeTreino(String nome, EnumDificuldade nivel, EnumObjetivoDoPlano objetivo, LocalDate dataInicial) {
         this.nome = nome;
         this.nivel = nivel;
         this.objetivo = objetivo;
@@ -31,11 +32,11 @@ public abstract class PlanoDeTreino {
         this.nome = nome;
     }
 
-    public String getNivel() {
+    public EnumDificuldade getNivel() {
         return nivel;
     }
 
-    public void setNivel(String nivel) {
+    public void setNivel(EnumDificuldade nivel) {
         this.nivel = nivel;
     }
 
