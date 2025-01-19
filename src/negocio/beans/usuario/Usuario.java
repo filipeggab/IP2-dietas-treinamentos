@@ -79,4 +79,17 @@ public class Usuario {
         this.dataNasc = dataNasc;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", sexo=" + sexo +
+                ", dataNasc=" + dataNasc +
+                ", metricas=" + metricas +
+                ", planoDeTreinoList=" + planoDeTreinoList +
+                ", dietaList=" + dietaList +
+                '}';
+    }
 }

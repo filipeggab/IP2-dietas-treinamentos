@@ -35,28 +35,15 @@ public class RepositorioUsuarios {
             throw new UsuarioNaoCadastradoException(email);
         }
     }
+    public boolean emailUtilizado(String email){
+        for(Usuario eachUsuario : usuarios){
+            if(eachUsuario.getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
+    }
     public List<Usuario> getUsuarios() {
         return usuarios;
-    }
-    public void alterarEmail(String emailDaConta, String novoEmail) throws UsuarioNaoCadastradoException{
-        try {
-            Usuario user = buscarUsuario(emailDaConta);
-            user.setEmail(novoEmail);
-        } catch (UsuarioNaoCadastradoException e) {
-            throw new UsuarioNaoCadastradoException(emailDaConta);
-        }
-    }
-    public void alterarSenha(String emailDaConta, String senhaDaConta, String novaSenha) throws UsuarioNaoCadastradoException, SenhaDoUsuarioIncorretaException{
-        try{
-            Usuario user = buscarUsuario(emailDaConta);
-            if (user.getSenha() == senhaDaConta){
-                user.setSenha(novaSenha);
-            }
-            else{
-                throw new SenhaDoUsuarioIncorretaException();
-            }
-        } catch (UsuarioNaoCadastradoException e) {
-            throw new UsuarioNaoCadastradoException(emailDaConta);
-        }
     }
 }

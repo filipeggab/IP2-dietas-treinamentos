@@ -6,9 +6,11 @@ public class Metrica {
     private int altura;
     private double peso;
     private LocalDate dataDaMetrica;
-    public Metrica (int altura, double peso){
+
+    public Metrica (int altura, double peso, LocalDate dataDaMetrica){
         this.altura = altura;
         this.peso = peso;
+        this.dataDaMetrica = dataDaMetrica;
     }
     public double calcularIMC(){
         return peso/altura*altura;
