@@ -70,16 +70,15 @@ public class CadastroUsuarios {
             throw e;
         }
     }
-    public void editarSenha(String email, String novaSenha) throws UsuarioNaoCadastradoException{
-        try{
-            Usuario user = repo.buscarUsuario(email);
-            user.setSenha(novaSenha);
-        } catch (UsuarioNaoCadastradoException e) {
-            System.out.println(e.getMessage());
-            throw e;
-        }
+    public void editarSenha(Usuario usuario, String novaSenha) {
+            usuario.setSenha(novaSenha);
     }
-    public void adicionarMetrica(String email, int altura, double peso, LocalDate data) throws DataInvalidaException{
-
+    public void adicionarMetrica(Usuario usuario, int altura, double peso, LocalDate data) throws DataInvalidaException{
+        if(data.isBefore(LocalDate.now())){
+            Metrica metrica = new Metrica(altura, peso, data);
+            usuario.addMetrica(metrica);
+        }else{
+            throw new DataInvalidaException();
+        }
     }
 }
