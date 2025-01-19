@@ -4,6 +4,7 @@ import negocio.beans.enums.EnumSexo;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
     private String nome;
@@ -11,7 +12,7 @@ public class Usuario {
     private String senha;
     private EnumSexo sexo;
     private LocalDate dataNasc;
-    private ArrayList<Metrica> metricas = new ArrayList<Metrica>();
+    private List<Metrica> metricas;
 
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
@@ -19,6 +20,7 @@ public class Usuario {
         this.senha = senha;
         this.sexo = sexo;
         this.dataNasc = dataNasc;
+        this.metricas = new ArrayList<>();
     }
 
     public Metrica ultimaMetrica (){
