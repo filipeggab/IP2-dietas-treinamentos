@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Dieta {
+    private String nome;
     private ArrayList<Refeicao> refeicoes;
     private LocalDate dataInicio;
     private LocalDate dataFim;
@@ -12,7 +13,8 @@ public class Dieta {
         this.refeicoes = new ArrayList<>();
     }
 
-    public Dieta(LocalDate dataInicio, LocalDate dataFim) {
+    public Dieta(String nome, LocalDate dataInicio, LocalDate dataFim) {
+        this.nome = nome;
         this.refeicoes = new ArrayList<>();
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
@@ -36,6 +38,14 @@ public class Dieta {
 
     public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void addRefeicao (Refeicao refeicao){
