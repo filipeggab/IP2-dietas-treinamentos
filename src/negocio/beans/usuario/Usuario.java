@@ -1,5 +1,7 @@
 package negocio.beans.usuario;
+import negocio.beans.dietas.Dieta;
 import negocio.beans.enums.EnumSexo;
+import negocio.beans.treinos.PlanoDeTreino;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -13,6 +15,8 @@ public class Usuario {
     private EnumSexo sexo;
     private LocalDate dataNasc;
     private List<Metrica> metricas;
+    private List<PlanoDeTreino> planoDeTreinoList;
+    private List<Dieta> dietaList;
 
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
