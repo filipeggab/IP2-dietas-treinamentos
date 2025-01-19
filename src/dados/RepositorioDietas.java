@@ -30,4 +30,13 @@ public class RepositorioDietas {
             throw new DietaNaoCadastradaException(dieta.getNome());
         }
     }
+    public void apagarConta(String nome) throws DietaNaoCadastradaException{
+        try{
+            Dieta dieta = buscarDieta(nome);
+            dietas.remove(dieta);
+        } catch (DietaNaoCadastradaException e) {
+            throw e;
+        }
+
+    }
 }
