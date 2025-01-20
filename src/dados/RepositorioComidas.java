@@ -39,4 +39,15 @@ public class RepositorioComidas {
             throw e;
         }
     }
+
+    public void atualizarComida(String nome, Comida novaComida) throws ComidaNaoCadastradaException {
+        for (int i = 0; i < comidas.size(); i++) {
+            if (comidas.get(i).getNome().equalsIgnoreCase(nome)) {
+                comidas.set(i, novaComida);
+                return; // Sai do loop assim que encontrar
+            }
+        }
+        throw new ComidaNaoCadastradaException(nome);
+    }
+
 }
