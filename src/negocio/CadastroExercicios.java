@@ -15,6 +15,7 @@ public class CadastroExercicios {
         try{
             EnumDificuldade enumDif = EnumDificuldade.valueOf(dificuldade);
             EnumObjetivoDeExercicio enumOb = EnumObjetivoDeExercicio.valueOf(objetivo);
+            //Criar lógica para ver se já existe, e se não, adicionar ao repositorio
         } catch (IllegalArgumentException e) {
             System.out.println("Dificuldade ou objetivo inválido.");
             throw e;
