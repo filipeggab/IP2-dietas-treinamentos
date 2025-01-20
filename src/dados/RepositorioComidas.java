@@ -22,6 +22,10 @@ public class RepositorioComidas {
         }
     }
 
+    public List<Comida> listarComidas() {
+        return new ArrayList<>(comidas);
+    }
+
     public void criarComida(Comida comida) {
         comidas.add(comida);
     }
