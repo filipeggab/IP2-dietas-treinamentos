@@ -21,6 +21,11 @@ public class RepositorioRefeicao {
             return ref;
         }
     }
+
+    public List<Refeicao> listarRefeicoes() {
+        return new ArrayList<>(refeicoes); // Retorna uma cópia para evitar modificações externas
+    }
+
     public void criarRefeicao(Refeicao refeicao){
         refeicoes.add(refeicao);
     }
