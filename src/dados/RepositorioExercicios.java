@@ -20,6 +20,14 @@ public class RepositorioExercicios {
             return ex;
         }
     }
+    public boolean exercicioExiste(String nome){
+        try{
+            retornarExercicio(nome);
+            return true;
+        } catch (ExercicioNaoCadastradoException e) {
+            return false;
+        }
+    }
     public void criarExercicio(Exercicio ex){
         exercicios.add(ex);
     }

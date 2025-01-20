@@ -67,4 +67,16 @@ public class Exercicio {
     public void setPercaCaloricaMedia(double percaCaloricaMedia) {
         this.percaCaloricaMedia = percaCaloricaMedia;
     }
+
+    @Override
+    public String toString() {
+        return "Exercicio{" +
+                "nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", materiais='" + materiais + '\'' +
+                ", dificuldade=" + dificuldade +
+                ", objetivo=" + objetivo +
+                ", percaCaloricaMedia=" + percaCaloricaMedia +
+                '}';
+    }
 }
