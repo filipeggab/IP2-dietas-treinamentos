@@ -34,7 +34,7 @@ public class CadastroPlanoDeTreino {
 
     }
 
-    public void removerRefeicao(String nomeTreino, Treino treino){
+    public void removerTreino(String nomeTreino, Treino treino){
         
     }
 }
