@@ -44,7 +44,7 @@ public class CadastroDietas {
             System.out.println("Total de calorias do dia: " + dieta.caloriasDoDia());
             return dieta;
         } catch (DietaNaoCadastradaException e) {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("Erro:" + e.getMessage());
             return null;
         }
     }
