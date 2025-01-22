@@ -29,9 +29,8 @@ public class CadastroTreinos {
     }
 
     public Treino lerTreino(String nome){
-        Treino treino = new Treino(null, null);
 
-        return treino;
+        return null;
     }
 
     public void adicionarExercicio(ExPraticoCardio exercicio){
