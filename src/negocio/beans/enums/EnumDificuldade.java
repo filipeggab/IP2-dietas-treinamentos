@@ -1,5 +1,5 @@
 package negocio.beans.enums;
 
-public enum EnumDificuldadeDeExercicio {
+public enum EnumDificuldade {
     INICIANTE, INTERMEDIÁRIO, AVANCADO;
 }

@@ -1,9 +1,12 @@
 package negocio.beans.usuario;
+import negocio.beans.dietas.Dieta;
 import negocio.beans.enums.EnumSexo;
+import negocio.beans.treinos.PlanoDeTreino;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
     private String nome;
@@ -11,7 +14,9 @@ public class Usuario {
     private String senha;
     private EnumSexo sexo;
     private LocalDate dataNasc;
-    private ArrayList<Metrica> metricas = new ArrayList<Metrica>();
+    private List<Metrica> metricas;
+    private List<PlanoDeTreino> planoDeTreinoList;
+    private List<Dieta> dietaList;
 
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
@@ -19,6 +24,7 @@ public class Usuario {
         this.senha = senha;
         this.sexo = sexo;
         this.dataNasc = dataNasc;
+        this.metricas = new ArrayList<>();
     }
 
     public Metrica ultimaMetrica (){
@@ -73,4 +79,17 @@ public class Usuario {
         this.dataNasc = dataNasc;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", sexo=" + sexo +
+                ", dataNasc=" + dataNasc +
+                ", metricas=" + metricas +
+                ", planoDeTreinoList=" + planoDeTreinoList +
+                ", dietaList=" + dietaList +
+                '}';
+    }
 }
