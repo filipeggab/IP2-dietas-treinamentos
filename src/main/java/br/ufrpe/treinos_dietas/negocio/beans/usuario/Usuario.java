@@ -19,6 +19,11 @@ public class Usuario {
     private List<PlanoDeTreino> planoDeTreinoList;
     private List<Dieta> dietaList;
 
+    public Usuario(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
+    }
+
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
         this.email = email;
@@ -26,6 +31,10 @@ public class Usuario {
         this.sexo = sexo;
         this.dataNasc = dataNasc;
         this.metricas = new ArrayList<>();
+    }
+
+    public Usuario() {
+
     }
 
     public Metrica ultimaMetrica (){
