@@ -14,7 +14,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TelaDeLogin.fxml"));
         Parent root = loader.load();
 
-        primaryStage.setTitle("Tela do Usuário");
+        primaryStage.setTitle("Tela de Login");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
