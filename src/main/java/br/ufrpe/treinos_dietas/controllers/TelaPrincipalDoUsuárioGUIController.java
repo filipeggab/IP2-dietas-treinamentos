@@ -49,8 +49,9 @@ public class TelaPrincipalDoUsuárioGUIController {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDoPerfil.fxml"));
         Parent root = loader.load();
 
-        Stage stage = (Stage) btnDietaSemanal.getScene().getWindow();
+        Stage stage = (Stage) btnPerfil.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
+
 }
