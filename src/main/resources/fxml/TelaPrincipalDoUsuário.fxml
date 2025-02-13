@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaPrincipalDoUsuárioGUIController">
    <top>
       <HBox alignment="TOP_RIGHT" prefHeight="79.0" prefWidth="786.0" style="-fx-border-color: orange;" BorderPane.alignment="CENTER">
          <children>
@@ -162,7 +162,7 @@
                </VBox.margin>
             </Label>
             <Label />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Dieta semanal">
+            <Button fx:id="btnDietaSemanal" mnemonicParsing="false" onAction="#btnDietaSemanalActionPerformed" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Dieta semanal">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -293,7 +293,7 @@
                   </Label>
                   <Label prefHeight="45.0" prefWidth="33.0" />
                   <Label />
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Treino semanal">
+                  <Button fx:id="btnTreinoSemanal" mnemonicParsing="false" onAction="#btnTreinoSemanalActionPerformed" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Treino semanal">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>

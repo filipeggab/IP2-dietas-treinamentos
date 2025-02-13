@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaDoTreinoDaSemanaGUIController">
    <center>
       <HBox prefHeight="617.0" prefWidth="987.0" BorderPane.alignment="CENTER">
          <children>
@@ -60,7 +60,7 @@
                      </font>
                   </Label>
                   <Label prefHeight="29.0" prefWidth="33.0" />
-                  <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="186.0" style="-fx-background-color: orange;" text="Expandir treino">
+                  <Button fx:id="btnTreinoA" mnemonicParsing="false" onAction="#btnTreinoAActionPerformed" prefHeight="51.0" prefWidth="186.0" style="-fx-background-color: orange;" text="Expandir treino">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -118,7 +118,7 @@
                      </font>
                   </Label>
                   <Label prefHeight="29.0" prefWidth="33.0" />
-                  <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="186.0" style="-fx-background-color: orange;" text="Expandir treino">
+                  <Button fx:id="btnTreinoB" mnemonicParsing="false" onAction="#btnTreinoBActionPerformed" prefHeight="51.0" prefWidth="186.0" style="-fx-background-color: orange;" text="Expandir treino">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -173,7 +173,7 @@
                      </font>
                   </Label>
                   <Label prefHeight="29.0" prefWidth="33.0" />
-                  <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="186.0" style="-fx-background-color: orange;" text="Expandir treino">
+                  <Button fx:id="btnTreinoC" mnemonicParsing="false" onAction="#btnTreinoCActionPerformed" prefHeight="51.0" prefWidth="186.0" style="-fx-background-color: orange;" text="Expandir treino">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -191,7 +191,7 @@
       </Label>
    </top>
    <bottom>
-      <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="989.0" style="-fx-background-color: orange;" text="Voltar para tela principal" BorderPane.alignment="CENTER">
+      <Button fx:id="btnVoltaTelaPrincipal" mnemonicParsing="false" onAction="#btnVoltaTelaPrincipalActionPerformed" prefHeight="41.0" prefWidth="989.0" style="-fx-background-color: orange;" text="Voltar para tela principal" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Button>

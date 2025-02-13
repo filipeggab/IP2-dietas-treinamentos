@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaDaDietaGUIController">
    <center>
       <HBox prefHeight="576.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
@@ -188,7 +188,7 @@
       </HBox>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="1015.0" style="-fx-background-color: orange;" text="Voltar para tela principal" BorderPane.alignment="CENTER">
+      <Button fx:id="btnVoltarTelaPrincipal" mnemonicParsing="false" onAction="#btnVoltarTelaPrincipalActionPerformed" prefHeight="41.0" prefWidth="1015.0" style="-fx-background-color: orange;" text="Voltar para tela principal" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Button>
