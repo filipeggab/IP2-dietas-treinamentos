@@ -11,10 +11,10 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TelaDeLogin.fxml"));
         Parent root = loader.load();
 
-        primaryStage.setTitle("Tela do Usuário");
+        primaryStage.setTitle("Tela de Login");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

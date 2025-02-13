@@ -20,7 +20,9 @@ public class TelaPrincipalDoUsuárioGUIController {
     @FXML
     private Button btnTreinoSemanal;
 
-    //Metodo para abrir Dieta Semanal
+    @FXML
+    private Button btnPerfil;
+    // do para abrir Dieta Semanal
     @FXML
     public void btnDietaSemanalActionPerformed() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDaDieta.fxml"));
@@ -41,4 +43,15 @@ public class TelaPrincipalDoUsuárioGUIController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+    @FXML
+    public void btnPerfillActionPerformed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDoPerfil.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) btnPerfil.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
 }
