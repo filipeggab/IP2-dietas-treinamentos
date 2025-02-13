@@ -38,6 +38,7 @@ public class TelaDeLoginGUIController {
 
     @FXML
     public void btnIrParaTelaPrincipalActionPerformed() throws IOException {
+        this.login();
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
         Parent root = loader.load();
         TelaPrincipalDoUsuárioGUIController tela = loader.getController();

@@ -35,7 +35,7 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <TextField prefHeight="35.0" prefWidth="350.0" promptText="Digite seu usuário">
+                <TextField fx:id="txtNome" prefHeight="35.0" prefWidth="350.0" promptText="Digite seu usuário">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -49,7 +49,7 @@
                         <Insets top="15.0" />
                     </VBox.margin>
                 </Label>
-                <PasswordField prefHeight="35.0" prefWidth="350.0" promptText="Digite sua senha">
+                <PasswordField fx:id="txtSenha" prefHeight="35.0" prefWidth="350.0" promptText="Digite sua senha">
                     <font>
                         <Font size="16.0" />
                     </font>

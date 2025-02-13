@@ -75,7 +75,7 @@ public class TelaDoTreinoDaSemanaGUIController {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/CalendárioDeTreinos.fxml"));
         Parent root = loader.load();
 
-        Stage stage = (Stage) btnTreinoC.getScene().getWindow();
+        Stage stage = (Stage) btnIrParaCalendarioDeTreino.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
