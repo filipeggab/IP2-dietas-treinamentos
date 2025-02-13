@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Hyperlink?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <top>
+        <HBox alignment="CENTER" prefHeight="79.0" prefWidth="786.0" style="-fx-border-color: orange;">
+            <children>
+                <Label style="-fx-font-weight: bold;" text="Seleção de Foco">
+                    <font>
+                        <Font name="System Bold Italic" size="36.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox alignment="CENTER" spacing="50.0">
+            <!-- Coluna Dieta -->
+            <VBox alignment="CENTER" prefWidth="350.0" spacing="20.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+
+                <Label style="-fx-font-weight: bold;" text="Foco da Dieta">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+
+                <VBox alignment="CENTER_LEFT" spacing="15.0">
+                    <RadioButton style="-fx-font-weight: bold;" text="Perda de Peso">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                    <RadioButton style="-fx-font-weight: bold;" text="Ganho de Massa">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                    <RadioButton style="-fx-font-weight: bold;" text="Manutenção">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                    <RadioButton style="-fx-font-weight: bold;" text="Low Carb">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                    <RadioButton style="-fx-font-weight: bold;" text="Vegetariano">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                </VBox>
+            </VBox>
+
+            <!-- Coluna Treino -->
+            <VBox alignment="CENTER" prefWidth="350.0" spacing="20.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+
+                <Label style="-fx-font-weight: bold;" text="Foco do Treino">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+
+                <VBox alignment="CENTER_LEFT" spacing="15.0">
+                    <RadioButton style="-fx-font-weight: bold;" text="Força Muscular">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                    <RadioButton style="-fx-font-weight: bold;" text="Hipertrofia">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                    <RadioButton style="-fx-font-weight: bold;" text="Resistência">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                    <RadioButton style="-fx-font-weight: bold;" text="Cardio">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                    <RadioButton style="-fx-font-weight: bold;" text="Flexibilidade">
+                        <font><Font size="18.0" /></font>
+                    </RadioButton>
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER" prefHeight="100.0" spacing="20.0" style="-fx-border-color: orange;">
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Confirmar Seleção">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Button>
+
+            <HBox alignment="CENTER" spacing="10.0">
+                <Hyperlink text="Voltar" underline="true">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Hyperlink>
+            </HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>
