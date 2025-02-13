@@ -1,47 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <Label layoutX="185.0" layoutY="34.0" text="PERFIL DO USUÁRIO">
-            <font>
-                <Font name="System Bold Italic" size="24.0" />
-            </font>
-        </Label>
-        <Label layoutX="256.0" layoutY="93.0" prefHeight="20.0" prefWidth="88.0" text="Informações:">
-            <font>
-                <Font name="System Bold Italic" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="286.0" layoutY="127.0" text="Label">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="286.0" layoutY="155.0" text="Label">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="286.0" layoutY="192.0" text="Label">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="286.0" layoutY="226.0" text="Label">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Button layoutX="234.0" layoutY="290.0" mnemonicParsing="false" text="SELEÇÃO DE FOCO">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button layoutX="189.0" layoutY="343.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="222.0" text="VOLTAR PARA A TELA PRINCIPAL" />
-    </children>
-</Pane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaDoPerfilUsuarioGUIController">
+
+    <top>
+        <HBox alignment="CENTER" prefHeight="79.0" prefWidth="1047.0" style="-fx-border-color: orange;">
+            <children>
+                <Label style="-fx-font-weight: bold;" text="Perfil do Usuário">
+                    <font>
+                        <Font name="System Bold Italic" size="36.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+
+    <bottom>
+        <VBox alignment="CENTER" prefHeight="100.0" spacing="15.0" style="-fx-border-color: orange;">
+
+            <HBox alignment="CENTER" spacing="10.0" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: orange;" text="Editar Perfil">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Button>
+            <Button fx:id="btnVoltarTelaPrincipal" mnemonicParsing="false" onAction="#btnVoltarTelaPrincipalActionPerformed" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: orange;" text="Voltar">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Button>
+        </VBox>
+    </bottom>
+    <center>
+        <VBox alignment="CENTER" prefHeight="344.0" prefWidth="849.0" spacing="20.0" style="-fx-border-color: orange; -fx-border-width: 3;" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+            </padding>
+
+            <!-- Seção de Informações Pessoais -->
+            <VBox alignment="CENTER_LEFT" prefWidth="600.0" spacing="10.0">
+                <Label style="-fx-font-weight: bold;" text="Informações Pessoais:">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+
+                <HBox spacing="20.0">
+                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Nome:">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblNome" prefWidth="400.0" text="[Nome]">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox spacing="20.0">
+                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="E-mail:">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblEmail" prefWidth="400.0" text="[Email]">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox spacing="20.0">
+                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Data de Nascimento:">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblDataNascimento" prefWidth="400.0" text="[Data]">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox spacing="20.0">
+                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Idade:">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblIdade" prefWidth="400.0" text="[Idade]">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox spacing="20.0">
+                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Sexo:">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblSexo" prefWidth="400.0" text="[Sexo]">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </VBox>
+
+            <Separator prefWidth="600.0" />
+
+            <!-- Seção de Métricas -->
+            <VBox alignment="CENTER_LEFT" prefWidth="600.0" spacing="10.0">
+                <Label style="-fx-font-weight: bold;" text="Última Métrica:">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+
+                <HBox spacing="20.0">
+                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Data:">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblDataMetrica" prefWidth="400.0" text="[Data Métrica]">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox spacing="20.0">
+                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Altura:">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblAltura" prefWidth="400.0" text="[Altura]">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox spacing="20.0">
+                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Peso:">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblPeso" prefWidth="400.0" text="[Peso]">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox spacing="20.0">
+                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="IMC:">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblIMC" prefWidth="400.0" text="[IMC]">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>
