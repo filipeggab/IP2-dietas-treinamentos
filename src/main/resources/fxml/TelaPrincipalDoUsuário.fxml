@@ -21,7 +21,7 @@
                   <Insets />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="76.0" prefWidth="66.0" style="-fx-background-color: orange;" text="foto aqui" />
+            <Button fx:id="btnPerfil" mnemonicParsing="false" onAction="#btnPerfillActionPerformed" prefHeight="76.0" prefWidth="66.0" style="-fx-background-color: orange;" text="foto aqui" />
          </children>
       </HBox>
    </top>

@@ -26,4 +26,4 @@ public class TelaDoPerfilUsuarioGUIController {
         stage.show();
     }
 }
-}
+
