@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import java.io.IOException;
 
 
 public class TelaPrincipalDoUsuárioGUIController {
+
 
     @FXML
     private Button btnDietaSemanal;
