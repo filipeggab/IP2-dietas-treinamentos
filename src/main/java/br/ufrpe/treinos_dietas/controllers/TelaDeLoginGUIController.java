@@ -41,8 +41,7 @@ public class TelaDeLoginGUIController {
         this.login();
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
         Parent root = loader.load();
-        TelaPrincipalDoUsuárioGUIController tela = loader.getController();
-        tela.setUsuario(usuario);
+
         Stage stage = (Stage) btnIrParaTelaPrincipal.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();

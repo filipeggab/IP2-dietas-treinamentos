@@ -2,16 +2,19 @@ package br.ufrpe.treinos_dietas;
 
 
 import br.ufrpe.treinos_dietas.controllers.TelaDeLoginGUIController;
+import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class Main extends Application {
-    private Usuario usuario = new Usuario ();
+    public Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TelaDeLogin.fxml"));
@@ -22,6 +25,11 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+        primaryStage.setOnCloseRequest(event -> {
+            SessaoUsuario.getInstancia().limparSessao();
+            primaryStage.close();
+        });
     }
 
     public static void main(String[] args) {
