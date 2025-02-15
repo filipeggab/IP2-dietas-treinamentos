@@ -48,7 +48,7 @@ public class TelaDeLoginGUIController {
     }
 
     @FXML
-    public void btnIrParaTelaDeCadastrorActionPerformed() throws IOException {
+    public void btnIrParaTelaDeCadastroActionPerformed() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDeCadastro.fxml"));
         Parent root = loader.load();
 
@@ -56,7 +56,7 @@ public class TelaDeLoginGUIController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-    //Depos mudar para nossas exceptions
+
     public void login () throws IOException{
         String email = txtNome.getText();
         String senha = txtSenha.getText();

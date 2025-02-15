@@ -34,7 +34,9 @@ public class Usuario {
     }
 
     public Usuario() {
-
+        this.metricas = new ArrayList<>();
+        this.planoDeTreinoList = new ArrayList<>();
+        this.dietaList = new ArrayList<>();
     }
 
     public Metrica ultimaMetrica (){
@@ -87,6 +89,16 @@ public class Usuario {
 
     public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
+    }
+
+    public void adicionarMetrica(Metrica metrica){
+        this.metricas.add(metrica);
+    }
+    public void adicionarDieta(Dieta dieta){
+        this.dietaList.add(dieta);
+    }
+    public void adicionarPlanoDeTreino(PlanoDeTreino planoDeTreino){
+        this.planoDeTreinoList.add(planoDeTreino);
     }
 
     @Override

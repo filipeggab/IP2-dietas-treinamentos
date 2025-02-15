@@ -1,5 +1,5 @@
 package br.ufrpe.treinos_dietas.negocio.beans.enums;
 
 public enum EnumObjetivoDoPlano {
-    HIPERTROFIA, EMAGRECIMENTO, RESISTENCIA, FORCA, FORTALECIMENTO;
+    Força_Muscular, Hipertrofia, Resistencia, Cardio, Flexibilidade;
 }

@@ -30,12 +30,12 @@
             </Label>
 
             <VBox alignment="CENTER_LEFT" prefWidth="400.0" spacing="10.0">
-                <Label style="-fx-font-weight: bold;" text="Username:">
+                <Label style="-fx-font-weight: bold;" text="E-mail:">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtNome" prefHeight="35.0" prefWidth="350.0" promptText="Digite seu usuário">
+                <TextField fx:id="txtNome" prefHeight="35.0" prefWidth="350.0" promptText="Digite seu e-mail">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -92,7 +92,7 @@
                                 </font>
                             </Label>
                             <HBox prefHeight="100.0" prefWidth="200.0" />
-                            <Button fx:id="btnIrParaTelaDeCadastro" mnemonicParsing="false" onAction="#btnIrParaTelaDeCadastrorActionPerformed" prefHeight="44.0" prefWidth="199.0" style="-fx-background-color: orange;" text="Cadastrar">
+                            <Button fx:id="btnIrParaTelaDeCadastro" mnemonicParsing="false" onAction="#btnIrParaTelaDeCadastroActionPerformed" prefHeight="44.0" prefWidth="199.0" style="-fx-background-color: orange;" text="Cadastrar">
                                 <font>
                                     <Font name="System Bold" size="18.0" />
                                 </font>

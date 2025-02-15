@@ -1,7 +1,6 @@
 package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
-import br.ufrpe.treinos_dietas.exceptions.SenhasDiferentesException;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.fxml.FXML;
@@ -18,7 +17,6 @@ import java.io.IOException;
 
 public class TelaDeCadastroGUIController {
 
-    private Usuario usuario;
 
     @FXML
     private Button btnIrParaTelaPrincipal;
@@ -26,9 +24,6 @@ public class TelaDeCadastroGUIController {
     @FXML
     private Button btnVoltarParaTelaDeLogin;
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
     @FXML
     private TextField txtNome;
@@ -47,14 +42,12 @@ public class TelaDeCadastroGUIController {
 
 
     @FXML
-    void btnIrParaTelaPrincipalActionPerformed() throws IOException, SenhasDiferentesException {
+    void btnIrParaTelaDeSelecaoDeFocoActionPerformed() throws IOException {
         if(!this.cadastrarUsuario()){
             return;
         };
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDeSelecaoDeFoco.fxml"));
         Parent root = loader.load();
-
-
 
         Stage stage = (Stage) btnIrParaTelaPrincipal.getScene().getWindow();
         stage.setScene(new Scene(root));
@@ -65,21 +58,21 @@ public class TelaDeCadastroGUIController {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDeLogin.fxml"));
         Parent root = loader.load();
 
-        Stage stage = (Stage) btnIrParaTelaPrincipal.getScene().getWindow();
+        Stage stage = (Stage) btnVoltarParaTelaDeLogin.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
 
-    public boolean cadastrarUsuario() throws SenhasDiferentesException {
+    public boolean cadastrarUsuario() {
         String email = txtEmail.getText();
         String senha = txtSenha.getText();
         String nome = txtNome.getText();
         String confirmeASenha = txtConfirmeASenha.getText();
 
         if (!senha.equals(confirmeASenha)) {
-            txtConfirmeASenha.setText(""); // Limpa o campo de confirmação
-            lblErroSenha.setText("As senhas não coincidem!"); // Exibe a mensagem de erro (Adicione um Label no FXML)
-            return false; // Sai do método sem cadastrar
+            txtConfirmeASenha.setText("");
+            lblErroSenha.setText("As senhas não coincidem!");
+            return false;
         }
 
         Usuario usuario = SessaoUsuario.getInstancia().getUsuario();

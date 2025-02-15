@@ -22,7 +22,7 @@ public class CadastroUsuarios {
         boolean emailUtilizado = repo.emailUtilizado(email);
         if(!emailUtilizado){
             if(nascimento.isBefore(LocalDate.now())){
-                if(EnumSexo.valueOf(sexo) == EnumSexo.MASCULINO || EnumSexo.valueOf(sexo) == EnumSexo.FEMININO){
+                if(EnumSexo.valueOf(sexo) == EnumSexo.Masculino || EnumSexo.valueOf(sexo) == EnumSexo.Feminino){
                     Usuario novoUser = new Usuario(nome, email, senha, EnumSexo.valueOf(sexo), nascimento);
                     repo.criarUsuario(novoUser);
                 } else{

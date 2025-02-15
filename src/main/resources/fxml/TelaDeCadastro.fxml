@@ -90,21 +90,19 @@
                             <Font name="System Bold" size="18.0" />
                         </font>
                     </Button>
-                    <Button fx:id="btnIrParaTelaPrincipal" mnemonicParsing="false" onAction="#btnIrParaTelaPrincipalActionPerformed" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: orange;" text="Finalizar Cadastro">
+                    <Button fx:id="btnIrParaTelaPrincipal" mnemonicParsing="false" onAction="#btnIrParaTelaDeSelecaoDeFocoActionPerformed" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: orange;" text="Finalizar Cadastro">
                         <font>
                             <Font name="System Bold" size="18.0" />
                         </font>
                     </Button>
                 </HBox>
             </VBox>
+         <Label fx:id="lblErroSenha" alignment="CENTER" prefHeight="57.0" prefWidth="741.0" textFill="RED">
+            <font>
+               <Font name="System Bold" size="24.0" />
+            </font>
+         </Label>
         </VBox>
     </center>
-   <bottom>
-      <Label fx:id="lblErroSenha" alignment="CENTER" prefHeight="57.0" prefWidth="149.0" textFill="RED" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-   </bottom>
 
 </BorderPane>
