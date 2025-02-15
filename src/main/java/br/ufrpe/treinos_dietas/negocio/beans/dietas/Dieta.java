@@ -1,5 +1,7 @@
 package br.ufrpe.treinos_dietas.negocio.beans.dietas;
 
+import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -8,17 +10,20 @@ public class Dieta {
     private ArrayList<Refeicao> refeicoes;
     private LocalDate dataInicio;
     private LocalDate dataFim;
+    private EnumObjetivoDaDieta objetivoDaDieta;
 
     public Dieta() {
         this.refeicoes = new ArrayList<>();
     }
 
-    public Dieta(String nome, LocalDate dataInicio, LocalDate dataFim) {
+    public Dieta(String nome, LocalDate dataInicio, LocalDate dataFim, EnumObjetivoDaDieta objetivoDaDieta) {
         this.nome = nome;
         this.refeicoes = new ArrayList<>();
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
+        this.objetivoDaDieta = objetivoDaDieta;
     }
+
 
     public ArrayList<Refeicao> getRefeicoes() {
         return refeicoes;
@@ -86,4 +91,7 @@ public class Dieta {
         return totalGordurasDoDia;
     }
 
+    public void setObjetivoDaDieta(EnumObjetivoDaDieta objetivoDaDieta) {
+        this.objetivoDaDieta = objetivoDaDieta;
+    }
 }

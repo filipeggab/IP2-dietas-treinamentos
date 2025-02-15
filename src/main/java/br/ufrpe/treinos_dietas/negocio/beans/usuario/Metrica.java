@@ -3,8 +3,8 @@ package br.ufrpe.treinos_dietas.negocio.beans.usuario;
 import java.time.LocalDate;
 
 public class Metrica {
-    private int altura;
-    private double peso;
+    private Integer altura;
+    private Double peso;
     private LocalDate dataDaMetrica;
 
     public Metrica (int altura, double peso, LocalDate dataDaMetrica){

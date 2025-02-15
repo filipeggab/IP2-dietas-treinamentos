@@ -1,7 +1,6 @@
 package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
 
-import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumDificuldade;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
 
 import java.time.LocalDate;
@@ -10,20 +9,19 @@ import java.util.List;
 
 public abstract class PlanoDeTreino {
     protected String nome;
-    protected EnumDificuldade nivel;
     protected EnumObjetivoDoPlano objetivo;
     protected LocalDate dataInicial;
     protected List<Treino> treinoList;
     protected List<TreinoRealizado> treinoRealizadoList;
 
-    public PlanoDeTreino(String nome, EnumDificuldade nivel, EnumObjetivoDoPlano objetivo, LocalDate dataInicial) {
+    public PlanoDeTreino(String nome, EnumObjetivoDoPlano objetivo, LocalDate dataInicial) {
         this.nome = nome;
-        this.nivel = nivel;
         this.objetivo = objetivo;
         this.dataInicial = dataInicial;
         this.treinoList = new ArrayList<>();
         this.treinoRealizadoList = new ArrayList<>();
     }
+
 
     public String getNome() {
         return nome;
@@ -31,14 +29,6 @@ public abstract class PlanoDeTreino {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public EnumDificuldade getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(EnumDificuldade nivel) {
-        this.nivel = nivel;
     }
 
     public EnumObjetivoDoPlano getObjetivo() {

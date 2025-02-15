@@ -2,11 +2,9 @@ package br.ufrpe.treinos_dietas.dados;
 
 
 import br.ufrpe.treinos_dietas.exceptions.PlanoNaoCadastradoException;
-import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumDificuldade;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreinoPorData;
-import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreinoPorQuantidade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,16 +39,11 @@ public class RepositorioPlanoDeTreino {
         List<PlanoDeTreino> treinosPorData = planos.stream().filter(x -> x instanceof PlanoDeTreinoPorData).toList();
         return treinosPorData;
     }
-    public List<PlanoDeTreino> retornarPlanoDeTreinoPorQuantidade() {
-        List<PlanoDeTreino> treinosPorQuantidade = planos.stream().filter(x -> x instanceof PlanoDeTreinoPorQuantidade).toList();
-        return treinosPorQuantidade;
-    }
+
     public List<PlanoDeTreino> retornarPlanoDeTreinoPorObjetivo(EnumObjetivoDoPlano obj){
         return planos.stream().filter(x -> x.getObjetivo() == obj).toList();
     }
-    public List<PlanoDeTreino> retornarPlanoDeTreinoPorDificuldade(EnumDificuldade diff){
-        return planos.stream().filter(x -> x.getNivel().equals(diff)).toList();
-    }
+
     public List<PlanoDeTreino> getPlanos(){
         return this.planos;
     }

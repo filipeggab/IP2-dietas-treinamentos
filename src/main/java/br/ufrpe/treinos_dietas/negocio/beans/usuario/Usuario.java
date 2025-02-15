@@ -19,6 +19,11 @@ public class Usuario {
     private List<PlanoDeTreino> planoDeTreinoList;
     private List<Dieta> dietaList;
 
+    public Usuario(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
+    }
+
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
         this.email = email;
@@ -26,6 +31,12 @@ public class Usuario {
         this.sexo = sexo;
         this.dataNasc = dataNasc;
         this.metricas = new ArrayList<>();
+    }
+
+    public Usuario() {
+        this.metricas = new ArrayList<>();
+        this.planoDeTreinoList = new ArrayList<>();
+        this.dietaList = new ArrayList<>();
     }
 
     public Metrica ultimaMetrica (){
@@ -78,6 +89,16 @@ public class Usuario {
 
     public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
+    }
+
+    public void adicionarMetrica(Metrica metrica){
+        this.metricas.add(metrica);
+    }
+    public void adicionarDieta(Dieta dieta){
+        this.dietaList.add(dieta);
+    }
+    public void adicionarPlanoDeTreino(PlanoDeTreino planoDeTreino){
+        this.planoDeTreinoList.add(planoDeTreino);
     }
 
     @Override
