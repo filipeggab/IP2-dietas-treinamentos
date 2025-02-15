@@ -1,5 +1,5 @@
 package br.ufrpe.treinos_dietas.negocio.beans.enums;
 
 public enum EnumObjetivoDaDieta {
-    Perda_de_peso, Ganho_de_massa, Manutenção, Low_carb, Vegetariano;
+    PERDA_DE_PESO, GANHO_DE_MASSA, MANUTENÇÃO, LOWCARB, VEGETEARIANO;
 }

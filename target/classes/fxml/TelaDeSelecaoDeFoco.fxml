@@ -77,7 +77,7 @@
                     </HBox>
                     <HBox prefHeight="27.0" prefWidth="323.0">
                         <children>
-                            <Label prefHeight="27.0" prefWidth="65.0" text="Sexo:">
+                            <Label prefHeight="27.0" prefWidth="72.0" text="Sexo:">
                                 <font>
                                     <Font name="System Bold" size="18.0" />
                                 </font>
@@ -85,11 +85,7 @@
                                     <Insets left="5.0" />
                                 </padding>
                             </Label>
-                            <TextField fx:id="txtSexo" prefHeight="25.0" prefWidth="217.0" promptText="Masculino/Feminino">
-                                <HBox.margin>
-                                    <Insets left="6.0" />
-                                </HBox.margin>
-                            </TextField>
+                     <ChoiceBox fx:id="cbSexo" prefHeight="25.0" prefWidth="210.0" />
                         </children>
                     </HBox>
                     <HBox prefHeight="27.0" prefWidth="323.0">

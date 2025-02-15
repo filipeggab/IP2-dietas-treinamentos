@@ -23,9 +23,9 @@ import java.time.LocalDate;
 
 public class TelaDeSelecaoDeFocoGUIController {
 
-    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("Perda_de_peso", "Ganho_de_massa", "Manutenção", "Low_carb", "Vegetariano");
-    ObservableList<String> focoDoTreino = FXCollections.observableArrayList("Força_Muscular", "Hipertrofia", "Resistencia", "Cardio", "Flexibilidade");
-
+    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO", "LOWCARB", "VEGETEARIANO");
+    ObservableList<String> focoDoTreino = FXCollections.observableArrayList("FORÇA_MUSCULAR", "HIPERTROFIA", "RESISTÊNCIA", "CARDIO", "FLEXIBILIDADE");
+    ObservableList<EnumSexo> escolhasSexo =  FXCollections.observableArrayList(EnumSexo.values());
     @FXML
     private Button btnConfirmarSelecao;
 
@@ -36,7 +36,7 @@ public class TelaDeSelecaoDeFocoGUIController {
     private TextField txtPeso;
 
     @FXML
-    private TextField txtSexo;
+    private ChoiceBox <EnumSexo> cbSexo;
 
     @FXML
     private DatePicker dpDataDeNascimento;
@@ -49,11 +49,14 @@ public class TelaDeSelecaoDeFocoGUIController {
 
     @FXML
     private void initialize(){
-        cbFocoDaDieta.setValue("Perda de peso");
-        cbFocoDoTreino.setValue("Força Muscular");
+        cbFocoDaDieta.setValue("PERDA_DE_PESO");
+        cbFocoDoTreino.setValue("FORÇA_MUSCULAR");
 
         cbFocoDaDieta.setItems(focoDaDieta);
         cbFocoDoTreino.setItems(focoDoTreino);
+
+        cbSexo.setValue(EnumSexo.MASCULINO);
+        cbSexo.setItems(escolhasSexo);
     }
     @FXML
     void btnConfirmarSelecaoActionPerformed() throws IOException {
@@ -70,7 +73,7 @@ public class TelaDeSelecaoDeFocoGUIController {
     public void ContinuarCadastroDoUsuario(){
         Integer altura =  Integer.valueOf(txtAltura.getText());
         Double peso =  Double.valueOf(txtPeso.getText());
-        EnumSexo sexo =  EnumSexo.valueOf(txtSexo.getText());
+        EnumSexo sexo =  EnumSexo.valueOf(cbSexo.getSelectionModel().getSelectedItem().toString());
         LocalDate dataDeNascimento = dpDataDeNascimento.getValue();
 
         Metrica metricas = new Metrica(altura, peso, LocalDate.now());
