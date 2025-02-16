@@ -14,19 +14,13 @@ public class RepositorioExPratico {
     }
 
     public ExercicioPratico retornarExPratico(String nome) throws ExercicioNaoCadastradoException {
-        ExercicioPratico exerciciop = null;
 
-        for(ExercicioPratico ex:this.exercicios) {
-            if (ex.getExercicio().getNome().equals(nome)) {
-                exerciciop = ex;
-                break;
-            }
-        }
-            if(exerciciop == null){
+        ExercicioPratico ex = exercicios.stream().filter(x -> x.getExercicio().getNome().equals(nome)).findFirst().orElse(null);
+            if(ex == null){
                 throw new ExercicioNaoCadastradoException(nome);
             }
             else{
-                return exerciciop;
+                return ex;
             }
         }
     public void criarExercicio(ExercicioPratico ex){

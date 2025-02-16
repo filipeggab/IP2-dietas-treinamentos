@@ -10,14 +10,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RepositorioPlanoDeTreino {
+    private static RepositorioPlanoDeTreino instancia;
     private List<PlanoDeTreino> planos;
 
     public RepositorioPlanoDeTreino() {
         this.planos = new ArrayList<>();
     }
 
+    public static RepositorioPlanoDeTreino getInstance() {
+        if (instancia == null) {
+            instancia = new RepositorioPlanoDeTreino();
+        }
+        return instancia;
+    }
+
     public void criarPlanoDeTreino(PlanoDeTreino planoDeTreino) {
+        if (planoDeTreino == null) {
+            throw new IllegalArgumentException("O plano não pode ser nulo.");
+        }
         planos.add(planoDeTreino);
+        System.out.println("Plano adicionado: " + planoDeTreino.getNome());
     }
     public void apagarPlanoDeTreino(PlanoDeTreino planoDeTreino) throws PlanoNaoCadastradoException {
         if(planos.contains(planoDeTreino)){
@@ -27,13 +39,14 @@ public class RepositorioPlanoDeTreino {
             throw new PlanoNaoCadastradoException(planoDeTreino.getNome());
         }
     }
-    public PlanoDeTreino retornarPlanoDeTreino(String nome) throws PlanoNaoCadastradoException{
-        PlanoDeTreino plano = planos.stream().filter(x -> x.getNome().equals(nome)).findFirst().orElse(null);
-        if(plano == null){
-            throw new PlanoNaoCadastradoException(nome);
-        }else{
-            return plano;
+    public PlanoDeTreino retornarPlanoDeTreino(String nome) throws PlanoNaoCadastradoException {
+        if (nome == null) {
+            throw new IllegalArgumentException("O nome do plano não pode ser nulo.");
         }
+        return planos.stream()
+                .filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim()))
+                .findFirst()
+                .orElseThrow(() -> new PlanoNaoCadastradoException(nome));
     }
     public List<PlanoDeTreino> retornarPlanoDeTreinoPorData() {
         List<PlanoDeTreino> treinosPorData = planos.stream().filter(x -> x instanceof PlanoDeTreinoPorData).toList();

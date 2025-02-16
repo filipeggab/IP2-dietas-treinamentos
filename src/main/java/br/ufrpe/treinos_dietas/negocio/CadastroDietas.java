@@ -12,8 +12,8 @@ import java.time.LocalDate;
 public class CadastroDietas {
     private RepositorioDietas repo;
 
-    public CadastroDietas() {
-        this.repo = new RepositorioDietas();
+    public CadastroDietas(RepositorioDietas repo) {
+        this.repo = repo;
     }
 
 
