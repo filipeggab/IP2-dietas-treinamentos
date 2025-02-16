@@ -3,15 +3,14 @@ package br.ufrpe.treinos_dietas.controllers;
 import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.scene.Parent;
-import javafx.event.ActionEvent;
-import javafx.scene.Node;
+
 import java.io.IOException;
 
 
@@ -61,7 +60,6 @@ public class TelaPrincipalDoUsuárioGUIController {
         stage.show();
     }
 
-    //Metodo para abrir Treino Semanal
     @FXML
     public void btnTreinoSemanalActionPerformed() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDoTreinoDaSemana.fxml"));
@@ -73,17 +71,13 @@ public class TelaPrincipalDoUsuárioGUIController {
     }
 
     @FXML
-    public void btnPerfillActionPerformed() throws IOException {
+    public void btnPerfilActionPerformed() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDoPerfil.fxml"));
         Parent root = loader.load();
 
         Stage stage = (Stage) btnPerfil.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
 }

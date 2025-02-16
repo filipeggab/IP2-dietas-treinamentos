@@ -2,6 +2,7 @@ package br.ufrpe.treinos_dietas;
 
 
 import br.ufrpe.treinos_dietas.controllers.TelaDeLoginGUIController;
+import br.ufrpe.treinos_dietas.exceptions.ExercicioNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.application.Application;
@@ -16,7 +17,8 @@ public class Main extends Application {
     public Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws IOException, ExercicioNaoCadastradoException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TelaDeLogin.fxml"));
         Parent root = loader.load();
         TelaDeLoginGUIController tela = loader.getController();
@@ -32,7 +34,6 @@ public class Main extends Application {
         });
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args) {launch(args);
     }
 }

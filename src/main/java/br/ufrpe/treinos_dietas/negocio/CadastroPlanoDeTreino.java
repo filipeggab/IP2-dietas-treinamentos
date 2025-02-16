@@ -12,27 +12,22 @@ import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
 import java.time.LocalDate;
 
 public class CadastroPlanoDeTreino {
-    private RepositorioPlanoDeTreino repo;
+    RepositorioPlanoDeTreino repo;
 
-    public void CadastroPlanoDeTreino(){
-        this.repo = new RepositorioPlanoDeTreino();
+    public CadastroPlanoDeTreino(RepositorioPlanoDeTreino repo) {
+        this.repo = repo;
     }
-
-    //overload para os dois tipos de PLano de Treino
-    //por data
-    public void cadastrarPlanoDeTreino(String nome, EnumDificuldade nivel, EnumObjetivoDoPlano objetivo, LocalDate dataInicial, LocalDate dataFinal){
-        if (nome == null || nome.trim().isEmpty()){
+    public void cadastrarPlanoDeTreino(String nome, EnumObjetivoDoPlano objetivo, LocalDate dataInicial, LocalDate dataFinal) {
+        if (nome == null || nome.trim().isEmpty()) {
             throw new IllegalArgumentException("O nome do plano não pode estar vazio");
         }
-        if (nivel == null){
-            throw new IllegalArgumentException("O nível do plano não pode ser nulo");
-        }
-        if (objetivo == null){
+        if (objetivo == null) {
             throw new IllegalArgumentException("O objetivo não pode ser nulo");
         }
-        if (dataInicial == null){
+        if (dataInicial == null) {
             throw new IllegalArgumentException("A data inicial não pode ser nula");
         }
+
         PlanoDeTreino planoDeTreino = new PlanoDeTreinoPorData(nome, objetivo, dataInicial, dataFinal);
         repo.criarPlanoDeTreino(planoDeTreino);
     }
