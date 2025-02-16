@@ -39,13 +39,5 @@ public class RepositorioExercicios {
             throw new ExercicioNaoCadastradoException(ex.getNome());
         }
     }
-    public void apagarExercicio(String nome) throws ExercicioNaoCadastradoException{
-        try{
-            Exercicio ex = retornarExercicio(nome);
-            apagarExercicio(ex);
-        } catch (ExercicioNaoCadastradoException e) {
-            throw e;
-        }
-    }
 
 }

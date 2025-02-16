@@ -3,8 +3,8 @@ package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 public class ExPraticoSerieReps extends ExPraticoSerie{
     private int numDeReps;
 
-    public ExPraticoSerieReps(Exercicio exercicio, int numDeSeries, int peso, int tempoDescanso, int numDeReps) {
-        super(exercicio, numDeSeries, peso, tempoDescanso);
+    public ExPraticoSerieReps(Exercicio exercicio, int numDeSeries, int tempoDescanso, int numDeReps) {
+        super(exercicio, numDeSeries, tempoDescanso);
         this.numDeReps = numDeReps;
     }
 

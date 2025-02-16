@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaPrincipalDoUsuárioGUIController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaPrincipalDoUsuárioGUIController">
    <top>
       <HBox alignment="TOP_RIGHT" prefHeight="79.0" prefWidth="786.0" style="-fx-border-color: orange;" BorderPane.alignment="CENTER">
          <children>
@@ -21,7 +17,7 @@
                   <Insets />
                </HBox.margin>
             </Label>
-            <Button fx:id="btnPerfil" mnemonicParsing="false" onAction="#btnPerfillActionPerformed" prefHeight="76.0" prefWidth="66.0" style="-fx-background-color: orange;" text="foto aqui" />
+            <Button fx:id="btnPerfil" mnemonicParsing="false" onAction="#btnPerfilActionPerformed" prefHeight="76.0" prefWidth="66.0" style="-fx-background-color: orange;" text="foto aqui" />
          </children>
       </HBox>
    </top>
@@ -175,7 +171,7 @@
          <children>
             <Label text="Treino do dia:">
                <font>
-                  <Font size="30.0" />
+                  <Font name="System Bold" size="30.0" />
                </font>
             </Label>
             <VBox alignment="TOP_CENTER" prefHeight="481.0" prefWidth="760.0">

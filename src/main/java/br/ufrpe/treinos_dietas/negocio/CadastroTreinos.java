@@ -3,7 +3,6 @@ package br.ufrpe.treinos_dietas.negocio;
 
 import br.ufrpe.treinos_dietas.dados.RepositorioTreinos;
 import br.ufrpe.treinos_dietas.exceptions.TreinoNaoCadastradoException;
-import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDeExercicio;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.ExercicioPratico;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
 
@@ -16,31 +15,26 @@ public class CadastroTreinos {
         this.repo = new RepositorioTreinos();
     }
 
-    public void cadastrarTreino(String nome, List<EnumObjetivoDeExercicio> foco){
+    public void cadastrarTreino(String nome){
         if (nome == null || nome.trim().isEmpty()){
             throw new IllegalArgumentException("O nome do Treino não pode estar vazio.");
         }
-        if (foco == null || foco.isEmpty()){
-            throw new IllegalArgumentException("O foco do treino não pode estar vazio.");
-        }
 
-        Treino novoTreino = new Treino(nome, foco);
+        Treino novoTreino = new Treino(nome);
         repo.criarTreino(novoTreino);
     }
 
-    public void cadastrarTreino(String nome, List<EnumObjetivoDeExercicio> foco, List<ExercicioPratico> exercicioList){
+    public void cadastrarTreino(String nome, List<ExercicioPratico> exercicioList){
         Treino novoTreino;
 
         if (nome == null || nome.trim().isEmpty()){
             throw new IllegalArgumentException("O nome do Treino não pode estar vazio.");
         }
-        if (foco == null || foco.isEmpty()){
-            throw new IllegalArgumentException("O foco do treino não pode estar vazio.");
-        }
+
         if (exercicioList != null && !exercicioList.isEmpty()){
-            novoTreino = new Treino(nome, foco, exercicioList);
+            novoTreino = new Treino(nome, exercicioList);
         } else{
-            novoTreino = new Treino(nome, foco);
+            novoTreino = new Treino(nome);
         }
 
         repo.criarTreino(novoTreino);
@@ -51,14 +45,11 @@ public class CadastroTreinos {
         repo.apagarTreino(treino);
     }
 
-    public void editarTreino(String nome, String novoNome, List<EnumObjetivoDeExercicio> novoFoco, List<ExercicioPratico> novoExercicioList) throws TreinoNaoCadastradoException{
+    public void editarTreino(String nome, String novoNome, List<ExercicioPratico> novoExercicioList) throws TreinoNaoCadastradoException{
         Treino treino = repo.buscarTreino(novoNome);
         
         if (novoNome != null && !novoNome.trim().isEmpty()){
             treino.setNome(novoNome);
-        }
-        if (novoFoco != null && novoFoco.isEmpty()){
-            treino.setFoco(novoFoco);
         }
         if (novoExercicioList != null && !novoExercicioList.isEmpty()){
             treino.setExercicioList(novoExercicioList);
@@ -70,7 +61,6 @@ public class CadastroTreinos {
         try{
             Treino treino = repo.buscarTreino(nome);
             System.out.println("Nome:" + nome);
-            System.out.println("Foco:" + treino.getFoco());
             System.out.println("Exercicios:" + treino.retornarFicha());
             return treino;
         } catch (TreinoNaoCadastradoException e){

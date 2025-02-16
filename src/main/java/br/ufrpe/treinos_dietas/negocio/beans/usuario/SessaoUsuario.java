@@ -30,6 +30,12 @@ public class SessaoUsuario {
     public Usuario getUsuario() {
         return usuario;
     }
+    public List<Metrica> getMetricas() {
+        return metricas;
+    }
+    public List<PlanoDeTreino> getPlanoDeTreinoList() {
+        return planoDeTreinoList;
+    }
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
