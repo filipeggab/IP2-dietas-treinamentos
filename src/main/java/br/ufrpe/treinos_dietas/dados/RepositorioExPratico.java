@@ -15,7 +15,7 @@ public class RepositorioExPratico {
 
     public ExercicioPratico retornarExPratico(String nome) throws ExercicioNaoCadastradoException {
 
-        ExercicioPratico ex = exercicios.stream().filter(x -> x.getExercicio().getNome().equals(nome)).findFirst().orElse(null);
+        ExercicioPratico ex = exercicios.stream().filter(x -> nome.trim().equalsIgnoreCase(x.getExercicio().getNome().trim())).findFirst().orElse(null);
             if(ex == null){
                 throw new ExercicioNaoCadastradoException(nome);
             }

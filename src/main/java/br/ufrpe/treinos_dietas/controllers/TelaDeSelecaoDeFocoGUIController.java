@@ -4,11 +4,14 @@ import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
 import br.ufrpe.treinos_dietas.dados.RepositorioExPratico;
 import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
+import br.ufrpe.treinos_dietas.dados.RepositorioTreinos;
 import br.ufrpe.treinos_dietas.exceptions.DietaNaoCadastradaException;
 import br.ufrpe.treinos_dietas.exceptions.ExercicioNaoCadastradoException;
 import br.ufrpe.treinos_dietas.exceptions.PlanoNaoCadastradoException;
+import br.ufrpe.treinos_dietas.exceptions.TreinoNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.CadastroDietas;
 import br.ufrpe.treinos_dietas.negocio.CadastroPlanoDeTreino;
+import br.ufrpe.treinos_dietas.negocio.CadastroTreinos;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
@@ -31,11 +34,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TelaDeSelecaoDeFocoGUIController {
     RepositorioExPratico repositorioExPratico = new  RepositorioExPratico();
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
     RepositorioDietas repositorioDietas  = new  RepositorioDietas();
+    RepositorioTreinos repositorioTreinos = new  RepositorioTreinos();
+
 
 
     ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO", "LOWCARB", "VEGETEARIANO");
@@ -74,7 +81,7 @@ public class TelaDeSelecaoDeFocoGUIController {
         cbSexo.setItems(escolhasSexo);
     }
     @FXML
-    void btnConfirmarSelecaoActionPerformed() throws IOException, ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException {
+    void btnConfirmarSelecaoActionPerformed() throws IOException, ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
         ContinuarCadastroDoUsuario();
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
@@ -85,8 +92,8 @@ public class TelaDeSelecaoDeFocoGUIController {
         stage.show();
     }
 
-    public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException {
-        alocarTreino();
+    public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
+
         Integer altura =  Integer.valueOf(txtAltura.getText());
         Double peso =  Double.valueOf(txtPeso.getText());
         EnumSexo sexo =  EnumSexo.valueOf(cbSexo.getSelectionModel().getSelectedItem().toString());
@@ -121,13 +128,15 @@ public class TelaDeSelecaoDeFocoGUIController {
         PlanoDeTreino planoDeTreino = repositorioPlanoDeTreino.retornarPlanoDeTreino(nomeDoPlano);
         usuario.adicionarPlanoDeTreino(planoDeTreino);
 
+        alocarTreino();
+
     }
     //Criar descricoes direito pra cada um!
     public void CriarExercicios(){
 
 
         //Exercicios de peito
-        Exercicio supinoReto = new Exercicio("Supino", "deite no banco, empurre a barra", 10);
+        Exercicio supinoReto = new Exercicio("Supino Reto", "deite no banco, empurre a barra", 10);
         ExercicioPratico supinoRetoSerie = new ExPraticoSerieReps(supinoReto, 3, 60, 10);
         repositorioExPratico.criarExercicio(supinoRetoSerie);
 
@@ -186,7 +195,7 @@ public class TelaDeSelecaoDeFocoGUIController {
         repositorioExPratico.criarExercicio(roscaDiretaSerie);
 
 
-        Exercicio roscaAlternada = new Exercicio("Rosca Alternada", "Eleve os halteres com os biceps", 10);
+        Exercicio roscaAlternada = new Exercicio("Rosca alternada", "Eleve os halteres com os biceps", 10);
         ExercicioPratico roscaAlternadaSerie = new ExPraticoSerieReps(roscaAlternada, 3, 60, 10);
         repositorioExPratico.criarExercicio(roscaAlternadaSerie);
 
@@ -222,7 +231,7 @@ public class TelaDeSelecaoDeFocoGUIController {
 
 
         //Exercicios de costas
-        Exercicio pulldown = new Exercicio("pulldown", "puxe a barra para baixo, trazendo até a parte superior do peito", 10);
+        Exercicio pulldown = new Exercicio("Pulldown", "puxe a barra para baixo, trazendo até a parte superior do peito", 10);
         ExercicioPratico pulldownSerie = new ExPraticoSerieReps(pulldown, 3, 60, 10);
         repositorioExPratico.criarExercicio(pulldownSerie);
 
@@ -234,7 +243,7 @@ public class TelaDeSelecaoDeFocoGUIController {
         ExercicioPratico remadaCavalinhoSerie = new ExPraticoSerieReps(remadaCavalinho, 3, 60, 10);
         repositorioExPratico.criarExercicio(remadaCavalinhoSerie);
 
-        Exercicio remadaBaixa = new Exercicio ("Remada Baixa", "puxe a corda na sua direção", 10);
+        Exercicio remadaBaixa = new Exercicio ("Remada baixa", "puxe a corda na sua direção", 10);
         ExercicioPratico remadaSerie = new ExPraticoSerieReps(remadaBaixa, 3, 60, 10);
         repositorioExPratico.criarExercicio(remadaSerie);
 
@@ -274,10 +283,60 @@ public class TelaDeSelecaoDeFocoGUIController {
     }
 
     //adicionar repositorios nos exercicios praticos e tentar alocar!
-    public void alocarTreino() throws ExercicioNaoCadastradoException {
+    public void alocarTreino() throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
         CriarExercicios();
+        Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
         switch(cbFocoDoTreino.getSelectionModel().getSelectedItem().toString()){
             case "HIPERTROFIA":
+                List<ExercicioPratico> treinoAHipertrofia = new ArrayList<>();
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("circulo com os ombros"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Rotação de Cotovelos"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Bicicleta"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Supino Reto"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Supino Inclinado"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Fly"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("TricepsCorda"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Triceps Francês"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Elevação lateral"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Elevação Frontal"));
+                List<ExercicioPratico> treinoBHipertrofia = new ArrayList<>();
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("circulo com os ombros"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Rotação de Cotovelos"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Esteira"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Pulldown"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Puxada alta"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Remada cavalinho"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Remada baixa"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Rosca direta"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Rosca alternada"));
+                List<ExercicioPratico> treinoCHipertrofia = new ArrayList<>();
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Mobilidade de quadril"));
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Rotação torácica"));
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Circulo com os quadris"));
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Escada"));
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("agachamento"));
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Leg Press"));
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Búlgaro"));
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Mesa Flexora"));
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Cadeira Extensora"));
+                treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Levantamento terra"));
+
+                CadastroTreinos cadastroTreinos = new CadastroTreinos(repositorioTreinos);
+                cadastroTreinos.cadastrarTreino("Treino A Hipertrofia", treinoAHipertrofia);
+                cadastroTreinos.cadastrarTreino("Treino B Hipertrofia", treinoBHipertrofia);
+                cadastroTreinos.cadastrarTreino("Treino C Hipertrofia", treinoCHipertrofia);
+                Treino treinoAHip = repositorioTreinos.buscarTreino("Treino A Hipertrofia");
+                Treino treinoBHip = repositorioTreinos.buscarTreino("Treino B Hipertrofia");
+                Treino treinoCHip = repositorioTreinos.buscarTreino("Treino C Hipertrofia");
+                List<Treino> listaDeTreinosDeHipertrofia = new ArrayList<>();
+                listaDeTreinosDeHipertrofia.add(treinoAHip);
+                listaDeTreinosDeHipertrofia.add(treinoBHip);
+                listaDeTreinosDeHipertrofia.add(treinoCHip);
+                usuario.AdicionarListaAoPlanoDeTreino(repositorioPlanoDeTreino.retornarNomeDoPlanoDeTreino(), listaDeTreinosDeHipertrofia);
+
+
 
 
             case "FORÇA_MUSCULAR":

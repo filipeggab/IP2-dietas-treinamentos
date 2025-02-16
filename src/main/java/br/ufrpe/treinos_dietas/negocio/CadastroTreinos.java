@@ -11,8 +11,8 @@ import java.util.List;
 public class CadastroTreinos {
     private RepositorioTreinos repo;
 
-    public void CadastroTreinos(){
-        this.repo = new RepositorioTreinos();
+    public CadastroTreinos(RepositorioTreinos  repo){
+        this.repo = repo;
     }
 
     public void cadastrarTreino(String nome){
