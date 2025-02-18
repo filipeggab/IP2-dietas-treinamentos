@@ -1,10 +1,11 @@
 package br.ufrpe.treinos_dietas.negocio;
 
-
+import br.ufrpe.treinos_dietas.integracao.USDAFoodDataAPI;
 import br.ufrpe.treinos_dietas.dados.RepositorioComidas;
 import br.ufrpe.treinos_dietas.exceptions.ComidaNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Comida;
-
+import com.google.gson.JsonObject;
+import java.io.IOException;
 import java.util.List;
 
 public class CadastroComidas {
@@ -14,22 +15,36 @@ public class CadastroComidas {
         this.repo = new RepositorioComidas();
     }
 
-
-    public void cadastrarComida(String nome, String unDeMedida, double proteinas, double carboidratos, double gorduras, double calorias) {
+    public void cadastrarComida(String nome, String unDeMedida) {
         if (nome == null || nome.trim().isEmpty()) {
             throw new IllegalArgumentException("O nome da comida não pode estar vazio.");
         }
         if (unDeMedida == null || unDeMedida.trim().isEmpty()) {
             throw new IllegalArgumentException("A unidade de medida deve ser informada.");
         }
-        if (proteinas < 0 || carboidratos < 0 || gorduras < 0 || calorias < 0) {
-            throw new IllegalArgumentException("Os valores nutricionais não podem ser negativos.");
+
+        USDAFoodDataAPI usdaAPI = new USDAFoodDataAPI();
+        try {
+            // A API agora retorna um objeto Comida diretamente
+            Comida comida = usdaAPI.buscarInformacoesNutricionais(nome);
+
+            // Use os getters da classe Comida
+            Comida novaComida = new Comida(
+                    comida.getNome(),
+                    unDeMedida,
+                    comida.getProteinas(),
+                    comida.getCarboidratos(),
+                    comida.getGorduras(),
+                    comida.getCalorias()
+            );
+
+            repo.criarComida(novaComida);
+            System.out.println("Comida cadastrada com sucesso!");
+
+        } catch (IOException e) {
+            System.out.println("Erro ao buscar informações nutricionais: " + e.getMessage());
         }
-
-        Comida novaComida = new Comida(nome, unDeMedida, proteinas, carboidratos, gorduras, calorias);
-        repo.criarComida(novaComida);
     }
-
 
     public void removerComida(String nome) throws ComidaNaoCadastradaException {
         repo.apagarComida(nome);

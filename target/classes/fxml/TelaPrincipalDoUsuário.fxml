@@ -217,6 +217,16 @@
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="348.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
                   <Label prefHeight="18.0" prefWidth="429.0" />
                   <HBox alignment="CENTER" prefHeight="25.0" prefWidth="325.0">
                      <children>

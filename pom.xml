@@ -28,6 +28,20 @@
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+        <!-- essas duas daqui são as que precisa pra pegar os dados da API-->
+        <!-- Dependência do OkHttp para requisições HTTP -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.9.3</version>
+        </dependency>
+
+        <!-- Dependência do Gson para manipulação de JSON -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -61,7 +75,11 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>br.ufrpe.treinos_dietas</groupId>
+                <artifactId>IP2-dietas-treinamentos</artifactId>
+                <version>1.0</version>
+            </plugin>
         </plugins>
     </build>
-    
 </project>
