@@ -1,6 +1,11 @@
 package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
+import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
+import br.ufrpe.treinos_dietas.negocio.beans.treinos.ExercicioPratico;
+import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
+import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
+import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,11 +17,14 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class TelaPrincipalDoUsuárioGUIController {
-    private Usuario usuario;
-    @FXML
+    Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+    RepositorioPlanoDeTreino repositorioPlanoDeTreino = new RepositorioPlanoDeTreino();
+
+     @FXML
     private Label lblBemVindo;
 
     @FXML
@@ -49,6 +57,26 @@ public class TelaPrincipalDoUsuárioGUIController {
 
     @FXML
     private CheckBox chkTreinoDeForca;
+
+    @FXML
+    private Label label1,label2,label3;
+
+    public void atualizarLabels(){
+
+        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        List<Treino> treinosAtuais = planoAtual.getTreinoList();
+        Treino treinoA = treinosAtuais.get(0);
+        Treino treinoB = treinosAtuais.get(1);
+        Treino treinoC = treinosAtuais.get(2);
+
+        List<ExercicioPratico> exerciciosTreinoA = treinoA.getExercicioList();
+        List<ExercicioPratico> exerciciosTreinoB = treinoB.getExercicioList();
+        List<ExercicioPratico> exerciciosTreinoC = treinoC.getExercicioList();
+
+
+
+
+    }
 
     @FXML
     public void btnDietaSemanalActionPerformed() throws IOException {

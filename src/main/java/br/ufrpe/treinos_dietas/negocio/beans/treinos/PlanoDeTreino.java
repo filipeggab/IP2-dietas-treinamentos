@@ -51,6 +51,10 @@ public abstract class PlanoDeTreino {
         this.treinoList = treinoList;
     }
 
+    public List<Treino> getTreinoList(){
+        return this.treinoList;
+    }
+
     public abstract int diasFaltando();
 
     public void adicionarTreino(Treino treino){

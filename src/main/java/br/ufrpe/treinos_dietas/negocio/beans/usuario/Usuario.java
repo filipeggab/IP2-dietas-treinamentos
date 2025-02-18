@@ -23,11 +23,6 @@ public class Usuario {
     private List<Dieta> dietaList;
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
 
-    public Usuario(String nome, String senha) {
-        this.nome = nome;
-        this.senha = senha;
-    }
-
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
         this.email = email;

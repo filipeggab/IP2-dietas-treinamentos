@@ -50,6 +50,9 @@ public class RepositorioPlanoDeTreino {
     public String retornarNomeDoPlanoDeTreino(){
         return planos.getLast().getNome();
     }
+    public PlanoDeTreino retornarPlanos(){
+        return planos.getLast();
+    }
 
     public List<PlanoDeTreino> getPlanos(){
         return this.planos;
