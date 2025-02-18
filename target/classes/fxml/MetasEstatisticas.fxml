@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <top>
+        <HBox alignment="CENTER" prefHeight="79.0" prefWidth="786.0" style="-fx-border-color: orange;">
+            <children>
+                <Label style="-fx-font-weight: bold;" text="Metas e Estatísticas da Dieta">
+                    <font>
+                        <Font name="System Bold Italic" size="36.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox alignment="TOP_CENTER" spacing="30.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <!-- Coluna Esquerda - Resumo Diário -->
+            <VBox alignment="CENTER" prefHeight="424.0" prefWidth="416.0" spacing="15.0">
+                <Label style="-fx-font-weight: bold;" text="Meta Diária">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+
+                <VBox alignment="CENTER_LEFT" spacing="10.0">
+                    <!-- Calorias -->
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label prefHeight="25.0" prefWidth="116.0" style="-fx-font-weight: bold;" text="Calorias:">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ProgressBar fx:id="pbCalorias" prefHeight="18.0" prefWidth="200.0" progress="0.0" />
+                        <Label fx:id="lblCalorias" text="0/0 kcal" />
+                    </HBox>
+
+                    <!-- Proteínas -->
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label prefHeight="25.0" prefWidth="117.0" style="-fx-font-weight: bold;" text="Proteínas:">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ProgressBar fx:id="pbProteinas" prefWidth="200.0" progress="0.0" style="-fx-accent: #FFA500;" />
+                        <Label fx:id="lblProteinas" text="0/0g" />
+                    </HBox>
+
+                    <!-- Carboidratos -->
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label prefHeight="25.0" prefWidth="117.0" style="-fx-font-weight: bold;" text="Carboidratos:">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ProgressBar fx:id="pbCarboidratos" prefWidth="200.0" progress="0.0" style="-fx-accent: #32CD32;" />
+                        <Label fx:id="lblCarboidratos" text="0/0g" />
+                    </HBox>
+
+                    <!-- Gorduras -->
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label prefHeight="25.0" prefWidth="118.0" style="-fx-font-weight: bold;" text="Gorduras:">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ProgressBar fx:id="pbGorduras" prefHeight="18.0" prefWidth="200.0" progress="0.0" style="-fx-accent: #FF4500;" />
+                        <Label fx:id="lblGorduras" text="0/0g" />
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <Separator orientation="VERTICAL" prefHeight="402.0" prefWidth="0.0" />
+
+            <!-- Coluna Direita - Detalhes das Refeições -->
+            <VBox alignment="CENTER" prefWidth="400.0" spacing="15.0">
+                <Label style="-fx-font-weight: bold;" text="Detalhes das Refeições">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+
+                <VBox alignment="CENTER_LEFT" spacing="10.0">
+                    <!-- Café da Manhã -->
+                    <VBox style="-fx-border-color: orange; -fx-border-radius: 5; -fx-padding: 5;">
+                        <HBox>
+                            <Label style="-fx-font-weight: bold;" text="Café da Manhã">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="lblHorarioCafe" text="07:00" />
+                        </HBox>
+                        <HBox spacing="20.0">
+                            <Label text="Calorias:" />
+                            <Label fx:id="lblCalCafe" text="0 kcal" />
+                            <Label text="Proteínas:" />
+                            <Label fx:id="lblProtCafe" text="0g" />
+                     <CheckBox mnemonicParsing="false" text="realizada" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Almoço -->
+                    <VBox style="-fx-border-color: orange; -fx-border-radius: 5; -fx-padding: 5;">
+                        <HBox>
+                            <Label style="-fx-font-weight: bold;" text="Almoço">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="lblHorarioAlmoco" text="12:30" />
+                        </HBox>
+                        <HBox spacing="20.0">
+                            <Label text="Calorias:" />
+                            <Label fx:id="lblCalAlmoco" text="0 kcal" />
+                            <Label text="Proteínas:" />
+                            <Label fx:id="lblProtAlmoco" text="0g" />
+                     <CheckBox mnemonicParsing="false" text="realizada" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Lanche -->
+                    <VBox style="-fx-border-color: orange; -fx-border-radius: 5; -fx-padding: 5;">
+                        <HBox>
+                            <Label style="-fx-font-weight: bold;" text="Lanche">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="lblHorarioLanche" text="16:00" />
+                        </HBox>
+                        <HBox spacing="20.0">
+                            <Label text="Calorias:" />
+                            <Label fx:id="lblCalLanche" text="0 kcal" />
+                            <Label text="Proteínas:" />
+                            <Label fx:id="lblProtLanche" text="0g" />
+                     <CheckBox mnemonicParsing="false" text="realizada" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Jantar -->
+                    <VBox style="-fx-border-color: orange; -fx-border-radius: 5; -fx-padding: 5;">
+                        <HBox>
+                            <Label style="-fx-font-weight: bold;" text="Jantar">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="lblHorarioJantar" text="19:00" />
+                        </HBox>
+                        <HBox spacing="20.0">
+                            <Label text="Calorias:" />
+                            <Label fx:id="lblCalJantar" text="0 kcal" />
+                            <Label text="Proteínas:" />
+                            <Label fx:id="lblProtJantar" text="0g" />
+                     <CheckBox mnemonicParsing="false" text="realizada" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>

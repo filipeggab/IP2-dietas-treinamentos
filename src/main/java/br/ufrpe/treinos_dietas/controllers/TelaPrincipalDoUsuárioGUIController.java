@@ -1,6 +1,7 @@
 package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
+import br.ufrpe.treinos_dietas.negocio.beans.treinos.ExercicioPratico;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +13,46 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class TelaPrincipalDoUsuárioGUIController {
     private Usuario usuario;
+    
+    @FXML
+    private Label lblMobilidade1;
+
+    @FXML
+    private Label lblMobilidade2;
+
+    @FXML
+    private Label lblMobilidade3;
+
+    @FXML
+    private Label lblCardio1;
+
+    @FXML
+    private Label lblCardio2;
+
+    @FXML
+    private Label lblCardio3;
+
+    @FXML
+    private Label lblForca1;
+
+    @FXML
+    private Label lblForca2;
+
+    @FXML
+    private Label lblForca3;
+
+    @FXML
+    private Label lblForca4;
+
+    @FXML
+    private Label lblForca5;
+
     @FXML
     private Label lblBemVindo;
 
