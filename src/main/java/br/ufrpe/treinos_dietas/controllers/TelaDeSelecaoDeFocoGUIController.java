@@ -137,16 +137,20 @@ public class TelaDeSelecaoDeFocoGUIController {
 
         //Exercicios de peito
         Exercicio supinoReto = new Exercicio("Supino Reto", "deite no banco, empurre a barra", 10);
-        ExercicioPratico supinoRetoSerie = new ExPraticoSerieReps(supinoReto, 3, 60, 10);
+        ExercicioPratico supinoRetoSerie = new ExPraticoSerieReps(supinoReto, 4, 75, 8);
         repositorioExPratico.criarExercicio(supinoRetoSerie);
 
         Exercicio supinoInclinado = new Exercicio("Supino Inclinado", "deite no banco, empurre a barra", 10);
-        ExercicioPratico supinoInclinadoSerie = new ExPraticoSerieReps(supinoInclinado, 3, 60, 10);
+        ExercicioPratico supinoInclinadoSerie = new ExPraticoSerieReps(supinoInclinado, 3, 75, 10);
         repositorioExPratico.criarExercicio(supinoInclinadoSerie);
 
         Exercicio fly = new Exercicio("Fly", "deite no banco, empurre a barra", 10);
-        ExercicioPratico flySerie = new ExPraticoSerieReps(fly, 3, 60, 10);
+        ExercicioPratico flySerie = new ExPraticoSerieReps(fly, 4, 60, 12);
         repositorioExPratico.criarExercicio(flySerie);
+
+        Exercicio crossover = new Exercicio("Crossover", "Nas polias, faça um movimento de abraço", 10);
+        ExercicioPratico crossoverSerie = new ExPraticoSerieReps(crossover, 3, 60, 10);
+        repositorioExPratico.criarExercicio(crossoverSerie);
 
 
         //Exercicios de Cardio
@@ -164,16 +168,16 @@ public class TelaDeSelecaoDeFocoGUIController {
 
 
         //Exercicios de perna
-        Exercicio agachamento = new Exercicio("agachamento", "agache", 10);
+        Exercicio agachamento = new Exercicio("agachamento", "Com a barra nas costas, faça o movimento de agacho", 10);
         ExercicioPratico agachamentoSerie = new ExPraticoSerieReps(agachamento, 3, 90, 10);
         repositorioExPratico.criarExercicio(agachamentoSerie);
 
-        Exercicio legPress = new Exercicio("Leg Press", "empurra", 10);
+        Exercicio legPress = new Exercicio("Leg Press", "Deite na maquina e empurre com suas pernas", 10);
         ExercicioPratico legPressSerie = new ExPraticoSerieReps(legPress, 3, 90, 8);
         repositorioExPratico.criarExercicio(legPressSerie);
 
         Exercicio bulgaro = new Exercicio("Búlgaro", "Com uma das pernas, simule um agachamento", 12);
-        ExercicioPratico bulgaroSerie = new ExPraticoSerieReps(bulgaro, 3, 90, 10);
+        ExercicioPratico bulgaroSerie = new ExPraticoSerieReps(bulgaro, 2, 90, 10);
         repositorioExPratico.criarExercicio(bulgaroSerie);
 
         Exercicio mesaFlexora = new  Exercicio("Mesa Flexora", "Deite na mesa e flexione as pernas", 10);
@@ -188,12 +192,15 @@ public class TelaDeSelecaoDeFocoGUIController {
         ExercicioPratico levantamentoTerraSerie = new ExPraticoSerieReps(levantamentoTerra, 3, 90, 8);
         repositorioExPratico.criarExercicio(levantamentoTerraSerie);
 
+        Exercicio stiff = new Exercicio("Stiff", "Segure a barra e desça suas costas com as penas retas", 10);
+        ExercicioPratico stiffSerie = new ExPraticoSerieReps(stiff, 3, 90, 8);
+        repositorioExPratico.criarExercicio(stiffSerie);
+
 
         //Exercicios de Biceps
         Exercicio roscaDireta = new Exercicio("Rosca direta", "Use a barra", 10);
-        ExercicioPratico roscaDiretaSerie = new ExPraticoSerieReps(roscaDireta, 3, 60, 10);
+        ExercicioPratico roscaDiretaSerie = new ExPraticoSerieReps(roscaDireta, 5, 60, 10);
         repositorioExPratico.criarExercicio(roscaDiretaSerie);
-
 
         Exercicio roscaAlternada = new Exercicio("Rosca alternada", "Eleve os halteres com os biceps", 10);
         ExercicioPratico roscaAlternadaSerie = new ExPraticoSerieReps(roscaAlternada, 3, 60, 10);
@@ -201,8 +208,8 @@ public class TelaDeSelecaoDeFocoGUIController {
 
 
         //Exercicios de triceps
-        Exercicio tricepsCorda = new Exercicio("TricepsCorda", "Use uma corda", 10);
-        ExercicioPratico tricepsCordaSerie = new ExPraticoSerieReps(tricepsCorda, 3, 60, 10);
+        Exercicio tricepsCorda = new Exercicio("Triceps Corda", "Use uma corda", 10);
+        ExercicioPratico tricepsCordaSerie = new ExPraticoSerieReps(tricepsCorda, 5, 60, 10);
         repositorioExPratico.criarExercicio(tricepsCordaSerie);
 
         Exercicio tricepsFrances = new Exercicio("Triceps Francês", "Faça utilizando uma corda acima de sua cabeça", 10);
@@ -212,31 +219,35 @@ public class TelaDeSelecaoDeFocoGUIController {
 
         //Exercicios de ombro
         Exercicio elevacaoLateral = new Exercicio("Elevação lateral", "eleve lateralmente o halter", 10);
-        ExercicioPratico elevacaoLateralSerie = new ExPraticoSerieReps(elevacaoLateral, 3, 60, 10);
+        ExercicioPratico elevacaoLateralSerie = new ExPraticoSerieReps(elevacaoLateral, 4, 60, 12);
         repositorioExPratico.criarExercicio(elevacaoLateralSerie);
 
-        Exercicio elevacaoFrontal = new Exercicio("Elevação Frontal", "Eleve frontalmente  o halter", 10);
-        ExercicioPratico elevacaoFrontalSerie = new ExPraticoSerieReps(elevacaoFrontal, 3, 60, 10);
+        Exercicio elevacaoFrontal = new Exercicio("Elevação Frontal", "Eleve frontalmente o halter", 10);
+        ExercicioPratico elevacaoFrontalSerie = new ExPraticoSerieReps(elevacaoFrontal, 4, 60, 12);
         repositorioExPratico.criarExercicio(elevacaoFrontalSerie);
+
+        Exercicio desenvolvimento = new Exercicio("Desenvolvimento", "Segure os halteres e levante com os braços flexionados", 10);
+        ExercicioPratico desenvolvimentoSerie = new ExPraticoSerieReps(desenvolvimento, 3, 60, 8);
+        repositorioExPratico.criarExercicio(desenvolvimentoSerie);
 
 
         //Exercicios de core
-        Exercicio prancha = new Exercicio ("prancha", "fique um determinado tempo em posição de prancha", 100);
+        Exercicio prancha = new Exercicio ("Prancha", "fique um determinado tempo em posição de prancha", 100);
         ExercicioPratico pranchaTempo = new ExPraticoSerieTempo(prancha, 4, 60, 30);
         repositorioExPratico.criarExercicio(pranchaTempo);
 
-        Exercicio abdominal = new Exercicio ("abdominal", "abdominal em uma intensidade media", 100);
+        Exercicio abdominal = new Exercicio ("Abdominal", "abdominal em uma intensidade media", 100);
         ExercicioPratico abdominalSerie= new ExPraticoSerieReps(abdominal, 5, 60, 20);
         repositorioExPratico.criarExercicio(abdominalSerie);
 
 
         //Exercicios de costas
         Exercicio pulldown = new Exercicio("Pulldown", "puxe a barra para baixo, trazendo até a parte superior do peito", 10);
-        ExercicioPratico pulldownSerie = new ExPraticoSerieReps(pulldown, 3, 60, 10);
+        ExercicioPratico pulldownSerie = new ExPraticoSerieReps(pulldown, 3, 60, 8);
         repositorioExPratico.criarExercicio(pulldownSerie);
 
         Exercicio puxadaAlta = new Exercicio("Puxada alta", "Puxe a barra para cima, elevando até a altura do peito", 10);
-        ExercicioPratico puxadaAltaSerie = new ExPraticoSerieReps(puxadaAlta, 3, 60, 10);
+        ExercicioPratico puxadaAltaSerie = new ExPraticoSerieReps(puxadaAlta, 5, 60, 12);
         repositorioExPratico.criarExercicio(puxadaAltaSerie);
 
         Exercicio remadaCavalinho = new Exercicio("Remada cavalinho", "Puxe a barra em direção ao abdômen, contraindo as costas", 10);
@@ -246,6 +257,10 @@ public class TelaDeSelecaoDeFocoGUIController {
         Exercicio remadaBaixa = new Exercicio ("Remada baixa", "puxe a corda na sua direção", 10);
         ExercicioPratico remadaSerie = new ExPraticoSerieReps(remadaBaixa, 3, 60, 10);
         repositorioExPratico.criarExercicio(remadaSerie);
+
+        Exercicio serrote = new Exercicio("Serrote", "Segure o halter e puxe em direção as suas costas", 10);
+        ExercicioPratico serroteSerie = new ExPraticoSerieReps(serrote, 4, 60, 10);
+        repositorioExPratico.criarExercicio(serroteSerie);
 
 
         //mobilidades
@@ -257,7 +272,7 @@ public class TelaDeSelecaoDeFocoGUIController {
         ExercicioPratico rotacaoToracicaSerie = new ExPraticoSerieReps(rotacaoToracica, 1, 0 , 12);
         repositorioExPratico.criarExercicio(rotacaoToracicaSerie);
 
-        Exercicio circuloOmbros = new Exercicio("circulo com os ombros", "Levante os ombros para cima, mova-os para trás em um círculo e depois para baixo", 1);
+        Exercicio circuloOmbros = new Exercicio("Circulo com os ombros", "Levante os ombros para cima, mova-os para trás em um círculo e depois para baixo", 1);
         ExercicioPratico circuloOmbrosSerie = new ExPraticoSerieReps(circuloOmbros, 1, 0, 15);
         repositorioExPratico.criarExercicio(circuloOmbrosSerie);
 
@@ -285,9 +300,11 @@ public class TelaDeSelecaoDeFocoGUIController {
     //adicionar repositorios nos exercicios praticos e tentar alocar!
     public void alocarTreino() throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
         CriarExercicios();
+        CadastroTreinos cadastroTreinos = new CadastroTreinos(repositorioTreinos);
         Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
-        switch(cbFocoDoTreino.getSelectionModel().getSelectedItem().toString()){
-            case "HIPERTROFIA":
+        String selecter = cbFocoDoTreino.getSelectionModel().getSelectedItem().toString();
+        switch(selecter){
+            case "HIPERTROFIA": //media de exercicios
                 List<ExercicioPratico> treinoAHipertrofia = new ArrayList<>();
                 treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("circulo com os ombros"));
                 treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Rotação de Cotovelos"));
@@ -296,7 +313,7 @@ public class TelaDeSelecaoDeFocoGUIController {
                 treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Supino Reto"));
                 treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Supino Inclinado"));
                 treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Fly"));
-                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("TricepsCorda"));
+                treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Triceps Corda"));
                 treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Triceps Francês"));
                 treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Elevação lateral"));
                 treinoAHipertrofia.add(repositorioExPratico.retornarExPratico("Elevação Frontal"));
@@ -311,6 +328,8 @@ public class TelaDeSelecaoDeFocoGUIController {
                 treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Remada baixa"));
                 treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Rosca direta"));
                 treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Rosca alternada"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Abdominal"));
+                treinoBHipertrofia.add(repositorioExPratico.retornarExPratico("Prancha"));
                 List<ExercicioPratico> treinoCHipertrofia = new ArrayList<>();
                 treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Mobilidade de quadril"));
                 treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Rotação torácica"));
@@ -323,7 +342,6 @@ public class TelaDeSelecaoDeFocoGUIController {
                 treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Cadeira Extensora"));
                 treinoCHipertrofia.add(repositorioExPratico.retornarExPratico("Levantamento terra"));
 
-                CadastroTreinos cadastroTreinos = new CadastroTreinos(repositorioTreinos);
                 cadastroTreinos.cadastrarTreino("Treino A Hipertrofia", treinoAHipertrofia);
                 cadastroTreinos.cadastrarTreino("Treino B Hipertrofia", treinoBHipertrofia);
                 cadastroTreinos.cadastrarTreino("Treino C Hipertrofia", treinoCHipertrofia);
@@ -335,18 +353,158 @@ public class TelaDeSelecaoDeFocoGUIController {
                 listaDeTreinosDeHipertrofia.add(treinoBHip);
                 listaDeTreinosDeHipertrofia.add(treinoCHip);
                 usuario.AdicionarListaAoPlanoDeTreino(repositorioPlanoDeTreino.retornarNomeDoPlanoDeTreino(), listaDeTreinosDeHipertrofia);
+                break;
 
 
+            case "FORÇA_MUSCULAR": //-exercicios
+                List<ExercicioPratico> treinoAForca =  new ArrayList<>();
+                treinoAForca.add(repositorioExPratico.retornarExPratico("circulo com os ombros"));
+                treinoAForca.add(repositorioExPratico.retornarExPratico("Rotação de Cotovelos"));
+                treinoAForca.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
+                treinoAForca.add(repositorioExPratico.retornarExPratico("Bicicleta"));
+                treinoAForca.add(repositorioExPratico.retornarExPratico("Supino Reto"));
+                treinoAForca.add(repositorioExPratico.retornarExPratico("Supino Inclinado"));
+                treinoAForca.add(repositorioExPratico.retornarExPratico("Triceps Corda"));
+                treinoAForca.add(repositorioExPratico.retornarExPratico("Elevação lateral"));
+                List<ExercicioPratico> treinoBForca =  new ArrayList<>();
+                treinoBForca.add(repositorioExPratico.retornarExPratico("circulo com os ombros"));
+                treinoBForca.add(repositorioExPratico.retornarExPratico("Rotação de Cotovelos"));
+                treinoBForca.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
+                treinoBForca.add(repositorioExPratico.retornarExPratico("Esteira"));
+                treinoBForca.add(repositorioExPratico.retornarExPratico("Puxada alta"));
+                treinoBForca.add(repositorioExPratico.retornarExPratico("Remada cavalinho"));
+                treinoBForca.add(repositorioExPratico.retornarExPratico("Remada baixa"));
+                treinoBForca.add(repositorioExPratico.retornarExPratico("Rosca direta"));
+                treinoBForca.add(repositorioExPratico.retornarExPratico("Abdominal"));
+                List<ExercicioPratico> treinoCForca =  new ArrayList<>();
+                treinoCForca.add(repositorioExPratico.retornarExPratico("Mobilidade de quadril"));
+                treinoCForca.add(repositorioExPratico.retornarExPratico("Rotação torácica"));
+                treinoCForca.add(repositorioExPratico.retornarExPratico("Circulo com os quadris"));
+                treinoCForca.add(repositorioExPratico.retornarExPratico("Escada"));
+                treinoCForca.add(repositorioExPratico.retornarExPratico("agachamento"));
+                treinoCForca.add(repositorioExPratico.retornarExPratico("Leg Press"));
+                treinoCForca.add(repositorioExPratico.retornarExPratico("Levantamento terra"));
 
+                cadastroTreinos.cadastrarTreino("Treino A Força", treinoAForca);
+                cadastroTreinos.cadastrarTreino("Treino B Força", treinoBForca);
+                cadastroTreinos.cadastrarTreino("Treino C Força", treinoCForca);
+                Treino treinoAFM = repositorioTreinos.buscarTreino("Treino A Força");
+                Treino treinoBFM = repositorioTreinos.buscarTreino("Treino B Força");
+                Treino treinoCFM = repositorioTreinos.buscarTreino("Treino C Força");
+                List<Treino> listaDeTreinosDeForca =  new ArrayList<>();
+                listaDeTreinosDeForca.add(treinoAFM);
+                listaDeTreinosDeForca.add(treinoBFM);
+                listaDeTreinosDeForca.add(treinoCFM);
+                usuario.AdicionarListaAoPlanoDeTreino(repositorioPlanoDeTreino.retornarNomeDoPlanoDeTreino(), listaDeTreinosDeForca);
+                break;
 
-            case "FORÇA_MUSCULAR":
+            case "FLEXIBILIDADE": //++Mobilidade --Exercicios
+                List<ExercicioPratico> treinoAFlexibilidade = new ArrayList<>();
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("circulo com os ombros"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Rotação de Cotovelos"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Mobilidade de quadril"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Circulo com os quadris"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Flexão de coluna"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Bicicleta"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Supino reto"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Triceps corda"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Elevacao lateral"));
+                List<ExercicioPratico> treinoBFlexibilidade = new ArrayList<>();
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Flexão de coluna"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("circulo com os ombros"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Mobilização de Tornozelo"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Circulo com os quadris"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Rotação torácica"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Escada"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Puxada alta"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Remada baixa"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Rosca direta"));
+                treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("prancha"));
+                List<ExercicioPratico> treinoCFlexibilidade = new ArrayList<>();
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Mobilidade de quadril"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Rotação torácica"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Circulo com os ombros"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Circulo com os quadris"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Flexão de coluna"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Rotação de Cotovelos"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Mobilização de Tornozelo"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Bicicleta"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Agachamento"));
+                treinoCFlexibilidade.add(repositorioExPratico.retornarExPratico("Mesa Flexora"));
 
+                cadastroTreinos.cadastrarTreino("Treino A FLexibilidade", treinoAFlexibilidade);
+                cadastroTreinos.cadastrarTreino("Treino B FLexibilidade", treinoBFlexibilidade);
+                cadastroTreinos.cadastrarTreino("Treino C FLexibilidade", treinoCFlexibilidade);
+                Treino treinoAFlex = repositorioTreinos.buscarTreino("Treino A FLexibilidade");
+                Treino treinoBFlex = repositorioTreinos.buscarTreino("Treino B FLexibilidade");
+                Treino treinoCFlex = repositorioTreinos.buscarTreino("Treino C Flexibilidade");
 
-            case "FLEXIBILIDADE":
+                List<Treino> listaDeTreinosDeFlexibilidade = new ArrayList<>();
+                listaDeTreinosDeFlexibilidade.add(treinoAFlex);
+                listaDeTreinosDeFlexibilidade.add(treinoBFlex);
+                listaDeTreinosDeFlexibilidade.add(treinoCFlex);
+                usuario.AdicionarListaAoPlanoDeTreino(repositorioPlanoDeTreino.retornarNomeDoPlanoDeTreino(),  listaDeTreinosDeFlexibilidade);
+                break;
 
+            case "RESISTÊNCIA": //++Exercicios
+                List<ExercicioPratico> treinoAResistencia = new ArrayList<>();
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("circulo com os ombros"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Rotação de Cotovelos"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Bicicleta"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Supino Reto"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Supino Inclinado"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Fly"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Crossover"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Triceps Corda"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Triceps Francês"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Elevação lateral"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Elevação Frontal"));
+                treinoAResistencia.add(repositorioExPratico.retornarExPratico("Desenvolvimento"));
+                List<ExercicioPratico> treinoBResistencia = new ArrayList<>();
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("circulo com os ombros"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Rotação de Cotovelos"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Esteira"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Pulldown"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Serrote"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Puxada alta"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Remada cavalinho"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Remada baixa"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Rosca direta"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Rosca alternada"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Abdominal"));
+                treinoBResistencia.add(repositorioExPratico.retornarExPratico("Prancha"));
+                List<ExercicioPratico> treinoCResistencia = new ArrayList<>();
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Mobilidade de quadril"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Rotação torácica"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Circulo com os quadris"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Mobilização de tornozelo"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Escada"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("agachamento"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Leg Press"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Búlgaro"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Mesa Flexora"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Cadeira Extensora"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Levantamento terra"));
+                treinoCResistencia.add(repositorioExPratico.retornarExPratico("Stiff"));
 
-            case "RESISTÊNCIA":
+                cadastroTreinos.cadastrarTreino("Treino A Resistência", treinoAResistencia);
+                cadastroTreinos.cadastrarTreino("Treino B Resistência", treinoBResistencia);
+                cadastroTreinos.cadastrarTreino("Treino C Resistência", treinoCResistencia);
+                Treino treinoARes = repositorioTreinos.buscarTreino("Treino A Resistência");
+                Treino treinoBRes = repositorioTreinos.buscarTreino("Treino B Resistência");
+                Treino treinoCRes = repositorioTreinos.buscarTreino("Treino C Resistência");
 
+                List<Treino> listaDeTreinosDeResistencia = new ArrayList<>();
+                listaDeTreinosDeResistencia.add(treinoARes);
+                listaDeTreinosDeResistencia.add(treinoBRes);
+                listaDeTreinosDeResistencia.add(treinoCRes);
+                usuario.AdicionarListaAoPlanoDeTreino(repositorioPlanoDeTreino.retornarNomeDoPlanoDeTreino(),  listaDeTreinosDeResistencia);
+                break;
 
             default:
                 break;
