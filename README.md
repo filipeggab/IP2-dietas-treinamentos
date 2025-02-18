@@ -9,7 +9,6 @@ Ideias que inspiram o projeto:
  * MyTrainingPal
 
 ## Integrantes do grupo 
- * Filipe Gabriel Montarroyos de Oliveira - filipe.montarroyos@ufrpe.br
  * Matheus Guilherme Moreira de Lima - matheus.guilherme@ufrpe.br
  * Enzo Lourenço Rodrigues Veras - enzo.veras06@gmail.com
  * Gabriel Leal de Queiroz - 2006gabrielleal@gmail.com
