@@ -25,12 +25,10 @@ public class CadastroComidas {
 
         USDAFoodDataAPI usdaAPI = new USDAFoodDataAPI();
         try {
-            // A API agora retorna um objeto Comida diretamente
             Comida comida = usdaAPI.buscarInformacoesNutricionais(nome);
 
-            // Use os getters da classe Comida
             Comida novaComida = new Comida(
-                    comida.getNome(),
+                    nome,
                     unDeMedida,
                     comida.getProteinas(),
                     comida.getCarboidratos(),
@@ -40,6 +38,7 @@ public class CadastroComidas {
 
             repo.criarComida(novaComida);
             System.out.println("Comida cadastrada com sucesso!");
+            //System.out.println("Nome:" + nome + "nome dado pela API" + novaComida.getNome() );
 
         } catch (IOException e) {
             System.out.println("Erro ao buscar informações nutricionais: " + e.getMessage());
