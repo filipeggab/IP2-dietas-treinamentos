@@ -45,10 +45,24 @@ public class CadastroComidas {
         }
     }
 
+    public void cadastrarComida(String nome, String unDeMedida, double proteinas, double carboidratos, double gorduras, double calorias) {
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("O nome da comida não pode estar vazio.");
+        }
+        if (unDeMedida == null || unDeMedida.trim().isEmpty()) {
+            throw new IllegalArgumentException("A unidade de medida deve ser informada.");
+        }
+        if (proteinas < 0 || carboidratos < 0 || gorduras < 0 || calorias < 0) {
+            throw new IllegalArgumentException("Os valores nutricionais não podem ser negativos.");
+        }
+
+        Comida novaComida = new Comida(nome, unDeMedida, proteinas, carboidratos, gorduras, calorias);
+        repo.criarComida(novaComida);
+    }
+
     public void removerComida(String nome) throws ComidaNaoCadastradaException {
         repo.apagarComida(nome);
     }
-
 
     public Comida lerComida(String nome) {
         try {
