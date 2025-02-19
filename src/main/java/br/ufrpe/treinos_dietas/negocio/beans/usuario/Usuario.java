@@ -1,8 +1,11 @@
 package br.ufrpe.treinos_dietas.negocio.beans.usuario;
 
+import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
+import br.ufrpe.treinos_dietas.exceptions.PlanoNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
+import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -18,6 +21,7 @@ public class Usuario {
     private List<Metrica> metricas;
     private List<PlanoDeTreino> planoDeTreinoList;
     private List<Dieta> dietaList;
+    RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
 
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
@@ -26,6 +30,12 @@ public class Usuario {
         this.sexo = sexo;
         this.dataNasc = dataNasc;
         this.metricas = new ArrayList<>();
+    }
+
+    public Usuario() {
+        this.metricas = new ArrayList<>();
+        this.planoDeTreinoList = new ArrayList<>();
+        this.dietaList = new ArrayList<>();
     }
 
     public Metrica ultimaMetrica (){
@@ -79,6 +89,28 @@ public class Usuario {
     public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
+
+    public void adicionarMetrica(Metrica metrica){
+        this.metricas.add(metrica);
+    }
+    public void adicionarDieta(Dieta dieta){
+        this.dietaList.add(dieta);
+    }
+    public void adicionarPlanoDeTreino(PlanoDeTreino planoDeTreino){
+        this.planoDeTreinoList.add(planoDeTreino);
+    }
+
+    public void AdicionarListaAoPlanoDeTreino(String nome, List<Treino> lista) throws PlanoNaoCadastradoException {
+        PlanoDeTreino plano = repositorioPlanoDeTreino.retornarPlanoDeTreino(nome);
+
+        if (plano == null) {
+            throw new PlanoNaoCadastradoException("Plano de treino '" + nome + "' não encontrado.");
+        }
+
+        plano.setTreinoList(lista != null ? new ArrayList<>(lista) : new ArrayList<>());
+    }
+
+
 
     @Override
     public String toString() {

@@ -1,7 +1,6 @@
 package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
 
-import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumDificuldade;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
 
 import java.time.LocalDate;
@@ -10,8 +9,8 @@ import java.time.Period;
 public class PlanoDeTreinoPorData extends PlanoDeTreino{
     private LocalDate dataFinal;
 
-    public PlanoDeTreinoPorData(String nome, EnumDificuldade nivel, EnumObjetivoDoPlano objetivo, LocalDate dataInicial, LocalDate dataFinal) {
-        super(nome, nivel, objetivo, dataInicial);
+    public PlanoDeTreinoPorData(String nome, EnumObjetivoDoPlano objetivo, LocalDate dataInicial, LocalDate dataFinal) {
+        super(nome, objetivo, dataInicial);
         this.dataFinal = dataFinal;
     }
 

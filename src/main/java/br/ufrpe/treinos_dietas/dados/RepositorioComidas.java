@@ -16,7 +16,7 @@ public class RepositorioComidas {
     }
 
     public Comida buscarComida(String nome) throws ComidaNaoCadastradaException {
-        Comida comida = comidas.stream().filter(x -> x.getNome().equals(nome)).findFirst().orElse(null);
+        Comida comida = comidas.stream().filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim())).findFirst().orElse(null);
         if (comida == null) {
             throw new ComidaNaoCadastradaException(nome);
         } else {

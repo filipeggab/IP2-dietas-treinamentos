@@ -14,7 +14,7 @@ public class RepositorioDietas {
         this.dietas = new ArrayList<>();
     }
     public Dieta buscarDieta(String nome) throws DietaNaoCadastradaException {
-        Dieta dieta = dietas.stream().filter(x -> x.getNome().equals(nome)).findFirst().orElse(null);
+        Dieta dieta = dietas.stream().filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim())).findFirst().orElse(null);
         if(dieta == null){
             throw new DietaNaoCadastradaException(nome);
         }else{

@@ -15,7 +15,7 @@ public class RepositorioRefeicao {
     }
 
     public Refeicao buscarRefeicao(String nome) throws RefeicaoNaoCadastradaException {
-        Refeicao ref = refeicoes.stream().filter(x -> x.getNome().equals(nome)).findFirst().orElse(null);
+        Refeicao ref = refeicoes.stream().filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim())).findFirst().orElse(null);
         if(ref == null){
             throw new RefeicaoNaoCadastradaException(nome);
         }else{

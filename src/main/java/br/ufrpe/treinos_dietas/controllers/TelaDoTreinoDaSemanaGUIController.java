@@ -24,6 +24,9 @@ public class TelaDoTreinoDaSemanaGUIController {
     @FXML
     private Button btnTreinoC;
 
+    @FXML
+    private Button btnIrParaCalendarioDeTreino;
+
     //Metodo para o botão btnVoltaTelaPrincipal ir para a tela principal
     @FXML
     public void btnVoltaTelaPrincipalActionPerformed() throws IOException {
@@ -67,4 +70,14 @@ public class TelaDoTreinoDaSemanaGUIController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+    @FXML
+    public void btnIrParaCalendarioDeTreinoActionPerformed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/CalendárioDeTreinos.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) btnIrParaCalendarioDeTreino.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
 }

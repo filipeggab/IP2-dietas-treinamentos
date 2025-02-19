@@ -4,8 +4,6 @@ package br.ufrpe.treinos_dietas.negocio;
 import br.ufrpe.treinos_dietas.dados.RepositorioExercicios;
 import br.ufrpe.treinos_dietas.exceptions.ExercicioJaExisteException;
 import br.ufrpe.treinos_dietas.exceptions.ExercicioNaoCadastradoException;
-import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumDificuldade;
-import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDeExercicio;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Exercicio;
 
 public class CadastroExercicios {
@@ -15,12 +13,10 @@ public class CadastroExercicios {
         this.repo = new RepositorioExercicios();
     }
 
-    public void cadastrarExercicio(String nome, String descricao, String materiais, String dificuldade, String objetivo, double percaCaloricaMedia) throws ExercicioJaExisteException {
+    public void cadastrarExercicio(String nome, String descricao, double percaCaloricaMedia) throws ExercicioJaExisteException {
         try{
-            EnumDificuldade enumDif = EnumDificuldade.valueOf(dificuldade);
-            EnumObjetivoDeExercicio enumOb = EnumObjetivoDeExercicio.valueOf(objetivo);
             if(!repo.exercicioExiste(nome)){
-                Exercicio ex = new Exercicio(nome, descricao, materiais, enumDif, enumOb, percaCaloricaMedia);
+                Exercicio ex = new Exercicio(nome, descricao, percaCaloricaMedia);
                 repo.criarExercicio(ex);
             }else{
                 throw new ExercicioJaExisteException();

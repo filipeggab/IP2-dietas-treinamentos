@@ -1,24 +1,18 @@
 package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
 
-import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDeExercicio;
-
 import java.util.List;
 
 public class Treino {
     private String nome;
-    private List<EnumObjetivoDeExercicio> foco;
     private List<ExercicioPratico> exercicioList;
 
-    public Treino(String nome, List<EnumObjetivoDeExercicio> foco, List<ExercicioPratico> exercicioList) {
+    public Treino(String nome, List<ExercicioPratico> exercicioList) {
         this.nome = nome;
-        this.foco = foco;
         this.exercicioList = exercicioList;
     }
-
-    public Treino(String nome, List<EnumObjetivoDeExercicio> foco) {
+    public Treino(String nome){
         this.nome = nome;
-        this.foco = foco;
     }
 
     public boolean adicionarExercicio(ExercicioPratico exercicio){
@@ -70,14 +64,6 @@ public class Treino {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public List<EnumObjetivoDeExercicio> getFoco() {
-        return foco;
-    }
-
-    public void setFoco(List<EnumObjetivoDeExercicio> foco) {
-        this.foco = foco;
     }
 
     public List<ExercicioPratico> getExercicioList() {

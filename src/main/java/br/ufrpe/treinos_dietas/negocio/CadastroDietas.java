@@ -5,18 +5,19 @@ import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
 import br.ufrpe.treinos_dietas.exceptions.DietaNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
+import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
 
 import java.time.LocalDate;
 
 public class CadastroDietas {
     private RepositorioDietas repo;
 
-    public CadastroDietas() {
-        this.repo = new RepositorioDietas();
+    public CadastroDietas(RepositorioDietas repo) {
+        this.repo = repo;
     }
 
 
-    public void cadastrarDieta(String nome, LocalDate dataInicio, LocalDate dataFim) {
+    public void cadastrarDieta(String nome, LocalDate dataInicio, LocalDate dataFim, EnumObjetivoDaDieta  objetivoDaDieta){
         if (nome == null || nome.trim().isEmpty()) {
             throw new IllegalArgumentException("O nome da dieta não pode estar vazio.");
         }
@@ -27,7 +28,7 @@ public class CadastroDietas {
             throw new IllegalArgumentException("A data de início não pode ser depois da data de fim.");
         }
 
-        Dieta novaDieta = new Dieta(nome, dataInicio, dataFim);
+        Dieta novaDieta = new Dieta(nome, dataInicio, dataFim, objetivoDaDieta);
         repo.criarDieta(novaDieta);
     }
 

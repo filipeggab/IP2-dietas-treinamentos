@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaDeSelecaoDeFocoGUIController">
+
+    <top>
+        <HBox alignment="CENTER" prefHeight="79.0" prefWidth="786.0" style="-fx-border-color: orange;">
+            <children>
+                <Label style="-fx-font-weight: bold;" text="Seleção de Foco e Métricas">
+                    <font>
+                        <Font name="System Bold Italic" size="36.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox alignment="CENTER">
+            <!-- Coluna Dieta -->
+            <VBox alignment="CENTER" prefHeight="549.0" prefWidth="346.0" spacing="20.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+
+                <Label style="-fx-font-weight: bold;" text="Foco da Dieta">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="cbFocoDaDieta" prefWidth="150.0" />
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="549.0" prefWidth="333.0" spacing="15.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                <children>
+                    <Label style="-fx-font-weight: bold;" text="Métricas e Informações">
+                        <font>
+                            <Font size="27.0" />
+                        </font>
+                    </Label>
+                    <HBox prefHeight="27.0" prefWidth="323.0">
+                        <children>
+                            <Label prefHeight="27.0" prefWidth="65.0" text="Altura:">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                                <padding>
+                                    <Insets left="5.0" />
+                                </padding>
+                            </Label>
+                            <TextField fx:id="txtAltura" prefHeight="25.0" prefWidth="217.0" promptText="Ex(cm): 170">
+                                <HBox.margin>
+                                    <Insets left="6.0" />
+                                </HBox.margin>
+                            </TextField>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="27.0" prefWidth="323.0">
+                        <children>
+                            <Label prefHeight="27.0" prefWidth="65.0" text="Peso:  ">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                                <padding>
+                                    <Insets left="5.0" />
+                                </padding>
+                            </Label>
+                            <TextField fx:id="txtPeso" prefHeight="25.0" prefWidth="217.0" promptText="Ex(kg): 70.4">
+                                <HBox.margin>
+                                    <Insets left="6.0" />
+                                </HBox.margin>
+                            </TextField>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="27.0" prefWidth="323.0">
+                        <children>
+                            <Label prefHeight="27.0" prefWidth="72.0" text="Sexo:">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                                <padding>
+                                    <Insets left="5.0" />
+                                </padding>
+                            </Label>
+                     <ChoiceBox fx:id="cbSexo" prefHeight="25.0" prefWidth="210.0" />
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="27.0" prefWidth="323.0">
+                        <children>
+                            <Label prefHeight="27.0" prefWidth="273.0" text="Data de Nascimento:">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                                <padding>
+                                    <Insets left="5.0" />
+                                </padding>
+                            </Label>
+                            <DatePicker fx:id="dpDataDeNascimento" prefHeight="25.0" prefWidth="219.0" />
+                        </children>
+                    </HBox>
+                    <Label prefHeight="26.0" prefWidth="28.0" />
+                </children>
+            </VBox>
+
+            <!-- Coluna Treino -->
+            <VBox alignment="CENTER" prefHeight="549.0" prefWidth="333.0" spacing="20.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+
+                <Label style="-fx-font-weight: bold;" text="Foco do Treino">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="cbFocoDoTreino" prefWidth="150.0" />
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+            </VBox>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="72.0" prefWidth="800.0" style="-fx-border-color: orange; -fx-border-width: 3;" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="btnConfirmarSelecao" mnemonicParsing="false" onAction="#btnConfirmarSelecaoActionPerformed" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Confirmar Seleção">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+
+</BorderPane>

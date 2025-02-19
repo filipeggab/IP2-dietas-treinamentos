@@ -25,7 +25,7 @@ public class RepositorioTreinos {
         }
     }
     public Treino buscarTreino(String nome) throws TreinoNaoCadastradoException{
-        Treino treino = treinos.stream().filter(x -> x.getNome().equals(nome)).findFirst().orElse(null);
+        Treino treino = treinos.stream().filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim())).findFirst().orElse(null);
         if(treino == null){
             throw new TreinoNaoCadastradoException(nome);
         } else{
