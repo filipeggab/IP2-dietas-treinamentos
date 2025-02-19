@@ -13,6 +13,7 @@ public abstract class PlanoDeTreino {
     protected LocalDate dataInicial;
     protected List<Treino> treinoList;
     protected List<TreinoRealizado> treinoRealizadoList;
+    protected int contagemDeDias = 0;
 
     public PlanoDeTreino(String nome, EnumObjetivoDoPlano objetivo, LocalDate dataInicial) {
         this.nome = nome;

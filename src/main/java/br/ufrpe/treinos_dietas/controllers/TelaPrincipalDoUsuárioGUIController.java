@@ -2,7 +2,6 @@ package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
-import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.ExercicioPratico;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
@@ -73,7 +72,6 @@ public class TelaPrincipalDoUsuárioGUIController {
     public void atualizarLabels(){
 
         PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
-        EnumObjetivoDoPlano selecter = planoAtual.getObjetivo();
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
         Treino treinoA = treinosAtuais.get(0);
         Treino treinoB = treinosAtuais.get(1);
@@ -82,10 +80,23 @@ public class TelaPrincipalDoUsuárioGUIController {
         List<ExercicioPratico> exerciciosTreinoA = treinoA.getExercicioList();
         List<ExercicioPratico> exerciciosTreinoB = treinoB.getExercicioList();
         List<ExercicioPratico> exerciciosTreinoC = treinoC.getExercicioList();
+        /*
+        selector
+                if(contador == 0){
+                    selector = 0
+                }
+                else{
+                    selector = contador * 3
+                }
 
-        switch(selecter){
+        contador % 3 = 1 && planoAtual.getDataInicial().plusDays(selector) == treinoB ****** fazer um if-else
+                0 1 2
+                3 4 5
+                6 7 8
+        switch(String treino){
+        int selector = selectorGenerator();
+        */
 
-        }
         label1.setText(exerciciosTreinoA.get(0).toString());
         label2.setText(exerciciosTreinoA.get(1).toString());
 
