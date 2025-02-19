@@ -2,6 +2,7 @@ package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
+import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.ExercicioPratico;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
@@ -22,7 +23,15 @@ import java.util.List;
 
 public class TelaPrincipalDoUsuárioGUIController {
     Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
-    RepositorioPlanoDeTreino repositorioPlanoDeTreino = new RepositorioPlanoDeTreino();
+    RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
+    private static TelaPrincipalDoUsuárioGUIController instancia;
+
+    public static TelaPrincipalDoUsuárioGUIController getInstance(){
+        if(instancia == null){
+            instancia = new TelaPrincipalDoUsuárioGUIController();
+        }
+        return instancia;
+    }
 
      @FXML
     private Label lblBemVindo;
@@ -64,6 +73,7 @@ public class TelaPrincipalDoUsuárioGUIController {
     public void atualizarLabels(){
 
         PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        EnumObjetivoDoPlano selecter = planoAtual.getObjetivo();
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
         Treino treinoA = treinosAtuais.get(0);
         Treino treinoB = treinosAtuais.get(1);
@@ -73,8 +83,11 @@ public class TelaPrincipalDoUsuárioGUIController {
         List<ExercicioPratico> exerciciosTreinoB = treinoB.getExercicioList();
         List<ExercicioPratico> exerciciosTreinoC = treinoC.getExercicioList();
 
+        switch(selecter){
 
-
+        }
+        label1.setText(exerciciosTreinoA.get(0).toString());
+        label2.setText(exerciciosTreinoA.get(1).toString());
 
     }
 

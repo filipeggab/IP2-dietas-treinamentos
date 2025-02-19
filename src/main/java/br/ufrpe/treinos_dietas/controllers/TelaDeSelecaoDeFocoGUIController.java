@@ -45,6 +45,7 @@ public class TelaDeSelecaoDeFocoGUIController {
 
 
 
+
     ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO", "LOWCARB", "VEGETEARIANO");
     ObservableList<String> focoDoTreino = FXCollections.observableArrayList("FORÇA_MUSCULAR", "HIPERTROFIA", "RESISTÊNCIA", "FLEXIBILIDADE");
     ObservableList<EnumSexo> escolhasSexo =  FXCollections.observableArrayList(EnumSexo.values());
@@ -86,6 +87,9 @@ public class TelaDeSelecaoDeFocoGUIController {
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
         Parent root = loader.load();
+        TelaPrincipalDoUsuárioGUIController controller =loader.getController();
+
+        controller.atualizarLabels();
 
         Stage stage = (Stage) btnConfirmarSelecao.getScene().getWindow();
         stage.setScene(new Scene(root));
@@ -409,7 +413,7 @@ public class TelaDeSelecaoDeFocoGUIController {
                 treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Bicicleta"));
                 treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Supino reto"));
                 treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Triceps corda"));
-                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Elevacao lateral"));
+                treinoAFlexibilidade.add(repositorioExPratico.retornarExPratico("Elevação lateral"));
                 List<ExercicioPratico> treinoBFlexibilidade = new ArrayList<>();
                 treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Flexão de coluna"));
                 treinoBFlexibilidade.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));

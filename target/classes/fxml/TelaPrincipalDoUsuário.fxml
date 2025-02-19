@@ -192,12 +192,22 @@
                            </font></CheckBox>
                      </children>
                   </HBox>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx" textAlignment="RIGHT">
+                  <Label fx:id="label1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx" textAlignment="RIGHT">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="268.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  <Label fx:id="label2" alignment="CENTER" prefHeight="18.0" prefWidth="268.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="348.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
@@ -226,16 +236,6 @@
                      </children>
                   </HBox>
                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
-                     <VBox.margin>
-                        <Insets left="6.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="348.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
-                     <VBox.margin>
-                        <Insets left="6.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
