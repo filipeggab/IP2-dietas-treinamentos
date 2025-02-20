@@ -9,7 +9,7 @@
    <top>
       <HBox alignment="TOP_RIGHT" prefHeight="79.0" prefWidth="786.0" style="-fx-border-color: orange;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="77.0" prefWidth="676.0" text="Dia dd/MM/YYYY">
+            <Label fx:id="labelData" alignment="CENTER" prefHeight="77.0" prefWidth="676.0" text="Dia dd/MM/YYYY">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
@@ -39,7 +39,7 @@
                         <Insets left="6.0" />
                      </HBox.margin>
                   </Label>
-                  <CheckBox mnemonicParsing="false">
+                  <CheckBox fx:id="chkCafeDaManha" mnemonicParsing="false">
                      <font>
                         <Font size="16.0" />
                      </font></CheckBox>
@@ -71,7 +71,7 @@
                         <Insets left="6.0" />
                      </HBox.margin>
                   </Label>
-                  <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0">
+                  <CheckBox fx:id="chkAlmoco" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -104,7 +104,7 @@
                         <Insets left="6.0" />
                      </HBox.margin>
                   </Label>
-                  <CheckBox mnemonicParsing="false" prefHeight="27.0" prefWidth="21.0">
+                  <CheckBox fx:id="chkLanche" mnemonicParsing="false" prefHeight="27.0" prefWidth="21.0">
                      <font>
                         <Font size="15.0" />
                      </font></CheckBox>
@@ -136,7 +136,7 @@
                         <Insets left="6.0" />
                      </HBox.margin>
                   </Label>
-                  <CheckBox mnemonicParsing="false">
+                  <CheckBox fx:id="chkJantar" mnemonicParsing="false">
                      <font>
                         <Font size="15.0" />
                      </font></CheckBox>
@@ -186,33 +186,23 @@
                               <Insets left="6.0" />
                            </HBox.margin>
                         </Label>
-                        <CheckBox mnemonicParsing="false">
+                        <CheckBox fx:id="chkMobilidade" mnemonicParsing="false">
                            <font>
                               <Font size="15.0" />
                            </font></CheckBox>
                      </children>
                   </HBox>
-                  <Label fx:id="label1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx" textAlignment="RIGHT">
+                  <Label fx:id="labelM1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx" textAlignment="RIGHT">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="label2" alignment="CENTER" prefHeight="18.0" prefWidth="268.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  <Label fx:id="labelM2" alignment="CENTER" prefHeight="18.0" prefWidth="268.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
-                     <VBox.margin>
-                        <Insets left="6.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="348.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
-                     <VBox.margin>
-                        <Insets left="6.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+                  <Label fx:id="labelM3" alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
@@ -228,14 +218,14 @@
                               <Insets left="6.0" />
                            </HBox.margin>
                         </Label>
-                        <CheckBox mnemonicParsing="false">
+                        <CheckBox fx:id="chkCardio" mnemonicParsing="false">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </CheckBox>
                      </children>
                   </HBox>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+                  <Label fx:id="labelC1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
@@ -251,43 +241,43 @@
                               <Insets left="6.0" />
                            </HBox.margin>
                         </Label>
-                        <CheckBox mnemonicParsing="false">
+                        <CheckBox fx:id="chkForca" mnemonicParsing="false">
                            <font>
                               <Font size="15.0" />
                            </font></CheckBox>
                      </children>
                   </HBox>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+                  <Label fx:id="labelF1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  <Label fx:id="labelF2" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+                  <Label fx:id="labelF3" alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+                  <Label fx:id="labelF4" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  <Label fx:id="labelF5" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+                  <Label fx:id="labelF6" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets left="6.0" />
                      </VBox.margin>
                   </Label>
-                  <Label prefHeight="45.0" prefWidth="33.0" />
+                  <Label prefHeight="83.0" prefWidth="33.0" />
                   <Label />
                   <Button fx:id="btnTreinoSemanal" mnemonicParsing="false" onAction="#btnTreinoSemanalActionPerformed" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Treino semanal">
                      <font>
