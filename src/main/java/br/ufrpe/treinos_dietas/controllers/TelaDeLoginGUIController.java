@@ -57,6 +57,7 @@ public class TelaDeLoginGUIController {
         stage.show();
     }
 
+    //Consertar depois
     public void login () throws IOException{
         String email = txtNome.getText();
         String senha = txtSenha.getText();

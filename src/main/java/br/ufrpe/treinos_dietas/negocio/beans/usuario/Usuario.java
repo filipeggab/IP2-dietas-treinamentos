@@ -39,10 +39,14 @@ public class Usuario {
         this.dietaList = new ArrayList<>();
     }
 
-    public Metrica ultimaMetrica (){
+    public Metrica ultimaMetrica() {
+        if (metricas.isEmpty()) {
+            return null; // null se não houver métricas
+        }
         return metricas.getLast();
     }
-    
+
+
     public void addMetrica (Metrica metrica){
         metricas.add(metrica);
     }
