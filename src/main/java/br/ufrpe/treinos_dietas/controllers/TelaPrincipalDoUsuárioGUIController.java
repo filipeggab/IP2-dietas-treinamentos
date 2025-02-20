@@ -17,23 +17,17 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 
 public class TelaPrincipalDoUsuárioGUIController {
     Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
-    private static TelaPrincipalDoUsuárioGUIController instancia;
+    LocalDate dataAtualizada = LocalDate.now();
+    LocalDate dataAdicionada = LocalDate.now();
 
-    public static TelaPrincipalDoUsuárioGUIController getInstance(){
-        if(instancia == null){
-            instancia = new TelaPrincipalDoUsuárioGUIController();
-        }
-        return instancia;
-    }
 
-     @FXML
-    private Label lblBemVindo;
 
     @FXML
     private Button btnDietaSemanal;
@@ -43,10 +37,9 @@ public class TelaPrincipalDoUsuárioGUIController {
 
     @FXML
     private Button btnPerfil;
-    // do para abrir Dieta Semanal
 
     @FXML
-    private CheckBox chkCafeManha;
+    private CheckBox chkCafeDaManha;
 
     @FXML
     private CheckBox chkAlmoco;
@@ -64,12 +57,20 @@ public class TelaPrincipalDoUsuárioGUIController {
     private CheckBox chkCardio;
 
     @FXML
-    private CheckBox chkTreinoDeForca;
+    private CheckBox chkForca;
 
     @FXML
-    private Label label1,label2,label3;
+    private Label labelM1,labelM2,labelM3, labelC1, labelF1, labelF2, labelF3,labelF4,labelF5,labelF6;
+
+    @FXML
+    private Label labelData;
+
 
     public void atualizarLabels(){
+        checarCheckBoxes();
+        labelsEmBranco();
+
+        labelData.setText("Dia " + dataAtualizada.toString());
 
         PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
@@ -80,25 +81,97 @@ public class TelaPrincipalDoUsuárioGUIController {
         List<ExercicioPratico> exerciciosTreinoA = treinoA.getExercicioList();
         List<ExercicioPratico> exerciciosTreinoB = treinoB.getExercicioList();
         List<ExercicioPratico> exerciciosTreinoC = treinoC.getExercicioList();
-        /*
-        selector
-                if(contador == 0){
-                    selector = 0
+        int selector = checarData();
+
+        switch (selector){
+            case 0: //TREINO A
+                if(planoAtual.getNome().equalsIgnoreCase("Plano para FLEXIBILIDADE")){
+                    alocadorFlexibilidade(exerciciosTreinoA);
                 }
                 else{
-                    selector = contador * 3
+                    alocador(exerciciosTreinoA);
                 }
+                break;
+            case 1: //TREINO B
+                if(planoAtual.getNome().equalsIgnoreCase("Plano para FLEXIBILIDADE")) {
+                    alocadorFlexibilidade(exerciciosTreinoB);
+                    labelF4.setText(exerciciosTreinoB.get(10).toString());
+                }
+                else{
+                    alocador(exerciciosTreinoB);
+                }
+                break;
+            case 2: //TREINO C
+                if(planoAtual.getNome().equalsIgnoreCase("Plano para FLEXIBILIDADE")) {
+                    alocadorFlexibilidade(exerciciosTreinoC);
+                    labelC1.setText(exerciciosTreinoC.get(8).toString());
+                    labelF1.setText(exerciciosTreinoC.get(9).toString());
+                    labelF2.setText(exerciciosTreinoC.get(10).toString());
+                    labelF3.setText(" ");
+                }
+                else{
+                    alocador(exerciciosTreinoC);
+                }
+                break;
 
-        contador % 3 = 1 && planoAtual.getDataInicial().plusDays(selector) == treinoB ****** fazer um if-else
-                0 1 2
-                3 4 5
-                6 7 8
-        switch(String treino){
-        int selector = selectorGenerator();
-        */
+            default:
+                break;
+        }
+    }
 
-        label1.setText(exerciciosTreinoA.get(0).toString());
-        label2.setText(exerciciosTreinoA.get(1).toString());
+    private void alocadorFlexibilidade(List<ExercicioPratico> exerciciosTreinoB) {
+        labelM1.setText(exerciciosTreinoB.get(0).toString());
+        labelM2.setText(exerciciosTreinoB.get(1).toString());
+        labelM3.setText(exerciciosTreinoB.get(2).toString());
+        labelC1.setText(exerciciosTreinoB.get(6).toString());
+        labelF1.setText(exerciciosTreinoB.get(7).toString());
+        labelF2.setText(exerciciosTreinoB.get(8).toString());
+        labelF3.setText(exerciciosTreinoB.get(9).toString());
+    }
+
+    private void alocador(List<ExercicioPratico> exerciciosTreinoA) {
+        labelM1.setText(exerciciosTreinoA.get(0).toString());
+        labelM2.setText(exerciciosTreinoA.get(1).toString());
+        labelM3.setText(exerciciosTreinoA.get(2).toString());
+        labelC1.setText(exerciciosTreinoA.get(3).toString());
+        labelF1.setText(exerciciosTreinoA.get(4).toString());
+        labelF2.setText(exerciciosTreinoA.get(5).toString());
+        labelF3.setText(exerciciosTreinoA.get(6).toString());
+        labelF4.setText(exerciciosTreinoA.get(7).toString());
+        labelF5.setText(exerciciosTreinoA.get(8).toString());
+        labelF6.setText(exerciciosTreinoA.get(9).toString());
+    }
+
+
+    public void checarCheckBoxes(){
+        dataAtualizada = LocalDate.now();
+
+        if(chkMobilidade.isSelected() && chkCardio.isSelected() && chkForca.isSelected()){
+            if(dataAtualizada.isBefore(dataAdicionada)){
+            usuario.acrescentarContador();
+            dataAdicionada = LocalDate.now();
+            }
+        }
+    }
+
+    public int checarData(){
+        int selector;
+        selector = usuario.getContador() % 3;
+
+        return selector;
+    }
+
+    public void labelsEmBranco(){
+        labelM1.setText(" ");
+        labelM2.setText(" ");
+        labelM3.setText(" ");
+        labelC1.setText(" ");
+        labelF1.setText(" ");
+        labelF2.setText(" ");
+        labelF3.setText(" ");
+        labelF4.setText(" ");
+        labelF5.setText(" ");
+        labelF6.setText(" ");
 
     }
 

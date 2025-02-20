@@ -21,6 +21,7 @@ public class Usuario {
     private List<Metrica> metricas;
     private List<PlanoDeTreino> planoDeTreinoList;
     private List<Dieta> dietaList;
+    private int contador = 0;
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
 
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
@@ -110,6 +111,14 @@ public class Usuario {
         plano.setTreinoList(lista != null ? new ArrayList<>(lista) : new ArrayList<>());
     }
 
+    public void acrescentarContador(){
+        this.contador++;
+    }
+
+    public int getContador(){
+        return contador;
+    }
+
 
 
     @Override
@@ -125,4 +134,6 @@ public class Usuario {
                 ", dietaList=" + dietaList +
                 '}';
     }
+
+
 }
