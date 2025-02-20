@@ -3,6 +3,7 @@ package br.ufrpe.treinos_dietas;
 
 import br.ufrpe.treinos_dietas.controllers.TelaDeLoginGUIController;
 import br.ufrpe.treinos_dietas.exceptions.ExercicioNaoCadastradoException;
+import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.application.Application;
@@ -12,6 +13,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Main extends Application {
     public Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
@@ -34,6 +40,29 @@ public class Main extends Application {
         });
     }
 
-    public static void main(String[] args) {launch(args);
+    public static void main(String[] args) {
+        launch(args);
+        serializar(new Usuario());
+    }
+
+    public static void serializar (Usuario usuario){
+        Path path = Paths.get("usuario.data");
+        try(ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(path))){
+            oos.writeObject(usuario);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void deserializar (){
+        Path path = Paths.get("treino.data");
+        try(ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(path))){
+          Usuario usuario = (Usuario) ois.readObject();
+            System.out.println(usuario);
+        }catch(IOException e){
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

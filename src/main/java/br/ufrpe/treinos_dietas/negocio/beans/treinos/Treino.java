@@ -1,9 +1,10 @@
 package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Treino {
+public class Treino implements Serializable {
     private String nome;
     private List<ExercicioPratico> exercicioList;
 
@@ -13,6 +14,9 @@ public class Treino {
     }
     public Treino(String nome){
         this.nome = nome;
+    }
+
+    public Treino(String treinoB, String s) {
     }
 
     public boolean adicionarExercicio(ExercicioPratico exercicio){
@@ -74,3 +78,5 @@ public class Treino {
         this.exercicioList = exercicioList;
     }
 }
+
+

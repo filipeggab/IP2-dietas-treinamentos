@@ -70,16 +70,25 @@ public class TelaDeSelecaoDeFocoGUIController {
     private ChoiceBox cbFocoDoTreino;
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         cbFocoDaDieta.setValue("PERDA_DE_PESO");
-        cbFocoDoTreino.setValue("FORÇA_MUSCULAR");
+        cbFocoDoTreino.getItems().addAll("FORÇA_MUSCULAR", "HIPERTROFIA", "RESISTÊNCIA", "FLEXIBILIDADE");
 
+        // Listener para detectar mudanças no foco do treino
+        cbFocoDoTreino.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+            if (newValue != null) {
+                TreinoData.setFocoSelecionado((String) newValue);
+            }
+        });
+
+        // Configuração dos outros elementos
         cbFocoDaDieta.setItems(focoDaDieta);
-        cbFocoDoTreino.setItems(focoDoTreino);
-
         cbSexo.setValue(EnumSexo.MASCULINO);
         cbSexo.setItems(escolhasSexo);
     }
+
+
+
     @FXML
     void btnConfirmarSelecaoActionPerformed() throws IOException, ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
         ContinuarCadastroDoUsuario();
