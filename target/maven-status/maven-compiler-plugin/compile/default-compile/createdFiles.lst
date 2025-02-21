@@ -23,6 +23,7 @@ br\ufrpe\treinos_dietas\controllers\TelaPrincipalDoUsuárioGUIController.class
 br\ufrpe\treinos_dietas\negocio\beans\treinos\Treino.class
 br\ufrpe\treinos_dietas\negocio\beans\enums\EnumObjetivoDoPlano.class
 br\ufrpe\treinos_dietas\negocio\CadastroTreinos.class
+br\ufrpe\treinos_dietas\controllers\TelaEdicaoPerfilGUIController.class
 br\ufrpe\treinos_dietas\negocio\beans\treinos\ExPraticoSerie.class
 br\ufrpe\treinos_dietas\controllers\TelaDaDietaGUIController.class
 br\ufrpe\treinos_dietas\negocio\CadastroComidas.class

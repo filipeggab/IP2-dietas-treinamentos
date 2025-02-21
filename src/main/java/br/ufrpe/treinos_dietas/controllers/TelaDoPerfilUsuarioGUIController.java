@@ -36,6 +36,16 @@ public class TelaDoPerfilUsuarioGUIController {
     }
 
     @FXML
+    public void btnEditarPerfilActionPerformed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaEdicaoPerfil.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) btnEditarPerfil.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
     public void initialize() {
         carregarDadosUsuario();
     }
