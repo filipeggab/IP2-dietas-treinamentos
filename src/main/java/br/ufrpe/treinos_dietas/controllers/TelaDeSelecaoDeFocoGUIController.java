@@ -20,6 +20,7 @@ import br.ufrpe.treinos_dietas.negocio.beans.treinos.*;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Metrica;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -89,9 +90,9 @@ public class TelaDeSelecaoDeFocoGUIController {
             lblErroCadastro.setText("Preencha todos os campos corretamente!!");
         }
 
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuario.fxml"));
         Parent root = loader.load();
-        TelaPrincipalDoUsuárioGUIController controller =loader.getController();
+        TelaPrincipalDoUsuarioGUIController controller =loader.getController();
 
         controller.atualizarLabels();
 

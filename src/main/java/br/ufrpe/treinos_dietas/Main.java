@@ -23,7 +23,7 @@ public class Main extends Application {
         Parent root = loader.load();
         TelaDeLoginGUIController tela = loader.getController();
         tela.setUsuario(usuario);
-        primaryStage.setTitle("Tela de Login");
+        primaryStage.setTitle("App dietas e Treinos");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

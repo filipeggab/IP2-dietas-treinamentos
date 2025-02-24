@@ -6,8 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
-import javafx.event.ActionEvent;
-import javafx.scene.Node;
+
 import java.io.IOException;
 
 
@@ -18,7 +17,7 @@ public class TelaDoPerfilUsuarioGUIController {
 
     @FXML
     public void btnVoltarTelaPrincipalActionPerformed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuario.fxml"));
         Parent root = loader.load();
 
         Stage stage = (Stage) btnVoltarTelaPrincipal.getScene().getWindow();

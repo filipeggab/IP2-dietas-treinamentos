@@ -21,7 +21,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-public class TelaPrincipalDoUsuárioGUIController {
+public class TelaPrincipalDoUsuarioGUIController {
     Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
     LocalDate dataAtualizada = LocalDate.now();
