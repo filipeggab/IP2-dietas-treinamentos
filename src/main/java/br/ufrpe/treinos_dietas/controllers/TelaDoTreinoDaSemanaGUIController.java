@@ -48,7 +48,10 @@ public class TelaDoTreinoDaSemanaGUIController {
     @FXML
     private List<Label> treinoCLabels;
 
-    private List<Label> getLabelsVbox(VBox vbox) {
+    @FXML
+    private VBox vboxA, vboxB, vboxC;
+
+    public List<Label> getLabelsVbox(VBox vbox) {
         List<Label> labels = new ArrayList<>();
         for (Node node : vbox.getChildren()) {
             if (node instanceof Label && !((Label)node).getText().equals("Treino A") && !((Label)node).getText().equals("Treino B") && !((Label)node).getText().equals("Treino C")) {
@@ -58,7 +61,7 @@ public class TelaDoTreinoDaSemanaGUIController {
         return labels;
     }
 
-    private void alocadorLabelsTreinos(List<Label> treinoALabels, List<Label> treinoBLabels, List<Label> treinoCLabels) {
+    public void alocadorLabelsTreinos() {
         PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
 
@@ -70,13 +73,24 @@ public class TelaDoTreinoDaSemanaGUIController {
         List<ExercicioPratico> exerciciosTreinoB = treinoB.getExercicioList();
         List<ExercicioPratico> exerciciosTreinoC = treinoC.getExercicioList();
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < treinoALabels.size(); j++) {
 
-            }
+        treinoALabels = getLabelsVbox(vboxA);
+        treinoBLabels = getLabelsVbox(vboxB);
+        treinoCLabels = getLabelsVbox(vboxC);
 
+
+        alocarExerciciosNasLabels(treinoALabels, exerciciosTreinoA);
+        alocarExerciciosNasLabels(treinoBLabels, exerciciosTreinoB);
+        alocarExerciciosNasLabels(treinoCLabels, exerciciosTreinoC);
+
+    }
+
+    public void alocarExerciciosNasLabels(List<Label> listaLabels, List<ExercicioPratico> listaExercicios) {
+
+        int tamanho = Math.min(listaExercicios.size(), listaLabels.size());
+        for (int i = 0; i < tamanho; i++){
+            listaLabels.get(i).setText(listaExercicios.get(i).toString());
         }
-
     }
 
 
@@ -97,6 +111,15 @@ public class TelaDoTreinoDaSemanaGUIController {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TreinoDoDia.fxml"));
         Parent root = loader.load();
 
+        TreinoDoDiaGUIController controller = loader.getController();
+        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        if(planoAtual.getNome().equals("Plano para FLEXIBILIDADE")){
+        controller.alocarExerciciosFlex(0);
+        }
+        else{
+            controller.alocarExerciciosTreino(0);
+        }
+
         Stage stage = (Stage) btnTreinoA.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
@@ -108,6 +131,15 @@ public class TelaDoTreinoDaSemanaGUIController {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TreinoDoDia.fxml"));
         Parent root = loader.load();
 
+        TreinoDoDiaGUIController controller = loader.getController();
+        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        if(planoAtual.getNome().equals("Plano para FLEXIBILIDADE")){
+            controller.alocarExerciciosFlex(1);
+        }
+        else{
+            controller.alocarExerciciosTreino(1);
+        }
+
         Stage stage = (Stage) btnTreinoB.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
@@ -118,6 +150,16 @@ public class TelaDoTreinoDaSemanaGUIController {
     public void btnTreinoCActionPerformed() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TreinoDoDia.fxml"));
         Parent root = loader.load();
+
+        TreinoDoDiaGUIController controller = loader.getController();
+        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        if(planoAtual.getNome().equals("Plano para FLEXIBILIDADE")){
+            controller.alocarExerciciosFlex(2);
+        }
+        else{
+            controller.alocarExerciciosTreino(2);
+        }
+
 
         Stage stage = (Stage) btnTreinoC.getScene().getWindow();
         stage.setScene(new Scene(root));
