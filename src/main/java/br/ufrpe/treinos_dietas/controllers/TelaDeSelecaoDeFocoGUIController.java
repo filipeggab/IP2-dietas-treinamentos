@@ -1,5 +1,6 @@
 package br.ufrpe.treinos_dietas.controllers;
 
+import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
 import br.ufrpe.treinos_dietas.dados.RepositorioExPratico;
 import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
@@ -19,9 +20,15 @@ import br.ufrpe.treinos_dietas.negocio.beans.treinos.*;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Metrica;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -41,7 +48,7 @@ public class TelaDeSelecaoDeFocoGUIController {
 
 
 
-    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO", "VEGETEARIANO");
+    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO", "LOWCARB", "VEGETEARIANO");
     ObservableList<String> focoDoTreino = FXCollections.observableArrayList("FORÇA_MUSCULAR", "HIPERTROFIA", "RESISTÊNCIA", "FLEXIBILIDADE");
     ObservableList<EnumSexo> escolhasSexo =  FXCollections.observableArrayList(EnumSexo.values());
     @FXML
@@ -66,6 +73,9 @@ public class TelaDeSelecaoDeFocoGUIController {
     private ChoiceBox cbFocoDoTreino;
 
     @FXML
+    private Label lblErroCadastro;
+
+    @FXML
     private void initialize(){
         cbFocoDaDieta.setValue("PERDA_DE_PESO");
         cbFocoDoTreino.setValue("FORÇA_MUSCULAR");
@@ -78,7 +88,11 @@ public class TelaDeSelecaoDeFocoGUIController {
     }
     @FXML
     void btnConfirmarSelecaoActionPerformed() throws IOException, ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
-        ContinuarCadastroDoUsuario();
+        try {
+            ContinuarCadastroDoUsuario();
+        } catch (NumberFormatException | NullPointerException e) { // Notei que caso a seleção de foco estivesse dava varias exceptions, então por enquanto vai aí esse "tapa buraco" pra só continuar funcionando por enquanto
+            lblErroCadastro.setText("Preencha todos os campos corretamente!!");
+        }
 
         TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnConfirmarSelecao);
     }
@@ -363,18 +377,18 @@ public class TelaDeSelecaoDeFocoGUIController {
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Esteira"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Puxada alta"));
+                treinoBForca.add(repositorioExPratico.retornarExPratico("Remada cavalinho"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Remada baixa"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Rosca direta"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Abdominal"));
                 List<ExercicioPratico> treinoCForca =  new ArrayList<>();
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Mobilidade de quadril"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Rotação torácica"));
-                treinoCForca.add(repositorioExPratico.retornarExPratico("Mobilização de Tornozelo"));
+                treinoCForca.add(repositorioExPratico.retornarExPratico("Circulo com os quadris"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Escada"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("agachamento"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Leg Press"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Levantamento terra"));
-                treinoCForca.add(repositorioExPratico.retornarExPratico("Cadeira Extensora"));
 
                 cadastroTreinos.cadastrarTreino("Treino A Força", treinoAForca);
                 cadastroTreinos.cadastrarTreino("Treino B Força", treinoBForca);

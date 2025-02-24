@@ -10,6 +10,7 @@ br\ufrpe\treinos_dietas\dados\RepositorioTreinos.class
 br\ufrpe\treinos_dietas\negocio\beans\dietas\Dieta.class
 br\ufrpe\treinos_dietas\negocio\beans\treinos\ExPraticoSerieTempo.class
 br\ufrpe\treinos_dietas\controllers\TelaDeCadastroGUIController.class
+br\ufrpe\treinos_dietas\controllers\TelaPrincipalDoUsuarioGUIController.class
 br\ufrpe\treinos_dietas\negocio\beans\enums\EnumDificuldade.class
 br\ufrpe\treinos_dietas\negocio\beans\treinos\PlanoDeTreinoPorData.class
 br\ufrpe\treinos_dietas\Main.class
@@ -19,7 +20,6 @@ br\ufrpe\treinos_dietas\negocio\beans\usuario\SessaoUsuario.class
 br\ufrpe\treinos_dietas\integracao\TesteUSDAAPI.class
 br\ufrpe\treinos_dietas\exceptions\ComidaNaoCadastradaException.class
 br\ufrpe\treinos_dietas\exceptions\SenhaDoUsuarioIncorretaException.class
-br\ufrpe\treinos_dietas\controllers\TelaPrincipalDoUsuárioGUIController.class
 br\ufrpe\treinos_dietas\negocio\beans\treinos\Treino.class
 br\ufrpe\treinos_dietas\negocio\beans\enums\EnumObjetivoDoPlano.class
 br\ufrpe\treinos_dietas\negocio\CadastroTreinos.class

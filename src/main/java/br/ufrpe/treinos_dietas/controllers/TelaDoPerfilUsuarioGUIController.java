@@ -11,12 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import javafx.scene.Parent;
+
 import java.io.IOException;
 
 
 
 public class TelaDoPerfilUsuarioGUIController {
-
     @FXML
     private Label lblNome, lblEmail, lblDataNascimento, lblIdade, lblSexo;
     @FXML
@@ -34,7 +35,7 @@ public class TelaDoPerfilUsuarioGUIController {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaEdicaoPerfil.fxml"));
         Parent root = loader.load();
 
-        Stage stage = (Stage) btnEditarPerfil.getScene().getWindow();
+        Stage stage = (Stage) btnVoltarTelaPrincipal.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -91,7 +92,4 @@ public class TelaDoPerfilUsuarioGUIController {
     }
 
 }
-
-
-
 
