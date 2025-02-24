@@ -26,10 +26,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -71,6 +68,9 @@ public class TelaDeSelecaoDeFocoGUIController {
     private ChoiceBox cbFocoDoTreino;
 
     @FXML
+    private Label lblErroCadastro;
+
+    @FXML
     private void initialize(){
         cbFocoDaDieta.setValue("PERDA_DE_PESO");
         cbFocoDoTreino.setValue("FORÇA_MUSCULAR");
@@ -83,7 +83,11 @@ public class TelaDeSelecaoDeFocoGUIController {
     }
     @FXML
     void btnConfirmarSelecaoActionPerformed() throws IOException, ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
-        ContinuarCadastroDoUsuario();
+        try {
+            ContinuarCadastroDoUsuario();
+        } catch (NumberFormatException | NullPointerException e) { // Notei que caso a seleção de foco estivesse dava varias exceptions, então por enquanto vai aí esse "tapa buraco" pra só continuar funcionando por enquanto
+            lblErroCadastro.setText("Preencha todos os campos corretamente!!");
+        }
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
         Parent root = loader.load();
@@ -94,6 +98,7 @@ public class TelaDeSelecaoDeFocoGUIController {
         Stage stage = (Stage) btnConfirmarSelecao.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+
     }
 
     public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
