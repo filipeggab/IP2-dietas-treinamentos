@@ -99,6 +99,11 @@ public class TreinoDoDiaGUIController {
         List<ExercicioPratico> cardioTreino = exerciciosTreino.subList(3, 4);
         List<ExercicioPratico> treinoForcaTreino = exerciciosTreino.subList(4, exerciciosTreino.size());
 
+        if(i == 2 && planoAtual.getNome().equals("Plano para RESISTÊNCIA")){
+            mobilidadesTreino = exerciciosTreino.subList(0,4);
+            cardioTreino = exerciciosTreino.subList(4, 5);
+            treinoForcaTreino = exerciciosTreino.subList(5, exerciciosTreino.size());
+        }
         this.controller.alocarExerciciosNasLabels(mobilidadesLabels, mobilidadesTreino);
         this.controller.alocarExerciciosNasLabels(cardioLabel, cardioTreino);
         this.controller.alocarExerciciosNasLabels(treinoForcaLabels, treinoForcaTreino);

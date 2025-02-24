@@ -1,4 +1,5 @@
 package br.ufrpe.treinos_dietas.controllers;
+
 import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Metrica;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
@@ -10,8 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
-import javafx.scene.Parent;
 
 import java.io.IOException;
 

@@ -101,10 +101,10 @@ public class TelaDoTreinoDaSemanaGUIController {
     }
 
     public static void VoltarParaTelaPrincipalDoUsuario(Button btnVoltaTelaPrincipal) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuario.fxml"));
         Parent root = loader.load();
 
-        TelaPrincipalDoUsuárioGUIController controller = loader.getController();
+        TelaPrincipalDoUsuarioGUIController controller = loader.getController();
         controller.atualizarLabels();
 
         Stage stage = (Stage) btnVoltaTelaPrincipal.getScene().getWindow();
