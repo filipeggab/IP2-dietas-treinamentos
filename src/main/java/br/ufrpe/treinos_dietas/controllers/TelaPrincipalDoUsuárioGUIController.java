@@ -88,6 +88,9 @@ public class TelaPrincipalDoUsuárioGUIController {
                 if(planoAtual.getNome().equalsIgnoreCase("Plano para FLEXIBILIDADE")){
                     alocadorFlexibilidade(exerciciosTreinoA);
                 }
+                else if(planoAtual.getNome().equalsIgnoreCase("Plano para FORÇA_MUSCULAR")){
+                    alocadorForca(exerciciosTreinoA);
+                }
                 else{
                     alocador(exerciciosTreinoA);
                 }
@@ -96,6 +99,9 @@ public class TelaPrincipalDoUsuárioGUIController {
                 if(planoAtual.getNome().equalsIgnoreCase("Plano para FLEXIBILIDADE")) {
                     alocadorFlexibilidade(exerciciosTreinoB);
                     labelF4.setText(exerciciosTreinoB.get(10).toString());
+                }
+                else if(planoAtual.getNome().equalsIgnoreCase("Plano para FORÇA_MUSCULAR")){
+                    alocadorForca(exerciciosTreinoB);
                 }
                 else{
                     alocador(exerciciosTreinoB);
@@ -108,6 +114,9 @@ public class TelaPrincipalDoUsuárioGUIController {
                     labelF1.setText(exerciciosTreinoC.get(9).toString());
                     labelF2.setText(exerciciosTreinoC.get(10).toString());
                     labelF3.setText(" ");
+                }
+                else if(planoAtual.getNome().equalsIgnoreCase("Plano para FORÇA_MUSCULAR")){
+                    alocadorForca(exerciciosTreinoC);
                 }
                 else{
                     alocador(exerciciosTreinoC);
@@ -140,6 +149,16 @@ public class TelaPrincipalDoUsuárioGUIController {
         labelF4.setText(exerciciosTreinoA.get(7).toString());
         labelF5.setText(exerciciosTreinoA.get(8).toString());
         labelF6.setText(exerciciosTreinoA.get(9).toString());
+    }
+    private void alocadorForca(List<ExercicioPratico> exerciciosTreinoForca){
+        labelM1.setText(exerciciosTreinoForca.get(0).toString());
+        labelM2.setText(exerciciosTreinoForca.get(1).toString());
+        labelM3.setText(exerciciosTreinoForca.get(2).toString());
+        labelC1.setText(exerciciosTreinoForca.get(3).toString());
+        labelF1.setText(exerciciosTreinoForca.get(4).toString());
+        labelF2.setText(exerciciosTreinoForca.get(5).toString());
+        labelF3.setText(exerciciosTreinoForca.get(6).toString());
+        labelF4.setText(exerciciosTreinoForca.get(7).toString());
     }
 
 

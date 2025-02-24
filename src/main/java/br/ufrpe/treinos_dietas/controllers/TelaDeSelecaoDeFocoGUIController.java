@@ -376,18 +376,18 @@ public class TelaDeSelecaoDeFocoGUIController {
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Movimentação de punhos"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Esteira"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Puxada alta"));
-                treinoBForca.add(repositorioExPratico.retornarExPratico("Remada cavalinho"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Remada baixa"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Rosca direta"));
                 treinoBForca.add(repositorioExPratico.retornarExPratico("Abdominal"));
                 List<ExercicioPratico> treinoCForca =  new ArrayList<>();
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Mobilidade de quadril"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Rotação torácica"));
-                treinoCForca.add(repositorioExPratico.retornarExPratico("Circulo com os quadris"));
+                treinoCForca.add(repositorioExPratico.retornarExPratico("Mobilização de Tornozelo"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Escada"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("agachamento"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Leg Press"));
                 treinoCForca.add(repositorioExPratico.retornarExPratico("Levantamento terra"));
+                treinoCForca.add(repositorioExPratico.retornarExPratico("Cadeira Extensora"));
 
                 cadastroTreinos.cadastrarTreino("Treino A Força", treinoAForca);
                 cadastroTreinos.cadastrarTreino("Treino B Força", treinoBForca);
