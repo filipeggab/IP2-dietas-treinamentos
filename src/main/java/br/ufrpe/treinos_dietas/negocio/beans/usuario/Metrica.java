@@ -12,10 +12,11 @@ public class Metrica {
         this.peso = peso;
         this.dataDaMetrica = dataDaMetrica;
     }
-    public double calcularIMC(){
-        return peso/altura*altura;
-    }
 
+    public double calcularIMC(){
+        double alturaEmMetros = altura / 100.0;
+        return peso / (alturaEmMetros * alturaEmMetros);
+    }
     public int getAltura() {
         return altura;
     }
@@ -31,4 +32,9 @@ public class Metrica {
     public void setPeso(double peso) {
         this.peso = peso;
     }
+
+    public LocalDate getDataDaMetrica() {
+        return dataDaMetrica;
+    }
+
 }
