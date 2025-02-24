@@ -166,7 +166,7 @@ public class TelaPrincipalDoUsuárioGUIController {
         dataAtualizada = LocalDate.now();
 
         if(chkMobilidade.isSelected() && chkCardio.isSelected() && chkForca.isSelected()){
-            if(dataAtualizada.isBefore(dataAdicionada)){
+            if(dataAtualizada.isAfter(dataAdicionada)){
             usuario.acrescentarContador();
             dataAdicionada = LocalDate.now();
             }
