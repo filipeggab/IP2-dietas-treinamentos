@@ -1,6 +1,5 @@
 package br.ufrpe.treinos_dietas.controllers;
 
-import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
 import br.ufrpe.treinos_dietas.dados.RepositorioExPratico;
 import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
@@ -23,14 +22,10 @@ import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -46,7 +41,7 @@ public class TelaDeSelecaoDeFocoGUIController {
 
 
 
-    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO", "LOWCARB", "VEGETEARIANO");
+    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO", "VEGETEARIANO");
     ObservableList<String> focoDoTreino = FXCollections.observableArrayList("FORÇA_MUSCULAR", "HIPERTROFIA", "RESISTÊNCIA", "FLEXIBILIDADE");
     ObservableList<EnumSexo> escolhasSexo =  FXCollections.observableArrayList(EnumSexo.values());
     @FXML
@@ -85,15 +80,7 @@ public class TelaDeSelecaoDeFocoGUIController {
     void btnConfirmarSelecaoActionPerformed() throws IOException, ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
         ContinuarCadastroDoUsuario();
 
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
-        Parent root = loader.load();
-        TelaPrincipalDoUsuárioGUIController controller =loader.getController();
-
-        controller.atualizarLabels();
-
-        Stage stage = (Stage) btnConfirmarSelecao.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnConfirmarSelecao);
     }
 
     public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {

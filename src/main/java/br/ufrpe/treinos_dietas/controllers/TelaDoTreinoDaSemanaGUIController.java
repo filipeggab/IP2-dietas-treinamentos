@@ -30,8 +30,15 @@ public class TelaDoTreinoDaSemanaGUIController {
     //Metodo para o botão btnVoltaTelaPrincipal ir para a tela principal
     @FXML
     public void btnVoltaTelaPrincipalActionPerformed() throws IOException {
+        VoltarParaTelaPrincipalDoUsuario(btnVoltaTelaPrincipal);
+    }
+
+    public static void VoltarParaTelaPrincipalDoUsuario(Button btnVoltaTelaPrincipal) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuário.fxml"));
         Parent root = loader.load();
+
+        TelaPrincipalDoUsuárioGUIController controller = loader.getController();
+        controller.atualizarLabels();
 
         Stage stage = (Stage) btnVoltaTelaPrincipal.getScene().getWindow();
         stage.setScene(new Scene(root));

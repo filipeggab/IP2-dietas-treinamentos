@@ -139,14 +139,7 @@ public class TelaPrincipalDoUsuárioGUIController {
     }
 
     private void alocador(List<ExercicioPratico> exerciciosTreinoA) {
-        labelM1.setText(exerciciosTreinoA.get(0).toString());
-        labelM2.setText(exerciciosTreinoA.get(1).toString());
-        labelM3.setText(exerciciosTreinoA.get(2).toString());
-        labelC1.setText(exerciciosTreinoA.get(3).toString());
-        labelF1.setText(exerciciosTreinoA.get(4).toString());
-        labelF2.setText(exerciciosTreinoA.get(5).toString());
-        labelF3.setText(exerciciosTreinoA.get(6).toString());
-        labelF4.setText(exerciciosTreinoA.get(7).toString());
+        alocadorForca(exerciciosTreinoA);
         labelF5.setText(exerciciosTreinoA.get(8).toString());
         labelF6.setText(exerciciosTreinoA.get(9).toString());
     }
