@@ -1,6 +1,8 @@
 package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
-public class ExPraticoCardio extends ExercicioPratico{
+import java.io.Serializable;
+
+public class ExPraticoCardio extends ExercicioPratico implements Serializable {
     private int tempoEmSec;
     private String intensidade;
 

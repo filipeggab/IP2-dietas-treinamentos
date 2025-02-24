@@ -7,9 +7,10 @@ import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CadastroDietas {
+public class CadastroDietas implements Serializable {
     private RepositorioDietas repo;
 
     public CadastroDietas() {

@@ -8,7 +8,9 @@ import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumDificuldade;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDeExercicio;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Exercicio;
 
-public class CadastroExercicios {
+import java.io.Serializable;
+
+public class CadastroExercicios implements Serializable {
     RepositorioExercicios repo;
 
     public CadastroExercicios() {

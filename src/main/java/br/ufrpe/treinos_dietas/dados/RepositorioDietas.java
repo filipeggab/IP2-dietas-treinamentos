@@ -4,10 +4,11 @@ package br.ufrpe.treinos_dietas.dados;
 import br.ufrpe.treinos_dietas.exceptions.DietaNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioDietas {
+public class RepositorioDietas implements Serializable {
     List<Dieta> dietas;
 
     public RepositorioDietas(){

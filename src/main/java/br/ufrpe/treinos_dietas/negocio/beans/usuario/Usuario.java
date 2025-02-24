@@ -4,12 +4,13 @@ import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario {
+public class Usuario implements Serializable {
     private String nome;
     private String email;
     private String senha;

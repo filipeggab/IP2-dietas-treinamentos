@@ -9,9 +9,10 @@ import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreinoPorData;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CadastroPlanoDeTreino {
+public class CadastroPlanoDeTreino implements Serializable {
     private RepositorioPlanoDeTreino repo;
 
     public void CadastroPlanoDeTreino(){

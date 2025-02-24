@@ -6,10 +6,11 @@ import br.ufrpe.treinos_dietas.exceptions.RefeicaoNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Comida;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class CadastroRefeicao {
+public class CadastroRefeicao implements Serializable {
     private RepositorioRefeicao repo;
 
     public CadastroRefeicao() {

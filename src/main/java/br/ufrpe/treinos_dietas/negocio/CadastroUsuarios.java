@@ -7,9 +7,10 @@ import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Metrica;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CadastroUsuarios {
+public class CadastroUsuarios implements Serializable {
     private RepositorioUsuarios repo;
 
     public CadastroUsuarios() {

@@ -4,9 +4,10 @@ package br.ufrpe.treinos_dietas.dados;
 import br.ufrpe.treinos_dietas.exceptions.UsuarioNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class RepositorioUsuarios {
+public class RepositorioUsuarios implements Serializable {
     private List<Usuario> usuarios;
 
     public void criarUsuario(Usuario usuario){

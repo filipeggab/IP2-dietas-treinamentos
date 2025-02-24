@@ -1,8 +1,9 @@
 package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class TreinoRealizado {
+public class TreinoRealizado implements Serializable {
     private Treino treinoRealizado;
     private LocalDate dataRealizada;
 

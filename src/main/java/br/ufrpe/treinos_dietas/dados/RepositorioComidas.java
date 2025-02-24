@@ -5,10 +5,11 @@ package br.ufrpe.treinos_dietas.dados;
 import br.ufrpe.treinos_dietas.exceptions.ComidaNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Comida;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioComidas {
+public class RepositorioComidas implements Serializable {
     List<Comida> comidas;
 
     public RepositorioComidas() {

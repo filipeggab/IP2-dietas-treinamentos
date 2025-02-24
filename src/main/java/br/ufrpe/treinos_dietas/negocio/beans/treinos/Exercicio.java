@@ -4,7 +4,9 @@ package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumDificuldade;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDeExercicio;
 
-public class Exercicio {
+import java.io.Serializable;
+
+public class Exercicio implements Serializable {
     private String nome;
     private String descricao;
     private String materiais;

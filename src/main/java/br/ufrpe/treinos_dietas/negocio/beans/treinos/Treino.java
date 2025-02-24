@@ -3,9 +3,10 @@ package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDeExercicio;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Treino {
+public class Treino implements Serializable {
     private String nome;
     private List<EnumObjetivoDeExercicio> foco;
     private List<ExercicioPratico> exercicioList;

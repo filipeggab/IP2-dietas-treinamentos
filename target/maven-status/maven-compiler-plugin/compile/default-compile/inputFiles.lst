@@ -1,6 +1,7 @@
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\controllers\TelaDaDietaGUIController.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\controllers\TelaDeCadastroGUIController.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\controllers\TelaDeLoginGUIController.java
+C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\controllers\TelaDeSelecaoDeFocoGUIController.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\controllers\TelaDoCalendarioDeTreinosGUIController.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\controllers\TelaDoPerfilUsuarioGUIController.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\controllers\TelaDoTreinoDaSemanaGUIController.java
@@ -23,6 +24,7 @@ C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\trein
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\exceptions\PlanoNaoCadastradoException.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\exceptions\RefeicaoNaoCadastradaException.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\exceptions\SenhaDoUsuarioIncorretaException.java
+C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\exceptions\SenhasDiferentesException.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\exceptions\SexoInvalidoException.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\exceptions\TreinoNaoCadastradoException.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\exceptions\UsuarioNaoCadastradoException.java
@@ -31,6 +33,7 @@ C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\trein
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\dietas\Dieta.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\dietas\Refeicao.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\enums\EnumDificuldade.java
+C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\enums\EnumObjetivoDaDieta.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\enums\EnumObjetivoDeExercicio.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\enums\EnumObjetivoDoPlano.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\enums\EnumSexo.java
@@ -42,10 +45,10 @@ C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\trein
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\treinos\ExPraticoSerieTempo.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\treinos\PlanoDeTreino.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\treinos\PlanoDeTreinoPorData.java
-C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\treinos\PlanoDeTreinoPorQuantidade.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\treinos\Treino.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\treinos\TreinoRealizado.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\usuario\Metrica.java
+C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\usuario\SessaoUsuario.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\beans\usuario\Usuario.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\CadastroComidas.java
 C:\Users\victo\IdeaProjects\IP2-dietas-treinamentos\src\main\java\br\ufrpe\treinos_dietas\negocio\CadastroDietas.java

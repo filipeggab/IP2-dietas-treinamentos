@@ -1,6 +1,8 @@
 package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
-public abstract class ExPraticoSerie extends ExercicioPratico{
+import java.io.Serializable;
+
+public abstract class ExPraticoSerie extends ExercicioPratico implements Serializable {
     protected int numDeSeries;
     protected int peso;
     protected int tempoDescanso;

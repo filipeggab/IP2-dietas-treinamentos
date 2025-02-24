@@ -4,10 +4,11 @@ package br.ufrpe.treinos_dietas.dados;
 import br.ufrpe.treinos_dietas.exceptions.TreinoNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioTreinos {
+public class RepositorioTreinos implements Serializable {
     List<Treino> treinos;
 
     public RepositorioTreinos() {

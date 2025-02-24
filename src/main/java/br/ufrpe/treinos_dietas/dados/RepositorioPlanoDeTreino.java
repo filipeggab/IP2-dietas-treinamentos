@@ -6,10 +6,11 @@ import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreinoPorData;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioPlanoDeTreino {
+public class RepositorioPlanoDeTreino implements Serializable {
     private List<PlanoDeTreino> planos;
 
     public RepositorioPlanoDeTreino() {

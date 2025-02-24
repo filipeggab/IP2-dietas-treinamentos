@@ -3,10 +3,11 @@ package br.ufrpe.treinos_dietas.negocio.beans.usuario;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SessaoUsuario {
+public class SessaoUsuario implements Serializable {
     private static SessaoUsuario instancia;
     private Usuario usuario;
     private List<Metrica> metricas;

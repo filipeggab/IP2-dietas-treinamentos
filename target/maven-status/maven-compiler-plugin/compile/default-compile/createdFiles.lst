@@ -1,5 +1,9 @@
 br\ufrpe\treinos_dietas\controllers\TelaDoPerfilUsuarioGUIController.class
 br\ufrpe\treinos_dietas\controllers\TelaDoTreinoDaSemanaGUIController.class
+br\ufrpe\treinos_dietas\controllers\TelaDeSelecaoDeFocoGUIController.class
+br\ufrpe\treinos_dietas\negocio\beans\enums\EnumObjetivoDaDieta.class
+br\ufrpe\treinos_dietas\negocio\beans\usuario\SessaoUsuario.class
 br\ufrpe\treinos_dietas\controllers\TelaPrincipalDoUsuárioGUIController.class
 br\ufrpe\treinos_dietas\controllers\TelaDaDietaGUIController.class
 br\ufrpe\treinos_dietas\controllers\TreinoDoDiaGUIController.class
+br\ufrpe\treinos_dietas\exceptions\SenhasDiferentesException.class

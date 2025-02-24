@@ -4,10 +4,11 @@ package br.ufrpe.treinos_dietas.dados;
 import br.ufrpe.treinos_dietas.exceptions.RefeicaoNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioRefeicao {
+public class RepositorioRefeicao implements Serializable {
     List<Refeicao> refeicoes;
 
     public RepositorioRefeicao(){
