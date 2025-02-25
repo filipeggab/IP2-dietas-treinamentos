@@ -73,7 +73,7 @@ public class CadastroComidas {
             return;
         }
         System.out.println("Lista de Comidas:");
-        lista.forEach(comida -> System.out.println("- " + comida.getNome() + " (" + comida.getUnDeMedida() + ")"));
+        lista.forEach(comida -> System.out.println("- " + comida.getNome() + " (" + comida.getQtdEmGramas() + ")"));
     }
     public Comida lerComida(String nome) {
         try {

@@ -2,15 +2,15 @@ package br.ufrpe.treinos_dietas.negocio.beans.dietas;
 
 public class Comida {
     private String nome;
-    private String unDeMedida;
+    private String qtdEmGramas;
     private double proteinas;
     private double carboidratos;
     private double gorduras;
     private double calorias;
 
-    public Comida(String nome, String unDeMedida, double proteinas, double carboidratos, double gorduras, double calorias) {
+    public Comida(String nome, String qtdEmGramas, double proteinas, double carboidratos, double gorduras, double calorias) {
         this.nome = nome;
-        this.unDeMedida = unDeMedida;
+        this.qtdEmGramas = qtdEmGramas;
         this.proteinas = proteinas;
         this.carboidratos = carboidratos;
         this.gorduras = gorduras;
@@ -25,12 +25,12 @@ public class Comida {
         this.nome = nome;
     }
 
-    public String getUnDeMedida() {
-        return unDeMedida;
+    public String getQtdEmGramas() {
+        return qtdEmGramas;
     }
 
-    public void setUnDeMedida(String unDeMedida) {
-        this.unDeMedida = unDeMedida;
+    public void setQtdEmGramas(String qtdEmGramas) {
+        this.qtdEmGramas = qtdEmGramas;
     }
 
     public double getProteinas() {

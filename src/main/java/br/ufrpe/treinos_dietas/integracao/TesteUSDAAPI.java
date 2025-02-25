@@ -16,7 +16,7 @@ public class TesteUSDAAPI {
 
             System.out.println("Dados da Comida:");
             System.out.println("Nome: " + comida.getNome());
-            System.out.println("Unidade: " + comida.getUnDeMedida());
+            System.out.println("Unidade: " + comida.getQtdEmGramas());
             System.out.println("Proteínas: " + comida.getProteinas() + "g");
             System.out.println("Carboidratos: " + comida.getCarboidratos() + "g");
             System.out.println("Gorduras: " + comida.getGorduras() + "g");
