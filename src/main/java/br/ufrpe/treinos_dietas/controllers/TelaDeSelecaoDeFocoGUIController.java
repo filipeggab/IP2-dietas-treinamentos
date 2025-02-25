@@ -122,8 +122,8 @@ public class TelaDeSelecaoDeFocoGUIController {
         PlanoDeTreino planoDeTreino = repositorioPlanoDeTreino.retornarPlanoDeTreino(nomeDoPlano);
         usuario.adicionarPlanoDeTreino(planoDeTreino);
 
-        alocarTreino();
-        criarComidas();
+        AlocarTreino();
+        CriarComidas();
 
     }
     //Criar descricoes direito pra cada um!
@@ -293,7 +293,7 @@ public class TelaDeSelecaoDeFocoGUIController {
     }
 
     //adicionar repositorios nos exercicios praticos e tentar alocar!
-    public void alocarTreino() throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
+    public void AlocarTreino() throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
         CriarExercicios();
         CadastroTreinos cadastroTreinos = new CadastroTreinos(repositorioTreinos);
         Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
@@ -507,7 +507,7 @@ public class TelaDeSelecaoDeFocoGUIController {
 
     }
 
-    public void criarComidas(){
+    public void CriarComidas(){
         CadastroComidas cadastroComidas = new CadastroComidas(repositorioComidas);
         cadastroComidas.cadastrarComida("Brown Bread", "50g");
         cadastroComidas.cadastrarComida("Banana", "80g");
