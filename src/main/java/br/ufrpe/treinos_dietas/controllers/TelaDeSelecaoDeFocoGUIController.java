@@ -37,7 +37,7 @@ public class TelaDeSelecaoDeFocoGUIController {
 
 
 
-    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO", "LOWCARB", "VEGETEARIANO");
+    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO");
     ObservableList<String> focoDoTreino = FXCollections.observableArrayList("FORÇA_MUSCULAR", "HIPERTROFIA", "RESISTÊNCIA", "FLEXIBILIDADE");
     ObservableList<EnumSexo> escolhasSexo =  FXCollections.observableArrayList(EnumSexo.values());
     @FXML
@@ -510,8 +510,22 @@ public class TelaDeSelecaoDeFocoGUIController {
     public void criarComidas(){
         CadastroComidas cadastroComidas = new CadastroComidas(repositorioComidas);
         cadastroComidas.cadastrarComida("Brown Bread", "50g");
-        cadastroComidas.cadastrarComida("Banana", "50g");
+        cadastroComidas.cadastrarComida("Banana", "80g");
         cadastroComidas.cadastrarComida("Chicken Breast", "50g");
         cadastroComidas.cadastrarComida("Rice", "100g");
+        cadastroComidas.cadastrarComida("Eggs", "100g");
+        cadastroComidas.cadastrarComida("Potatoes", "100g");
+        cadastroComidas.cadastrarComida("Sweet potatoes" , "100g");
+        cadastroComidas.cadastrarComida("Beef", "100g");
+        cadastroComidas.cadastrarComida("Silver Fish", "100g");
+        cadastroComidas.cadastrarComida("Pasta", "50g");
+        cadastroComidas.cadastrarComida("Tomatoes", "100g");
+        cadastroComidas.cadastrarComida("Carrots", "100g");
+        cadastroComidas.cadastrarComida("Broccoli", "100g");
+        cadastroComidas.cadastrarComida("Apples", "100g");
+        cadastroComidas.cadastrarComida("Strawberries","100g");
+        cadastroComidas.cadastrarComida("Grapes","100g");
+        cadastroComidas.cadastrarComida("Cheese ","30g");
+        cadastroComidas.cadastrarComida("Oats","30g");
     }
 }
