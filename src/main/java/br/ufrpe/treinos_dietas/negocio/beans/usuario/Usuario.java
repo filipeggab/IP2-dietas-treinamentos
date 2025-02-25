@@ -1,8 +1,11 @@
 package br.ufrpe.treinos_dietas.negocio.beans.usuario;
 
+import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
 import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
+import br.ufrpe.treinos_dietas.exceptions.DietaNaoCadastradaException;
 import br.ufrpe.treinos_dietas.exceptions.PlanoNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
+import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
@@ -23,6 +26,7 @@ public class Usuario {
     private List<Dieta> dietaList;
     private int contador = 0;
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
+    RepositorioDietas repositorioDietas = RepositorioDietas.getInstance();
 
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
@@ -109,10 +113,18 @@ public class Usuario {
         PlanoDeTreino plano = repositorioPlanoDeTreino.retornarPlanoDeTreino(nome);
 
         if (plano == null) {
-            throw new PlanoNaoCadastradoException("Plano de treino '" + nome + "' não encontrado.");
+            throw new PlanoNaoCadastradoException("Plano de treino " + nome + " não encontrado.");
         }
 
         plano.setTreinoList(lista != null ? new ArrayList<>(lista) : new ArrayList<>());
+    }
+
+    public void AdicionarListaADieta(String nome, List<Refeicao> lista) throws DietaNaoCadastradaException {
+        Dieta dieta = repositorioDietas.retornarDieta(nome);
+        if (dieta == null) {
+            throw new DietaNaoCadastradaException(nome);
+        }
+        dieta.setRefeicoesList(lista != null ? new ArrayList<>(lista) : new ArrayList<>());
     }
 
     public void acrescentarContador(){

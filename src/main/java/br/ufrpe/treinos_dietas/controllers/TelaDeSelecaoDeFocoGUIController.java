@@ -1,15 +1,13 @@
 package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.dados.*;
-import br.ufrpe.treinos_dietas.exceptions.DietaNaoCadastradaException;
-import br.ufrpe.treinos_dietas.exceptions.ExercicioNaoCadastradoException;
-import br.ufrpe.treinos_dietas.exceptions.PlanoNaoCadastradoException;
-import br.ufrpe.treinos_dietas.exceptions.TreinoNaoCadastradoException;
+import br.ufrpe.treinos_dietas.exceptions.*;
 import br.ufrpe.treinos_dietas.negocio.CadastroComidas;
 import br.ufrpe.treinos_dietas.negocio.CadastroDietas;
 import br.ufrpe.treinos_dietas.negocio.CadastroPlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.CadastroTreinos;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
+import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
@@ -30,7 +28,7 @@ import java.util.List;
 public class TelaDeSelecaoDeFocoGUIController {
     RepositorioExPratico repositorioExPratico = new RepositorioExPratico();
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
-    RepositorioDietas repositorioDietas  = new RepositorioDietas();
+    RepositorioDietas repositorioDietas  = RepositorioDietas.getInstance();
     RepositorioTreinos repositorioTreinos = new RepositorioTreinos();
     RepositorioComidas repositorioComidas = new RepositorioComidas();
 
@@ -79,14 +77,14 @@ public class TelaDeSelecaoDeFocoGUIController {
     void btnConfirmarSelecaoActionPerformed() throws IOException, ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
         try {
             ContinuarCadastroDoUsuario();
-        } catch (NumberFormatException | NullPointerException e) { // Notei que caso a seleção de foco estivesse dava varias exceptions, então por enquanto vai aí esse "tapa buraco" pra só continuar funcionando por enquanto
+        } catch (NumberFormatException | NullPointerException | ComidaNaoCadastradaException e) {
             lblErroCadastro.setText("Preencha todos os campos corretamente!!");
         }
 
         TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnConfirmarSelecao);
     }
 
-    public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
+    public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException, ComidaNaoCadastradaException {
 
         Integer altura =  Integer.valueOf(txtAltura.getText());
         Double peso =  Double.valueOf(txtPeso.getText());
@@ -123,10 +121,10 @@ public class TelaDeSelecaoDeFocoGUIController {
         usuario.adicionarPlanoDeTreino(planoDeTreino);
 
         AlocarTreino();
-        CriarComidas();
+        CriarRefeicoes();
+        System.out.println(dieta.caloriasDoDia());
 
     }
-    //Criar descricoes direito pra cada um!
     public void CriarExercicios(){
 
 
@@ -292,7 +290,6 @@ public class TelaDeSelecaoDeFocoGUIController {
         repositorioExPratico.criarExercicio(mobilizacaoDeTornozeloSerie);
     }
 
-    //adicionar repositorios nos exercicios praticos e tentar alocar!
     public void AlocarTreino() throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
         CriarExercicios();
         CadastroTreinos cadastroTreinos = new CadastroTreinos(repositorioTreinos);
@@ -509,23 +506,67 @@ public class TelaDeSelecaoDeFocoGUIController {
 
     public void CriarComidas(){
         CadastroComidas cadastroComidas = new CadastroComidas(repositorioComidas);
-        cadastroComidas.cadastrarComida("Brown Bread", "50g");
+        cadastroComidas.cadastrarComida("Brown Bread", "80g");
         cadastroComidas.cadastrarComida("Banana", "80g");
-        cadastroComidas.cadastrarComida("Chicken Breast", "50g");
-        cadastroComidas.cadastrarComida("Rice", "100g");
+        cadastroComidas.cadastrarComida("Chicken Breast", "100g");
+        cadastroComidas.cadastrarComida("Rice", "150g");
+        cadastroComidas.cadastrarComida("Beans", "100g");
         cadastroComidas.cadastrarComida("Eggs", "100g");
-        cadastroComidas.cadastrarComida("Potatoes", "100g");
-        cadastroComidas.cadastrarComida("Sweet potatoes" , "100g");
+        cadastroComidas.cadastrarComida("Potatoes", "70g");
+        cadastroComidas.cadastrarComida("Sweet potatoes" , "140g");
         cadastroComidas.cadastrarComida("Beef", "100g");
         cadastroComidas.cadastrarComida("Silver Fish", "100g");
-        cadastroComidas.cadastrarComida("Pasta", "50g");
-        cadastroComidas.cadastrarComida("Tomatoes", "100g");
-        cadastroComidas.cadastrarComida("Carrots", "100g");
-        cadastroComidas.cadastrarComida("Broccoli", "100g");
-        cadastroComidas.cadastrarComida("Apples", "100g");
+        cadastroComidas.cadastrarComida("Pasta", "100g");
+        cadastroComidas.cadastrarComida("Tomatoes", "50g");
+        cadastroComidas.cadastrarComida("Carrots", "40g");
+        cadastroComidas.cadastrarComida("Broccoli", "40g");
+        cadastroComidas.cadastrarComida("Apples", "150g");
         cadastroComidas.cadastrarComida("Strawberries","100g");
         cadastroComidas.cadastrarComida("Grapes","100g");
         cadastroComidas.cadastrarComida("Cheese ","30g");
         cadastroComidas.cadastrarComida("Oats","30g");
+    }
+
+    public void CriarRefeicoes() throws ComidaNaoCadastradaException, DietaNaoCadastradaException {
+        CriarComidas();
+        Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+        String selecter = cbFocoDaDieta.getSelectionModel().getSelectedItem().toString();
+
+        switch (selecter){
+            case "PERDA_DE_PESO":
+                Refeicao cafeDaManhaPP = new Refeicao("Café da manhã-Perda de Peso");
+                cafeDaManhaPP.addComida(repositorioComidas.buscarComida("Bread, Boston Brown", "80.0g"));
+                cafeDaManhaPP.addComida(repositorioComidas.buscarComida("Eggs",  "100.0g"));
+                cafeDaManhaPP.addComida((repositorioComidas.buscarComida("Cheese", "30.0g")));
+                cafeDaManhaPP.addComida((repositorioComidas.buscarComida("Banana", "80.0g")));
+                Refeicao almocoPP = new Refeicao("Almoço-Perda de Peso");
+                almocoPP.addComida(repositorioComidas.buscarComida("Rice", "150.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Beans", "100.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Potatoes", "70.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Chicken Breast", "100.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Tomatoes", "50.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Carrots", "40.0g"));
+                Refeicao lancheDaTardePP = new Refeicao("Lanche da tarde-Perda de Peso");
+                lancheDaTardePP.addComida(repositorioComidas.buscarComida("Apples", "150.0g"));
+                lancheDaTardePP.addComida(repositorioComidas.buscarComida("Grapes", "100.0g"));
+                Refeicao jantarPP = new Refeicao("Jantar-PerdaDePeso");
+                jantarPP.addComida(repositorioComidas.buscarComida("Sweet Potatoes", "140.0g"));
+                jantarPP.addComida(repositorioComidas.buscarComida("Silver Fish",  "100.0g"));
+
+                List<Refeicao> listaDeRefeicoesPP = new ArrayList<>();
+                listaDeRefeicoesPP.add(cafeDaManhaPP);
+                listaDeRefeicoesPP.add(almocoPP);
+                listaDeRefeicoesPP.add(lancheDaTardePP);
+                listaDeRefeicoesPP.add(jantarPP);
+
+                usuario.AdicionarListaADieta(repositorioDietas.RetornarNomeDaDieta(), listaDeRefeicoesPP);
+                break;
+
+            case "GANHO_DE_MASSA":
+                //SEGUIR O MESMO PADRAO DO DE CIMA E CONTINUAR CRIANDO AS DIETAS
+
+        }
+
+
     }
 }

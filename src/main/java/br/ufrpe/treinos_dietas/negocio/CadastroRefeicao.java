@@ -24,7 +24,7 @@ public class CadastroRefeicao {
             throw new IllegalArgumentException("O horário da refeição deve ser informado.");
         }
 
-        Refeicao novaRefeicao = new Refeicao(nome, horario);
+        Refeicao novaRefeicao = new Refeicao(nome);
         repo.criarRefeicao(novaRefeicao);
     }
 
@@ -36,7 +36,6 @@ public class CadastroRefeicao {
         try {
             Refeicao refeicao = repo.buscarRefeicao(nome);
             System.out.println("Nome: " + refeicao.getNome());
-            System.out.println("Horário: " + refeicao.getHorario());
             System.out.println("Total de calorias: " + refeicao.caloriasTotais());
             return refeicao;
         } catch (RefeicaoNaoCadastradaException e) {
@@ -45,15 +44,13 @@ public class CadastroRefeicao {
         }
     }
 
-    public void editarRefeicao(String nome, String novoNome, LocalDateTime novoHorario) throws RefeicaoNaoCadastradaException {
+    public void editarRefeicao(String nome, String novoNome) throws RefeicaoNaoCadastradaException {
         Refeicao refeicao = repo.buscarRefeicao(nome);
 
         if (novoNome != null && !novoNome.trim().isEmpty()) {
             refeicao.setNome(novoNome);
         }
-        if (novoHorario != null) {
-            refeicao.setHorario(novoHorario);
-        }
+
     }
 
     public void adicionarComida(String nomeRefeicao, Comida comida) throws RefeicaoNaoCadastradaException {
@@ -80,7 +77,7 @@ public class CadastroRefeicao {
 
         System.out.println("Lista de Refeições:");
         for (Refeicao refeicao : lista) {
-            System.out.println("- " + refeicao.getNome() + " às " + refeicao.getHorario());
+            System.out.println("- " + refeicao.getNome());
         }
     }
 

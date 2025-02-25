@@ -4,10 +4,11 @@ import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dieta {
     private String nome;
-    private ArrayList<Refeicao> refeicoes;
+    private List<Refeicao> refeicoes;
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private EnumObjetivoDaDieta objetivoDaDieta;
@@ -24,8 +25,11 @@ public class Dieta {
         this.objetivoDaDieta = objetivoDaDieta;
     }
 
+    public void setRefeicoesList(List<Refeicao> lista){
+        this.refeicoes = lista;
+    }
 
-    public ArrayList<Refeicao> getRefeicoes() {
+    public List<Refeicao> getRefeicoes() {
         return refeicoes;
     }
 

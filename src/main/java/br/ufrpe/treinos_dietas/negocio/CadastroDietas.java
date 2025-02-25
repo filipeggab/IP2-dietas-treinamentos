@@ -10,7 +10,7 @@ import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
 import java.time.LocalDate;
 
 public class CadastroDietas {
-    private RepositorioDietas repo;
+    RepositorioDietas repo;
 
     public CadastroDietas(RepositorioDietas repo) {
         this.repo = repo;

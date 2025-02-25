@@ -77,7 +77,7 @@ public class CadastroComidas {
     }
     public Comida lerComida(String nome) {
         try {
-            Comida comida = repo.buscarComida(nome);
+            Comida comida = repo.buscarComida(nome, nome);
             System.out.println(comida);
             return comida;
         } catch (ComidaNaoCadastradaException e) {
