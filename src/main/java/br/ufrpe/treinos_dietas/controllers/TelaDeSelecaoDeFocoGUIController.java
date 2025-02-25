@@ -1,14 +1,11 @@
 package br.ufrpe.treinos_dietas.controllers;
 
-import br.ufrpe.treinos_dietas.Main;
-import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
-import br.ufrpe.treinos_dietas.dados.RepositorioExPratico;
-import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
-import br.ufrpe.treinos_dietas.dados.RepositorioTreinos;
+import br.ufrpe.treinos_dietas.dados.*;
 import br.ufrpe.treinos_dietas.exceptions.DietaNaoCadastradaException;
 import br.ufrpe.treinos_dietas.exceptions.ExercicioNaoCadastradoException;
 import br.ufrpe.treinos_dietas.exceptions.PlanoNaoCadastradoException;
 import br.ufrpe.treinos_dietas.exceptions.TreinoNaoCadastradoException;
+import br.ufrpe.treinos_dietas.negocio.CadastroComidas;
 import br.ufrpe.treinos_dietas.negocio.CadastroDietas;
 import br.ufrpe.treinos_dietas.negocio.CadastroPlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.CadastroTreinos;
@@ -20,19 +17,10 @@ import br.ufrpe.treinos_dietas.negocio.beans.treinos.*;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Metrica;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -40,10 +28,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TelaDeSelecaoDeFocoGUIController {
-    RepositorioExPratico repositorioExPratico = new  RepositorioExPratico();
+    RepositorioExPratico repositorioExPratico = new RepositorioExPratico();
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
-    RepositorioDietas repositorioDietas  = new  RepositorioDietas();
-    RepositorioTreinos repositorioTreinos = new  RepositorioTreinos();
+    RepositorioDietas repositorioDietas  = new RepositorioDietas();
+    RepositorioTreinos repositorioTreinos = new RepositorioTreinos();
+    RepositorioComidas repositorioComidas = new RepositorioComidas();
 
 
 
@@ -134,6 +123,7 @@ public class TelaDeSelecaoDeFocoGUIController {
         usuario.adicionarPlanoDeTreino(planoDeTreino);
 
         alocarTreino();
+        criarComidas();
 
     }
     //Criar descricoes direito pra cada um!
@@ -517,4 +507,11 @@ public class TelaDeSelecaoDeFocoGUIController {
 
     }
 
+    public void criarComidas(){
+        CadastroComidas cadastroComidas = new CadastroComidas(repositorioComidas);
+        cadastroComidas.cadastrarComida("Brown Bread", "50g");
+        cadastroComidas.cadastrarComida("Banana", "50g");
+        cadastroComidas.cadastrarComida("Chicken Breast", "50g");
+        cadastroComidas.cadastrarComida("Rice", "100g");
+    }
 }
