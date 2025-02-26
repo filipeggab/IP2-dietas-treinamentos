@@ -300,7 +300,7 @@ public class TelaDeSelecaoDeFocoGUIController {
         ExercicioPratico mobilizacaoDeTornozeloSerie = new ExPraticoSerieReps(mobilizacaoDeTornozelo,  1, 0, 15);
         repositorioExPratico.criarExercicio(mobilizacaoDeTornozeloSerie);
     }
-
+//encontrar por que quando voce escolhe um foco de treino ja escolhido anteriormente o codigo nao compila
     public void AlocarTreino(ChoiceBox<String> escolha) throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
         CriarExercicios();
         CadastroTreinos cadastroTreinos = new CadastroTreinos(repositorioTreinos);
