@@ -52,6 +52,10 @@ public class RepositorioDietas {
             throw new DietaNaoCadastradaException(dieta.getNome());
         }
     }
+    public Dieta retornarDieta(){
+        return dietas.getLast();
+    }
+
     public void apagarConta(String nome) throws DietaNaoCadastradaException{
         try{
             Dieta dieta = buscarDieta(nome);

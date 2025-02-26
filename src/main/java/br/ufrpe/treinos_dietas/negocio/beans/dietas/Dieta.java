@@ -95,7 +95,4 @@ public class Dieta {
         return totalGordurasDoDia;
     }
 
-    public void setObjetivoDaDieta(EnumObjetivoDaDieta objetivoDaDieta) {
-        this.objetivoDaDieta = objetivoDaDieta;
-    }
 }

@@ -557,6 +557,7 @@ public class TelaDeSelecaoDeFocoGUIController {
                 Refeicao lancheDaTardePP = new Refeicao("Lanche da tarde-Perda de Peso");
                 lancheDaTardePP.addComida(repositorioComidas.buscarComida("Apples", "150.0g"));
                 lancheDaTardePP.addComida(repositorioComidas.buscarComida("Grapes", "100.0g"));
+                lancheDaTardePP.addComida(repositorioComidas.buscarComida("Strawberries","100.0g"));
                 Refeicao jantarPP = new Refeicao("Jantar-PerdaDePeso");
                 jantarPP.addComida(repositorioComidas.buscarComida("Sweet Potatoes", "140.0g"));
                 jantarPP.addComida(repositorioComidas.buscarComida("Silver Fish",  "100.0g"));
