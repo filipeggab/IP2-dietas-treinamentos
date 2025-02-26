@@ -1,18 +1,13 @@
 package br.ufrpe.treinos_dietas.controllers;
 
-import br.ufrpe.treinos_dietas.Main;
-import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
-import br.ufrpe.treinos_dietas.dados.RepositorioExPratico;
-import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
-import br.ufrpe.treinos_dietas.dados.RepositorioTreinos;
-import br.ufrpe.treinos_dietas.exceptions.DietaNaoCadastradaException;
-import br.ufrpe.treinos_dietas.exceptions.ExercicioNaoCadastradoException;
-import br.ufrpe.treinos_dietas.exceptions.PlanoNaoCadastradoException;
-import br.ufrpe.treinos_dietas.exceptions.TreinoNaoCadastradoException;
+import br.ufrpe.treinos_dietas.dados.*;
+import br.ufrpe.treinos_dietas.exceptions.*;
+import br.ufrpe.treinos_dietas.negocio.CadastroComidas;
 import br.ufrpe.treinos_dietas.negocio.CadastroDietas;
 import br.ufrpe.treinos_dietas.negocio.CadastroPlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.CadastroTreinos;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
+import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
@@ -20,19 +15,10 @@ import br.ufrpe.treinos_dietas.negocio.beans.treinos.*;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Metrica;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -40,15 +26,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TelaDeSelecaoDeFocoGUIController {
-    RepositorioExPratico repositorioExPratico = new  RepositorioExPratico();
+    RepositorioExPratico repositorioExPratico = new RepositorioExPratico();
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
-    RepositorioDietas repositorioDietas  = new  RepositorioDietas();
-    RepositorioTreinos repositorioTreinos = new  RepositorioTreinos();
+    RepositorioDietas repositorioDietas  = RepositorioDietas.getInstance();
+    RepositorioTreinos repositorioTreinos = new RepositorioTreinos();
+    RepositorioComidas repositorioComidas = new RepositorioComidas();
 
 
 
 
-    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO", "LOWCARB", "VEGETEARIANO");
+    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO");
     ObservableList<String> focoDoTreino = FXCollections.observableArrayList("FORÇA_MUSCULAR", "HIPERTROFIA", "RESISTÊNCIA", "FLEXIBILIDADE");
     ObservableList<EnumSexo> escolhasSexo =  FXCollections.observableArrayList(EnumSexo.values());
     @FXML
@@ -67,10 +54,10 @@ public class TelaDeSelecaoDeFocoGUIController {
     private DatePicker dpDataDeNascimento;
 
     @FXML
-    private ChoiceBox cbFocoDaDieta;
+    private ChoiceBox<String> cbFocoDaDieta;
 
     @FXML
-    private ChoiceBox cbFocoDoTreino;
+    private ChoiceBox<String> cbFocoDoTreino;
 
     @FXML
     private Label lblErroCadastro;
@@ -90,17 +77,17 @@ public class TelaDeSelecaoDeFocoGUIController {
     void btnConfirmarSelecaoActionPerformed() throws IOException, ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
         try {
             ContinuarCadastroDoUsuario();
-        } catch (NumberFormatException | NullPointerException e) { // Notei que caso a seleção de foco estivesse dava varias exceptions, então por enquanto vai aí esse "tapa buraco" pra só continuar funcionando por enquanto
+        } catch (NumberFormatException | NullPointerException | ComidaNaoCadastradaException e) {
             lblErroCadastro.setText("Preencha todos os campos corretamente!!");
         }
 
         TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnConfirmarSelecao);
     }
 
-    public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
+    public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException, ComidaNaoCadastradaException {
 
-        Integer altura =  Integer.valueOf(txtAltura.getText());
-        Double peso =  Double.valueOf(txtPeso.getText());
+        int altura = Integer.parseInt(txtAltura.getText());
+        double peso = Double.parseDouble(txtPeso.getText());
         EnumSexo sexo =  EnumSexo.valueOf(cbSexo.getSelectionModel().getSelectedItem().toString());
         LocalDate dataDeNascimento = dpDataDeNascimento.getValue();
 
@@ -111,10 +98,16 @@ public class TelaDeSelecaoDeFocoGUIController {
         usuario.setDataNasc(dataDeNascimento);
         usuario.adicionarMetrica(metricas);
 
-        String nomeDaDieta = "Dieta de " + cbFocoDaDieta.getSelectionModel().getSelectedItem().toString();
+        CadastrarDieta(cbFocoDaDieta);
+        CadastrarTreino(cbFocoDoTreino);
+    }
+
+    public void CadastrarDieta(ChoiceBox<String> escolha) throws DietaNaoCadastradaException, ComidaNaoCadastradaException {
+        Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+        String nomeDaDieta = "Dieta de " + escolha.getSelectionModel().getSelectedItem();
         LocalDate inicioDaDieta = LocalDate.now();
         LocalDate fimDaDieta = LocalDate.now().plusWeeks(4);
-        EnumObjetivoDaDieta objetivoDaDieta = EnumObjetivoDaDieta.valueOf(cbFocoDaDieta.getSelectionModel().getSelectedItem().toString());
+        EnumObjetivoDaDieta objetivoDaDieta = EnumObjetivoDaDieta.valueOf(escolha.getSelectionModel().getSelectedItem());
 
         CadastroDietas cadastroDietas = new CadastroDietas(repositorioDietas);
         cadastroDietas.cadastrarDieta(nomeDaDieta, inicioDaDieta,fimDaDieta,objetivoDaDieta);
@@ -122,10 +115,16 @@ public class TelaDeSelecaoDeFocoGUIController {
         Dieta dieta = repositorioDietas.buscarDieta(nomeDaDieta);
         usuario.adicionarDieta(dieta);
 
-        String nomeDoPlano = "Plano para " +  cbFocoDoTreino.getSelectionModel().getSelectedItem().toString();
-        EnumObjetivoDoPlano objetivoDoPlano = EnumObjetivoDoPlano.valueOf(cbFocoDoTreino.getSelectionModel().getSelectedItem().toString());
-        LocalDate inicioDoPlano = inicioDaDieta;
-        LocalDate fimDoPlano = fimDaDieta;
+        CriarRefeicoes(escolha);
+
+    }
+
+    public void CadastrarTreino(ChoiceBox<String> escolha) throws PlanoNaoCadastradoException, TreinoNaoCadastradoException, ExercicioNaoCadastradoException {
+        Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+        String nomeDoPlano = "Plano para " +  escolha.getSelectionModel().getSelectedItem();
+        EnumObjetivoDoPlano objetivoDoPlano = EnumObjetivoDoPlano.valueOf(escolha.getSelectionModel().getSelectedItem());
+        LocalDate inicioDoPlano = LocalDate.now();
+        LocalDate fimDoPlano = LocalDate.now();
 
         CadastroPlanoDeTreino cadastroPlanoDeTreino = new CadastroPlanoDeTreino(repositorioPlanoDeTreino);
         cadastroPlanoDeTreino.cadastrarPlanoDeTreino(nomeDoPlano,objetivoDoPlano,inicioDoPlano,fimDoPlano);
@@ -133,10 +132,10 @@ public class TelaDeSelecaoDeFocoGUIController {
         PlanoDeTreino planoDeTreino = repositorioPlanoDeTreino.retornarPlanoDeTreino(nomeDoPlano);
         usuario.adicionarPlanoDeTreino(planoDeTreino);
 
-        alocarTreino();
-
+        AlocarTreino(escolha);
     }
-    //Criar descricoes direito pra cada um!
+
+
     public void CriarExercicios(){
 
 
@@ -301,13 +300,12 @@ public class TelaDeSelecaoDeFocoGUIController {
         ExercicioPratico mobilizacaoDeTornozeloSerie = new ExPraticoSerieReps(mobilizacaoDeTornozelo,  1, 0, 15);
         repositorioExPratico.criarExercicio(mobilizacaoDeTornozeloSerie);
     }
-
-    //adicionar repositorios nos exercicios praticos e tentar alocar!
-    public void alocarTreino() throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
+//encontrar por que quando voce escolhe um foco de treino ja escolhido anteriormente o codigo nao compila
+    public void AlocarTreino(ChoiceBox<String> escolha) throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
         CriarExercicios();
         CadastroTreinos cadastroTreinos = new CadastroTreinos(repositorioTreinos);
         Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
-        String selecter = cbFocoDoTreino.getSelectionModel().getSelectedItem().toString();
+        String selecter = escolha.getSelectionModel().getSelectedItem();
         switch(selecter){
             case "HIPERTROFIA": //media de exercicios
                 List<ExercicioPratico> treinoAHipertrofia = new ArrayList<>();
@@ -517,4 +515,141 @@ public class TelaDeSelecaoDeFocoGUIController {
 
     }
 
+    public void CriarComidas(){
+        CadastroComidas cadastroComidas = new CadastroComidas(repositorioComidas);
+        cadastroComidas.cadastrarComida("Brown Bread", "80g");
+        cadastroComidas.cadastrarComida("Bread", "140g");
+        cadastroComidas.cadastrarComida("Banana", "80g");
+        cadastroComidas.cadastrarComida("Chicken Breast", "100g");
+        cadastroComidas.cadastrarComida("Chicken Breast", "150g");
+        cadastroComidas.cadastrarComida("Rice", "150g");
+        cadastroComidas.cadastrarComida("Rice", "200g");
+        cadastroComidas.cadastrarComida("Rice", "250g");
+        cadastroComidas.cadastrarComida("Beans", "100g");
+        cadastroComidas.cadastrarComida("Beans", "200g");
+        cadastroComidas.cadastrarComida("Eggs", "100g");
+        cadastroComidas.cadastrarComida("Eggs", "150g");
+        cadastroComidas.cadastrarComida("Potatoes", "70g");
+        cadastroComidas.cadastrarComida("Sweet potatoes" , "140g");
+        cadastroComidas.cadastrarComida("Beef", "100g");
+        cadastroComidas.cadastrarComida("Beef", "140g");
+        cadastroComidas.cadastrarComida("Silver Fish", "100g");
+        cadastroComidas.cadastrarComida("Silver Fish", "150g");
+        cadastroComidas.cadastrarComida("Pasta", "150g");
+        cadastroComidas.cadastrarComida("Tomatoes", "50g");
+        cadastroComidas.cadastrarComida("Carrots", "40g");
+        cadastroComidas.cadastrarComida("Broccoli", "40g");
+        cadastroComidas.cadastrarComida("Apples", "150g");
+        cadastroComidas.cadastrarComida("Strawberries","100g");
+        cadastroComidas.cadastrarComida("Grapes","100g");
+        cadastroComidas.cadastrarComida("Cheese ","30g");
+        cadastroComidas.cadastrarComida("Cheese ","60g");
+        cadastroComidas.cadastrarComida("Oats","30g");
+    }
+
+    public void CriarRefeicoes(ChoiceBox<String> escolha) throws ComidaNaoCadastradaException, DietaNaoCadastradaException {
+        CriarComidas();
+        Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+        String selecter = escolha.getSelectionModel().getSelectedItem();
+
+        switch (selecter){
+            case "PERDA_DE_PESO":
+                Refeicao cafeDaManhaPP = new Refeicao("Café da manhã-Perda de Peso");
+                cafeDaManhaPP.addComida(repositorioComidas.buscarComida("Bread, Boston Brown", "80.0g"));
+                cafeDaManhaPP.addComida(repositorioComidas.buscarComida("Eggs",  "100.0g"));
+                cafeDaManhaPP.addComida((repositorioComidas.buscarComida("Cheese", "30.0g")));
+                cafeDaManhaPP.addComida((repositorioComidas.buscarComida("Banana", "80.0g")));
+                Refeicao almocoPP = new Refeicao("Almoço-Perda de Peso");
+                almocoPP.addComida(repositorioComidas.buscarComida("Rice", "150.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Beans", "100.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Potatoes", "70.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Chicken Breast", "100.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Tomatoes", "50.0g"));
+                almocoPP.addComida(repositorioComidas.buscarComida("Carrots", "40.0g"));
+                Refeicao lancheDaTardePP = new Refeicao("Lanche da tarde-Perda de Peso");
+                lancheDaTardePP.addComida(repositorioComidas.buscarComida("Apples", "150.0g"));
+                lancheDaTardePP.addComida(repositorioComidas.buscarComida("Grapes", "100.0g"));
+                lancheDaTardePP.addComida(repositorioComidas.buscarComida("Strawberries","100.0g"));
+                Refeicao jantarPP = new Refeicao("Jantar-PerdaDePeso");
+                jantarPP.addComida(repositorioComidas.buscarComida("Sweet Potatoes", "140.0g"));
+                jantarPP.addComida(repositorioComidas.buscarComida("Silver Fish",  "100.0g"));
+
+                List<Refeicao> listaDeRefeicoesPP = new ArrayList<>();
+                listaDeRefeicoesPP.add(cafeDaManhaPP);
+                listaDeRefeicoesPP.add(almocoPP);
+                listaDeRefeicoesPP.add(lancheDaTardePP);
+                listaDeRefeicoesPP.add(jantarPP);
+
+                usuario.AdicionarListaADieta(repositorioDietas.RetornarNomeDaDieta(), listaDeRefeicoesPP);
+                break;
+
+            case "GANHO_DE_MASSA":
+                Refeicao cafeDaManhaGM = new Refeicao("Café da manhã-Ganho de massa");
+                cafeDaManhaGM.addComida(repositorioComidas.buscarComida("Bread", "140.0g"));
+                cafeDaManhaGM.addComida(repositorioComidas.buscarComida("Eggs", "150.0g"));
+                cafeDaManhaGM.addComida(repositorioComidas.buscarComida("Cheese", "60.0g"));
+                cafeDaManhaGM.addComida(repositorioComidas.buscarComida("Banana", "80.0g"));
+                Refeicao almocoGM = new Refeicao("Almoço-Ganho de massa");
+                almocoGM.addComida(repositorioComidas.buscarComida("Rice", "250.0g"));
+                almocoGM.addComida(repositorioComidas.buscarComida("Beans", "200.0g"));
+                almocoGM.addComida(repositorioComidas.buscarComida("Beef", "140.0g"));
+                almocoGM.addComida(repositorioComidas.buscarComida("Tomatoes", "50.0g"));
+                almocoGM.addComida(repositorioComidas.buscarComida("Broccoli", "40.0g"));
+                Refeicao lancheDaTardeGM = new Refeicao("Lanche da tarde-Ganho de massa");
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Apples", "150.0g"));
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Grapes", "100.0g"));
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Banana", "80.0g"));
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Strawberries", "100.0g"));
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Oats", "30.0g"));
+                Refeicao jantarGM = new Refeicao("Jantar-Ganho de massa");
+                jantarGM.addComida(repositorioComidas.buscarComida("Pasta", "150.0g"));
+                jantarGM.addComida(repositorioComidas.buscarComida("Chicken Breast", "150.0g"));
+
+                List<Refeicao> listaDeRefeicoesGM = new ArrayList<>();
+                listaDeRefeicoesGM.add(cafeDaManhaGM);
+                listaDeRefeicoesGM.add(almocoGM);
+                listaDeRefeicoesGM.add(lancheDaTardeGM);
+                listaDeRefeicoesGM.add(jantarGM);
+
+                usuario.AdicionarListaADieta(repositorioDietas.RetornarNomeDaDieta(), listaDeRefeicoesGM);
+                break;
+
+            case "MANUTENÇÃO":
+                Refeicao cafeDaManhaM = new Refeicao("Café da manha-Manutenção");
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Bread, Boston Brown", "80.0g"));
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Eggs", "150.0g"));
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Cheese", "30.0g"));
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Banana", "80.0g"));
+                Refeicao almocoM = new Refeicao("Almoço-Manutenção");
+                almocoM.addComida(repositorioComidas.buscarComida("Rice", "200.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Beans", "100.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Silver Fish", "150.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Tomatoes", "50.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Broccoli", "40.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Carrots", "40.0g"));
+                Refeicao lancheDaTardeM = new Refeicao("Lanche da tarde-Manutenção");
+                lancheDaTardeM.addComida(repositorioComidas.buscarComida("Apples", "150.0g"));
+                lancheDaTardeM.addComida(repositorioComidas.buscarComida("Grapes", "100.0g"));
+                lancheDaTardeM.addComida(repositorioComidas.buscarComida("Banana", "80.0g"));
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Oats", "30.0g"));
+                Refeicao jantarM = new Refeicao("Jantar-Manutenção");
+                jantarM.addComida(repositorioComidas.buscarComida("Sweet Potatoes", "140.0g"));
+                jantarM.addComida(repositorioComidas.buscarComida("Beef", "140.0g"));
+                jantarM.addComida(repositorioComidas.buscarComida("Cheese", "30.0g"));
+
+                List<Refeicao> listaDeRefeicoesM = new ArrayList<>();
+                listaDeRefeicoesM.add(cafeDaManhaM);
+                listaDeRefeicoesM.add(almocoM);
+                listaDeRefeicoesM.add(lancheDaTardeM);
+                listaDeRefeicoesM.add(jantarM);
+
+                usuario.AdicionarListaADieta(repositorioDietas.RetornarNomeDaDieta(), listaDeRefeicoesM);
+                break;
+
+            default:
+                break;
+        }
+
+
+    }
 }

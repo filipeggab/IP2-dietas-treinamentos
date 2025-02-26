@@ -1,10 +1,15 @@
 package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
+import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
+import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
+import br.ufrpe.treinos_dietas.exceptions.*;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Metrica;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +21,12 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class TelaEdicaoPerfilGUIController {
+    ObservableList<String> focoDaDieta =  FXCollections.observableArrayList("PERDA_DE_PESO", "GANHO_DE_MASSA", "MANUTENÇÃO");
+    ObservableList<String> focoDoTreino = FXCollections.observableArrayList("FORÇA_MUSCULAR", "HIPERTROFIA", "RESISTÊNCIA", "FLEXIBILIDADE");
+    RepositorioDietas repositorioDietas = RepositorioDietas.getInstance();
+    RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
+
+    FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDeSelecaoDeFocoGUIController.fxml"));
 
     @FXML
     private TextField txtNome, txtEmail, txtAltura, txtPeso;
@@ -25,14 +36,26 @@ public class TelaEdicaoPerfilGUIController {
     private ComboBox<EnumSexo> cbSexo;
     @FXML
     private Button btnSalvar, btnCancelar;
+    @FXML
+    private ChoiceBox<String> cbFocoDoTreino, cbFocoDaDieta;
 
     private Usuario usuario;
     private Metrica ultimaMetrica;
 
+    public TelaEdicaoPerfilGUIController() throws IOException {
+    }
+
     @FXML
     public void initialize() {
-        // Obtém o usuário logado na sessão
         usuario = SessaoUsuario.getInstancia().getUsuario();
+        String nomeDieta = repositorioDietas.retornarDieta().getNome();
+        String nomeTreino = repositorioPlanoDeTreino.retornarPlanos().getNome();
+
+        cbFocoDaDieta.setValue(nomeDieta);
+        cbFocoDoTreino.setValue(nomeTreino);
+
+        cbFocoDaDieta.setItems(focoDaDieta);
+        cbFocoDoTreino.setItems(focoDoTreino);
 
         if (usuario != null) {
             // Preenchendo os campos com os dados existentes do usuário
@@ -53,11 +76,12 @@ public class TelaEdicaoPerfilGUIController {
                 txtAltura.setText(String.valueOf(ultimaMetrica.getAltura()));
                 txtPeso.setText(String.valueOf(ultimaMetrica.getPeso()));
             }
+
         }
     }
 
     @FXML
-    public void btnSalvarActionPerformed() throws IOException {
+    public void btnSalvarActionPerformed() throws IOException, DietaNaoCadastradaException, ComidaNaoCadastradaException, TreinoNaoCadastradoException, PlanoNaoCadastradoException, ExercicioNaoCadastradoException {
         if (usuario != null) {
             // Atualiza os dados básicos do usuário
             if (!txtNome.getText().isEmpty()) {
@@ -71,6 +95,16 @@ public class TelaEdicaoPerfilGUIController {
             }
             if (cbSexo.getValue() != null) {
                 usuario.setSexo(cbSexo.getValue());
+            }
+            String nomeDieta = repositorioDietas.retornarDieta().getNome();
+            if(!cbFocoDaDieta.getSelectionModel().getSelectedItem().equals(nomeDieta)){
+                TelaDeSelecaoDeFocoGUIController controller =  new TelaDeSelecaoDeFocoGUIController();
+                controller.CadastrarDieta(cbFocoDaDieta);
+            }
+            String nomeTreino = repositorioPlanoDeTreino.retornarPlanos().getNome();
+            if(!cbFocoDoTreino.getSelectionModel().getSelectedItem().equals(nomeTreino)){
+                TelaDeSelecaoDeFocoGUIController controller = new TelaDeSelecaoDeFocoGUIController();
+                controller.CadastrarTreino(cbFocoDoTreino);
             }
 
             // Verifica se os valores de altura e peso foram alterados antes de criar uma nova métrica

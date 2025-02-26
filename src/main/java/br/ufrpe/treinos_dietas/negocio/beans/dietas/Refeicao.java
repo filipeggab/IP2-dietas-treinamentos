@@ -1,15 +1,13 @@
 package br.ufrpe.treinos_dietas.negocio.beans.dietas;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 
 public class Refeicao {
     private String nome;
-    private LocalDateTime horario;
     private ArrayList<Comida> comidas = new ArrayList();
 
-    public Refeicao(String nome, LocalDateTime horario) {
+    public Refeicao(String nome) {
         this.nome = nome;
-        this.horario = horario;
     }
 
     public void addComida (Comida comida){
@@ -62,11 +60,4 @@ public class Refeicao {
         this.nome = nome;
     }
 
-    public LocalDateTime getHorario() {
-        return horario;
-    }
-
-    public void setHorario(LocalDateTime horario) {
-        this.horario = horario;
-    }
 }

@@ -1,7 +1,11 @@
 package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
+import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
 import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
+import br.ufrpe.treinos_dietas.negocio.beans.dietas.Comida;
+import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
+import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.ExercicioPratico;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
@@ -24,6 +28,7 @@ import java.util.List;
 public class TelaPrincipalDoUsuarioGUIController {
     Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
+    RepositorioDietas repositorioDietas =  RepositorioDietas.getInstance();
     LocalDate dataAtualizada = LocalDate.now();
     LocalDate dataAdicionada = LocalDate.now();
 
@@ -63,6 +68,9 @@ public class TelaPrincipalDoUsuarioGUIController {
     private Label labelM1,labelM2,labelM3, labelC1, labelF1, labelF2, labelF3,labelF4,labelF5,labelF6;
 
     @FXML
+    private Label lblCafe1, lblCafe2, lblAlmoco1, lblAlmoco2, lblLanche1, lblLanche2, lblLanche3, lblJantar1, lblJantar2, lblJantar3;
+
+    @FXML
     private Label labelData;
 
 
@@ -83,6 +91,10 @@ public class TelaPrincipalDoUsuarioGUIController {
         List<ExercicioPratico> exerciciosTreinoC = treinoC.getExercicioList();
         int selector = checarData();
 
+        Dieta dietaAtual = repositorioDietas.retornarDieta();
+        List<Refeicao> listaDeRefeicoes= dietaAtual.getRefeicoes();
+        alocadorCafeDaManhaEAlmoco(listaDeRefeicoes.get(0).getComidas(), listaDeRefeicoes.get(1).getComidas());
+        alocadorLancheEJanta(listaDeRefeicoes.get(2).getComidas(), listaDeRefeicoes.get(3).getComidas());
         switch (selector){
             case 0: //TREINO A
                 if(planoAtual.getNome().equalsIgnoreCase("Plano para FLEXIBILIDADE")){
@@ -154,6 +166,24 @@ public class TelaPrincipalDoUsuarioGUIController {
         labelF4.setText(exerciciosTreinoForca.get(7).toString());
     }
 
+    private void alocadorCafeDaManhaEAlmoco(List<Comida> listaDeComidasC, List<Comida> listaDeComidasA){
+        lblCafe1.setText(listaDeComidasC.get(0).toString());
+        lblCafe2.setText(listaDeComidasC.get(1).toString());
+        lblAlmoco1.setText(listaDeComidasA.get(0).toString());
+        lblAlmoco2.setText(listaDeComidasA.get(1).toString());
+    }
+    private void alocadorLancheEJanta(List<Comida> listaDeComidasL, List<Comida> listaDeComidasJ){
+        lblLanche1.setText(listaDeComidasL.get(0).toString());
+        lblLanche2.setText(listaDeComidasL.get(1).toString());
+        lblLanche3.setText(listaDeComidasL.get(2).toString());
+        lblJantar1.setText(listaDeComidasJ.get(0).toString());
+        lblJantar2.setText(listaDeComidasJ.get(1).toString());
+        if(listaDeComidasJ.size() == 3){
+            lblJantar3.setText(listaDeComidasJ.get(2).toString());
+        }
+    }
+
+
 
     public void checarCheckBoxes(){
         dataAtualizada = LocalDate.now();
@@ -174,6 +204,12 @@ public class TelaPrincipalDoUsuarioGUIController {
     }
 
     public void labelsEmBranco(){
+        GetLabels(labelM1, labelM2, labelM3, labelC1, labelF1, labelF2, labelF3, labelF4, labelF5, labelF6);
+        GetLabels(lblCafe1, lblCafe2, lblAlmoco1, lblAlmoco2, lblLanche1, lblLanche2, lblLanche3, lblJantar1, lblJantar2, lblJantar3);
+
+    }
+
+    public void GetLabels(Label labelM1, Label labelM2, Label labelM3, Label labelC1, Label labelF1, Label labelF2, Label labelF3, Label labelF4, Label labelF5, Label labelF6) {
         labelM1.setText(" ");
         labelM2.setText(" ");
         labelM3.setText(" ");
@@ -184,7 +220,6 @@ public class TelaPrincipalDoUsuarioGUIController {
         labelF4.setText(" ");
         labelF5.setText(" ");
         labelF6.setText(" ");
-
     }
 
     @FXML

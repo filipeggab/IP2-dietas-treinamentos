@@ -9,10 +9,19 @@ import java.util.List;
 
 public class RepositorioDietas {
     List<Dieta> dietas;
+    private static RepositorioDietas instancia;
 
     public RepositorioDietas(){
         this.dietas = new ArrayList<>();
     }
+
+    public static RepositorioDietas getInstance() {
+        if(instancia == null) {
+            instancia = new RepositorioDietas();
+        }
+        return instancia;
+    }
+
     public Dieta buscarDieta(String nome) throws DietaNaoCadastradaException {
         Dieta dieta = dietas.stream().filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim())).findFirst().orElse(null);
         if(dieta == null){
@@ -20,6 +29,18 @@ public class RepositorioDietas {
         }else{
             return dieta;
         }
+    }
+    public Dieta retornarDieta(String nome) throws DietaNaoCadastradaException {
+        if (nome == null) {
+            throw new IllegalArgumentException("O nome do plano não pode ser nulo.");
+        }
+        return dietas.stream()
+                .filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim()))
+                .findFirst()
+                .orElseThrow(() -> new DietaNaoCadastradaException(nome));
+    }
+    public String RetornarNomeDaDieta(){
+        return dietas.getLast().getNome();
     }
     public void criarDieta(Dieta dieta){
         dietas.add(dieta);
@@ -31,6 +52,10 @@ public class RepositorioDietas {
             throw new DietaNaoCadastradaException(dieta.getNome());
         }
     }
+    public Dieta retornarDieta(){
+        return dietas.getLast();
+    }
+
     public void apagarConta(String nome) throws DietaNaoCadastradaException{
         try{
             Dieta dieta = buscarDieta(nome);

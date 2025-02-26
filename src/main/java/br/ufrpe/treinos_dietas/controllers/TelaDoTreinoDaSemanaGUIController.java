@@ -42,6 +42,9 @@ public class TelaDoTreinoDaSemanaGUIController {
     private Button btnIrParaCalendarioDeTreino;
 
     @FXML
+    private Label lblData;
+
+    @FXML
     private List<Label> treinoALabels;
     @FXML
     private List<Label> treinoBLabels;
@@ -74,6 +77,7 @@ public class TelaDoTreinoDaSemanaGUIController {
         List<ExercicioPratico> exerciciosTreinoC = treinoC.getExercicioList();
 
 
+        lblData.setText("Semana 1-4");
         treinoALabels = getLabelsVbox(vboxA);
         treinoBLabels = getLabelsVbox(vboxB);
         treinoCLabels = getLabelsVbox(vboxC);

@@ -45,17 +45,17 @@
                      </font></CheckBox>
                </children>
             </HBox>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx" textAlignment="RIGHT">
+            <Label fx:id="lblCafe1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx" textAlignment="RIGHT">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="268.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+            <Label fx:id="lblCafe2" alignment="CENTER" prefHeight="18.0" prefWidth="268.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="...">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
@@ -78,17 +78,17 @@
                   </CheckBox>
                </children>
             </HBox>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+            <Label fx:id="lblAlmoco1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="348.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+            <Label fx:id="lblAlmoco2" alignment="CENTER" prefHeight="18.0" prefWidth="348.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="...">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
@@ -110,17 +110,17 @@
                      </font></CheckBox>
                </children>
             </HBox>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+            <Label fx:id="lblLanche1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+            <Label fx:id="lblLanche2" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+            <Label fx:id="lblLanche3" alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
@@ -142,23 +142,23 @@
                      </font></CheckBox>
                </children>
             </HBox>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+            <Label fx:id="lblJantar1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+            <Label fx:id="lblJantar2" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+            <Label fx:id="lblJantar3" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="...">
                <VBox.margin>
                   <Insets left="6.0" />
                </VBox.margin>
             </Label>
             <Label />
-            <Button fx:id="btnDietaSemanal" mnemonicParsing="false" onAction="#btnDietaSemanalActionPerformed" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Dieta semanal">
+            <Button fx:id="btnDietaSemanal" mnemonicParsing="false" onAction="#btnDietaSemanalActionPerformed" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Expandir dieta">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

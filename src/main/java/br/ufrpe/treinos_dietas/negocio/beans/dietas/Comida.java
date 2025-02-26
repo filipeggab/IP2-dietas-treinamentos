@@ -2,15 +2,15 @@ package br.ufrpe.treinos_dietas.negocio.beans.dietas;
 
 public class Comida {
     private String nome;
-    private String unDeMedida;
-    private double proteinas;
-    private double carboidratos;
-    private double gorduras;
-    private double calorias;
+    private final String qtdEmGramas;
+    private final double proteinas;
+    private final double carboidratos;
+    private final double gorduras;
+    private final double calorias;
 
-    public Comida(String nome, String unDeMedida, double proteinas, double carboidratos, double gorduras, double calorias) {
+    public Comida(String nome, String qtdEmGramas, double proteinas, double carboidratos, double gorduras, double calorias) {
         this.nome = nome;
-        this.unDeMedida = unDeMedida;
+        this.qtdEmGramas = qtdEmGramas;
         this.proteinas = proteinas;
         this.carboidratos = carboidratos;
         this.gorduras = gorduras;
@@ -25,43 +25,28 @@ public class Comida {
         this.nome = nome;
     }
 
-    public String getUnDeMedida() {
-        return unDeMedida;
-    }
-
-    public void setUnDeMedida(String unDeMedida) {
-        this.unDeMedida = unDeMedida;
+    public String getQtdEmGramas() {
+        return qtdEmGramas;
     }
 
     public double getProteinas() {
         return proteinas;
     }
 
-    public void setProteinas(double proteinas) {
-        this.proteinas = proteinas;
-    }
-
     public double getCarboidratos() {
         return carboidratos;
-    }
-
-    public void setCarboidratos(double carboidratos) {
-        this.carboidratos = carboidratos;
     }
 
     public double getGorduras() {
         return gorduras;
     }
 
-    public void setGorduras(double gorduras) {
-        this.gorduras = gorduras;
-    }
-
     public double getCalorias() {
         return calorias;
     }
 
-    public void setCalorias(double calorias) {
-        this.calorias = calorias;
+    @Override
+    public String toString() {
+        return qtdEmGramas + " of " + nome;
     }
 }

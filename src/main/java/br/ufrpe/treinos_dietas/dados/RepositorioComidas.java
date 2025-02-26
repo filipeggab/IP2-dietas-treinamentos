@@ -15,8 +15,8 @@ public class RepositorioComidas {
         this.comidas = new ArrayList<>();
     }
 
-    public Comida buscarComida(String nome) throws ComidaNaoCadastradaException {
-        Comida comida = comidas.stream().filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim())).findFirst().orElse(null);
+    public Comida buscarComida(String nome, String qtdEmGramas) throws ComidaNaoCadastradaException {
+        Comida comida = comidas.stream().filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim()) && x.getQtdEmGramas().trim().equals(qtdEmGramas.trim())).findFirst().orElse(null);
         if (comida == null) {
             throw new ComidaNaoCadastradaException(nome);
         } else {
@@ -42,7 +42,7 @@ public class RepositorioComidas {
 
     public void apagarComida(String nome) throws ComidaNaoCadastradaException {
         try {
-            Comida comida = buscarComida(nome);
+            Comida comida = buscarComida(nome, nome);
             comidas.remove(comida);
         } catch (ComidaNaoCadastradaException e) {
             throw e;
