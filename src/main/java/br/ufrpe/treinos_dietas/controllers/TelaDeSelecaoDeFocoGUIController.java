@@ -54,10 +54,10 @@ public class TelaDeSelecaoDeFocoGUIController {
     private DatePicker dpDataDeNascimento;
 
     @FXML
-    private ChoiceBox cbFocoDaDieta;
+    private ChoiceBox<String> cbFocoDaDieta;
 
     @FXML
-    private ChoiceBox cbFocoDoTreino;
+    private ChoiceBox<String> cbFocoDoTreino;
 
     @FXML
     private Label lblErroCadastro;
@@ -86,8 +86,8 @@ public class TelaDeSelecaoDeFocoGUIController {
 
     public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException, ComidaNaoCadastradaException {
 
-        Integer altura =  Integer.valueOf(txtAltura.getText());
-        Double peso =  Double.valueOf(txtPeso.getText());
+        int altura = Integer.parseInt(txtAltura.getText());
+        double peso = Double.parseDouble(txtPeso.getText());
         EnumSexo sexo =  EnumSexo.valueOf(cbSexo.getSelectionModel().getSelectedItem().toString());
         LocalDate dataDeNascimento = dpDataDeNascimento.getValue();
 
@@ -98,10 +98,16 @@ public class TelaDeSelecaoDeFocoGUIController {
         usuario.setDataNasc(dataDeNascimento);
         usuario.adicionarMetrica(metricas);
 
-        String nomeDaDieta = "Dieta de " + cbFocoDaDieta.getSelectionModel().getSelectedItem().toString();
+        CadastrarDieta(cbFocoDaDieta);
+        CadastrarTreino(cbFocoDoTreino);
+    }
+
+    public void CadastrarDieta(ChoiceBox<String> escolha) throws DietaNaoCadastradaException, ComidaNaoCadastradaException {
+        Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+        String nomeDaDieta = "Dieta de " + escolha.getSelectionModel().getSelectedItem();
         LocalDate inicioDaDieta = LocalDate.now();
         LocalDate fimDaDieta = LocalDate.now().plusWeeks(4);
-        EnumObjetivoDaDieta objetivoDaDieta = EnumObjetivoDaDieta.valueOf(cbFocoDaDieta.getSelectionModel().getSelectedItem().toString());
+        EnumObjetivoDaDieta objetivoDaDieta = EnumObjetivoDaDieta.valueOf(escolha.getSelectionModel().getSelectedItem());
 
         CadastroDietas cadastroDietas = new CadastroDietas(repositorioDietas);
         cadastroDietas.cadastrarDieta(nomeDaDieta, inicioDaDieta,fimDaDieta,objetivoDaDieta);
@@ -109,10 +115,16 @@ public class TelaDeSelecaoDeFocoGUIController {
         Dieta dieta = repositorioDietas.buscarDieta(nomeDaDieta);
         usuario.adicionarDieta(dieta);
 
-        String nomeDoPlano = "Plano para " +  cbFocoDoTreino.getSelectionModel().getSelectedItem().toString();
-        EnumObjetivoDoPlano objetivoDoPlano = EnumObjetivoDoPlano.valueOf(cbFocoDoTreino.getSelectionModel().getSelectedItem().toString());
-        LocalDate inicioDoPlano = inicioDaDieta;
-        LocalDate fimDoPlano = fimDaDieta;
+        CriarRefeicoes(escolha);
+
+    }
+
+    public void CadastrarTreino(ChoiceBox<String> escolha) throws PlanoNaoCadastradoException, TreinoNaoCadastradoException, ExercicioNaoCadastradoException {
+        Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+        String nomeDoPlano = "Plano para " +  escolha.getSelectionModel().getSelectedItem();
+        EnumObjetivoDoPlano objetivoDoPlano = EnumObjetivoDoPlano.valueOf(escolha.getSelectionModel().getSelectedItem());
+        LocalDate inicioDoPlano = LocalDate.now();
+        LocalDate fimDoPlano = LocalDate.now();
 
         CadastroPlanoDeTreino cadastroPlanoDeTreino = new CadastroPlanoDeTreino(repositorioPlanoDeTreino);
         cadastroPlanoDeTreino.cadastrarPlanoDeTreino(nomeDoPlano,objetivoDoPlano,inicioDoPlano,fimDoPlano);
@@ -120,10 +132,10 @@ public class TelaDeSelecaoDeFocoGUIController {
         PlanoDeTreino planoDeTreino = repositorioPlanoDeTreino.retornarPlanoDeTreino(nomeDoPlano);
         usuario.adicionarPlanoDeTreino(planoDeTreino);
 
-        AlocarTreino();
-        CriarRefeicoes();
-
+        AlocarTreino(escolha);
     }
+
+
     public void CriarExercicios(){
 
 
@@ -289,11 +301,11 @@ public class TelaDeSelecaoDeFocoGUIController {
         repositorioExPratico.criarExercicio(mobilizacaoDeTornozeloSerie);
     }
 
-    public void AlocarTreino() throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
+    public void AlocarTreino(ChoiceBox<String> escolha) throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
         CriarExercicios();
         CadastroTreinos cadastroTreinos = new CadastroTreinos(repositorioTreinos);
         Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
-        String selecter = cbFocoDoTreino.getSelectionModel().getSelectedItem().toString();
+        String selecter = escolha.getSelectionModel().getSelectedItem();
         switch(selecter){
             case "HIPERTROFIA": //media de exercicios
                 List<ExercicioPratico> treinoAHipertrofia = new ArrayList<>();
@@ -535,10 +547,10 @@ public class TelaDeSelecaoDeFocoGUIController {
         cadastroComidas.cadastrarComida("Oats","30g");
     }
 
-    public void CriarRefeicoes() throws ComidaNaoCadastradaException, DietaNaoCadastradaException {
+    public void CriarRefeicoes(ChoiceBox<String> escolha) throws ComidaNaoCadastradaException, DietaNaoCadastradaException {
         CriarComidas();
         Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
-        String selecter = cbFocoDaDieta.getSelectionModel().getSelectedItem().toString();
+        String selecter = escolha.getSelectionModel().getSelectedItem();
 
         switch (selecter){
             case "PERDA_DE_PESO":
