@@ -44,4 +44,9 @@ public class Comida {
     public double getCalorias() {
         return calorias;
     }
+
+    @Override
+    public String toString() {
+        return qtdEmGramas + " of " + nome;
+    }
 }

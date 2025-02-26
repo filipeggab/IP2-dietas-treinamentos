@@ -122,7 +122,6 @@ public class TelaDeSelecaoDeFocoGUIController {
 
         AlocarTreino();
         CriarRefeicoes();
-        System.out.println(dieta.caloriasDoDia());
 
     }
     public void CriarExercicios(){
@@ -507,16 +506,24 @@ public class TelaDeSelecaoDeFocoGUIController {
     public void CriarComidas(){
         CadastroComidas cadastroComidas = new CadastroComidas(repositorioComidas);
         cadastroComidas.cadastrarComida("Brown Bread", "80g");
+        cadastroComidas.cadastrarComida("Bread", "140g");
         cadastroComidas.cadastrarComida("Banana", "80g");
         cadastroComidas.cadastrarComida("Chicken Breast", "100g");
+        cadastroComidas.cadastrarComida("Chicken Breast", "150g");
         cadastroComidas.cadastrarComida("Rice", "150g");
+        cadastroComidas.cadastrarComida("Rice", "200g");
+        cadastroComidas.cadastrarComida("Rice", "250g");
         cadastroComidas.cadastrarComida("Beans", "100g");
+        cadastroComidas.cadastrarComida("Beans", "200g");
         cadastroComidas.cadastrarComida("Eggs", "100g");
+        cadastroComidas.cadastrarComida("Eggs", "150g");
         cadastroComidas.cadastrarComida("Potatoes", "70g");
         cadastroComidas.cadastrarComida("Sweet potatoes" , "140g");
         cadastroComidas.cadastrarComida("Beef", "100g");
+        cadastroComidas.cadastrarComida("Beef", "140g");
         cadastroComidas.cadastrarComida("Silver Fish", "100g");
-        cadastroComidas.cadastrarComida("Pasta", "100g");
+        cadastroComidas.cadastrarComida("Silver Fish", "150g");
+        cadastroComidas.cadastrarComida("Pasta", "150g");
         cadastroComidas.cadastrarComida("Tomatoes", "50g");
         cadastroComidas.cadastrarComida("Carrots", "40g");
         cadastroComidas.cadastrarComida("Broccoli", "40g");
@@ -524,6 +531,7 @@ public class TelaDeSelecaoDeFocoGUIController {
         cadastroComidas.cadastrarComida("Strawberries","100g");
         cadastroComidas.cadastrarComida("Grapes","100g");
         cadastroComidas.cadastrarComida("Cheese ","30g");
+        cadastroComidas.cadastrarComida("Cheese ","60g");
         cadastroComidas.cadastrarComida("Oats","30g");
     }
 
@@ -563,8 +571,70 @@ public class TelaDeSelecaoDeFocoGUIController {
                 break;
 
             case "GANHO_DE_MASSA":
-                //SEGUIR O MESMO PADRAO DO DE CIMA E CONTINUAR CRIANDO AS DIETAS
+                Refeicao cafeDaManhaGM = new Refeicao("Café da manhã-Ganho de massa");
+                cafeDaManhaGM.addComida(repositorioComidas.buscarComida("Bread", "140.0g"));
+                cafeDaManhaGM.addComida(repositorioComidas.buscarComida("Eggs", "150.0g"));
+                cafeDaManhaGM.addComida(repositorioComidas.buscarComida("Cheese", "60.0g"));
+                cafeDaManhaGM.addComida(repositorioComidas.buscarComida("Banana", "80.0g"));
+                Refeicao almocoGM = new Refeicao("Almoço-Ganho de massa");
+                almocoGM.addComida(repositorioComidas.buscarComida("Rice", "250.0g"));
+                almocoGM.addComida(repositorioComidas.buscarComida("Beans", "200.0g"));
+                almocoGM.addComida(repositorioComidas.buscarComida("Beef", "140.0g"));
+                almocoGM.addComida(repositorioComidas.buscarComida("Tomatoes", "50.0g"));
+                almocoGM.addComida(repositorioComidas.buscarComida("Broccoli", "40.0g"));
+                Refeicao lancheDaTardeGM = new Refeicao("Lanche da tarde-Ganho de massa");
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Apples", "150.0g"));
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Grapes", "100.0g"));
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Banana", "80.0g"));
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Strawberries", "100.0g"));
+                lancheDaTardeGM.addComida(repositorioComidas.buscarComida("Oats", "30.0g"));
+                Refeicao jantarGM = new Refeicao("Jantar-Ganho de massa");
+                jantarGM.addComida(repositorioComidas.buscarComida("Pasta", "150.0g"));
+                jantarGM.addComida(repositorioComidas.buscarComida("Chicken Breast", "150.0g"));
 
+                List<Refeicao> listaDeRefeicoesGM = new ArrayList<>();
+                listaDeRefeicoesGM.add(cafeDaManhaGM);
+                listaDeRefeicoesGM.add(almocoGM);
+                listaDeRefeicoesGM.add(lancheDaTardeGM);
+                listaDeRefeicoesGM.add(jantarGM);
+
+                usuario.AdicionarListaADieta(repositorioDietas.RetornarNomeDaDieta(), listaDeRefeicoesGM);
+                break;
+
+            case "MANUTENÇÃO":
+                Refeicao cafeDaManhaM = new Refeicao("Café da manha-Manutenção");
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Bread, Boston Brown", "80.0g"));
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Eggs", "150.0g"));
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Cheese", "30.0g"));
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Banana", "80.0g"));
+                Refeicao almocoM = new Refeicao("Almoço-Manutenção");
+                almocoM.addComida(repositorioComidas.buscarComida("Rice", "200.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Beans", "100.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Silver Fish", "150.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Tomatoes", "50.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Broccoli", "40.0g"));
+                almocoM.addComida(repositorioComidas.buscarComida("Carrots", "40.0g"));
+                Refeicao lancheDaTardeM = new Refeicao("Lanche da tarde-Manutenção");
+                lancheDaTardeM.addComida(repositorioComidas.buscarComida("Apples", "150.0g"));
+                lancheDaTardeM.addComida(repositorioComidas.buscarComida("Grapes", "100.0g"));
+                lancheDaTardeM.addComida(repositorioComidas.buscarComida("Banana", "80.0g"));
+                cafeDaManhaM.addComida(repositorioComidas.buscarComida("Oats", "30.0g"));
+                Refeicao jantarM = new Refeicao("Jantar-Manutenção");
+                jantarM.addComida(repositorioComidas.buscarComida("Sweet Potatoes", "140.0g"));
+                jantarM.addComida(repositorioComidas.buscarComida("Beef", "140.0g"));
+                jantarM.addComida(repositorioComidas.buscarComida("Cheese", "30.0g"));
+
+                List<Refeicao> listaDeRefeicoesM = new ArrayList<>();
+                listaDeRefeicoesM.add(cafeDaManhaM);
+                listaDeRefeicoesM.add(almocoM);
+                listaDeRefeicoesM.add(lancheDaTardeM);
+                listaDeRefeicoesM.add(jantarM);
+
+                usuario.AdicionarListaADieta(repositorioDietas.RetornarNomeDaDieta(), listaDeRefeicoesM);
+                break;
+
+            default:
+                break;
         }
 
 
