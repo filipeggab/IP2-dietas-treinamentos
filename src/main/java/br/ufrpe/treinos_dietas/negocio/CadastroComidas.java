@@ -49,6 +49,8 @@ public class CadastroComidas {
             );
 
             repo.criarComida(novaComida);
+            System.out.println("Comida cadastrada com sucesso: " + novaComida.getNome());
+
         } catch (IOException e) {
             System.out.println("Erro ao buscar informações nutricionais: " + e.getMessage());
         }
