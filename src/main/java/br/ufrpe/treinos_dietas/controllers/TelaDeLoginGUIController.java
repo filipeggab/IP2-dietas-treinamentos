@@ -2,6 +2,7 @@ package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.dados.RepositorioUsuarios;
+import br.ufrpe.treinos_dietas.exceptions.UsuarioNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.fxml.FXML;
@@ -33,10 +34,14 @@ public class TelaDeLoginGUIController {
 
 
     @FXML
-    public void btnIrParaTelaPrincipalActionPerformed() throws IOException {
+    public void btnIrParaTelaPrincipalActionPerformed() throws IOException, UsuarioNaoCadastradoException {
+        try{
+            login();
+            TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnIrParaTelaPrincipal);
+        }catch(UsuarioNaoCadastradoException | NullPointerException | NumberFormatException e){
+            lblErroLogin.setText(e.getMessage());
+        }
 
-        this.login();
-        TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnIrParaTelaPrincipal);
     }
 
     @FXML
@@ -49,10 +54,13 @@ public class TelaDeLoginGUIController {
         stage.show();
     }
 
-    public void login() {
+    public void login() throws UsuarioNaoCadastradoException {
         try {
             List<Usuario> listaDeUsuarios = repositorioUsuarios.getUsuarios();
-            System.out.println("Quantidade de usuários carregados: " + (listaDeUsuarios != null ? listaDeUsuarios.size() : "NULL"));
+            if (listaDeUsuarios == null || listaDeUsuarios.isEmpty()) {
+                throw new UsuarioNaoCadastradoException("Nenhum usuário cadastrado!");
+            }
+            System.out.println("Quantidade de usuários carregados: " + listaDeUsuarios.size());
 
             for (Usuario usuario : listaDeUsuarios) {
                 if (usuario.getEmail().equals(txtNome.getText()) && usuario.getSenha().equals(txtSenha.getText())) {
@@ -60,12 +68,12 @@ public class TelaDeLoginGUIController {
                     return;
                 }
             }
-            lblErroLogin.setText("E-mail ou senha incorreto!");
-            throw new IOException("Login falhou: Usuário ou senha inválidos.");
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            throw new UsuarioNaoCadastradoException("Email ou senha incorretos");
+        } catch (UsuarioNaoCadastradoException | NullPointerException e) {
+            lblErroLogin.setText("Email ou senha incorretos");
+            throw e;
         }
     }
+
 
 }
