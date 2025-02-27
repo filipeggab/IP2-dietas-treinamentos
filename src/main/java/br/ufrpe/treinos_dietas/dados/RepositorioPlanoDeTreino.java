@@ -4,10 +4,15 @@ package br.ufrpe.treinos_dietas.dados;
 import br.ufrpe.treinos_dietas.exceptions.PlanoNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioPlanoDeTreino {
+public class RepositorioPlanoDeTreino implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private static RepositorioPlanoDeTreino instancia;
     private List<PlanoDeTreino> planos;
 

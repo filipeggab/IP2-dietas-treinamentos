@@ -1,7 +1,9 @@
 package br.ufrpe.treinos_dietas;
 
 
-import br.ufrpe.treinos_dietas.controllers.TelaDeLoginGUIController;
+import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
+import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
+import br.ufrpe.treinos_dietas.dados.RepositorioUsuarios;
 import br.ufrpe.treinos_dietas.exceptions.ExercicioNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
@@ -12,17 +14,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class Main extends Application {
     public Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+    RepositorioUsuarios repositorioUsuarios = new RepositorioUsuarios();
+    RepositorioDietas repositorioDietas = new RepositorioDietas();
+    RepositorioPlanoDeTreino repositorioPlanoDeTreino = new RepositorioPlanoDeTreino();
 
-    @Override
     public void start(Stage primaryStage) throws IOException, ExercicioNaoCadastradoException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TelaDeLogin.fxml"));
+        URL fxmlLocation = getClass().getClassLoader().getResource("fxml/TelaDeLogin.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
         Parent root = loader.load();
-        TelaDeLoginGUIController tela = loader.getController();
-        tela.setUsuario(usuario);
         primaryStage.setTitle("App dietas e Treinos");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
@@ -30,6 +34,8 @@ public class Main extends Application {
 
         primaryStage.setOnCloseRequest(event -> {
             SessaoUsuario.getInstancia().limparSessao();
+            // Salvar os dados antes de fechar o programa
+            RepositorioUsuarios.getInstance().salvarUsuarios();
             primaryStage.close();
         });
     }

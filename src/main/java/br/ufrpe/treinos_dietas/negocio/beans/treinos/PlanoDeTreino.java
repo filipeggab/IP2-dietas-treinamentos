@@ -3,11 +3,13 @@ package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDoPlano;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class PlanoDeTreino {
+public abstract class PlanoDeTreino implements Serializable {
+    private static final long serialVersionUID = 1L;
     protected String nome;
     protected EnumObjetivoDoPlano objetivo;
     protected LocalDate dataInicial;

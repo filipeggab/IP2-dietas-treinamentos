@@ -79,8 +79,13 @@ public class TelaPrincipalDoUsuarioGUIController {
         labelsEmBranco();
 
         labelData.setText("Dia " + dataAtualizada.toString());
+        System.out.println(usuario);
 
         PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
+        if (planoAtual == null) {
+            System.out.println("Erro: planoAtual está nulo!");
+            return;
+        }
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
         Treino treinoA = treinosAtuais.get(0);
         Treino treinoB = treinosAtuais.get(1);

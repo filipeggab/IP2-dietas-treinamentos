@@ -1,6 +1,8 @@
 package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
+import br.ufrpe.treinos_dietas.dados.RepositorioUsuarios;
+import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +12,10 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class TelaDeLoginGUIController {
-    private Usuario usuario;
+    RepositorioUsuarios repositorioUsuarios = new RepositorioUsuarios();
     @FXML
     private Button btnIrParaTelaPrincipal;
 
@@ -23,28 +26,19 @@ public class TelaDeLoginGUIController {
     private PasswordField txtSenha;
 
     @FXML
+    private Label lblErroLogin;
+
+    @FXML
     private CheckBox chkLembrarDeMim;
 
     @FXML
     private Button btnIrParaTelaDeCadastro;
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
 
     @FXML
     public void btnIrParaTelaPrincipalActionPerformed() throws IOException {
         this.login();
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuario.fxml"));
-        Parent root = loader.load();
-
-        Stage stage = (Stage) btnIrParaTelaPrincipal.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnIrParaTelaPrincipal);
     }
 
     @FXML
@@ -58,11 +52,23 @@ public class TelaDeLoginGUIController {
     }
 
     //Consertar depois
-    public void login () throws IOException{
-        String email = txtNome.getText();
-        String senha = txtSenha.getText();
+    public void login() {
+        try {
+            List<Usuario> listaDeUsuarios = repositorioUsuarios.getUsuarios();
+            System.out.println("Quantidade de usuários carregados: " + (listaDeUsuarios != null ? listaDeUsuarios.size() : "NULL"));
 
-        usuario.setEmail(email);
-        usuario.setSenha(senha);
+            for (Usuario usuario : listaDeUsuarios) {
+                if (usuario.getEmail().equals(txtNome.getText()) && usuario.getSenha().equals(txtSenha.getText())) {
+                    SessaoUsuario.getInstancia().setUsuario(usuario);
+                    return;
+                }
+            }
+            lblErroLogin.setText("E-mail ou senha incorreto!");
+            throw new IOException("Login falhou: Usuário ou senha inválidos.");
+
+        } catch (IOException e) {
+            e.printStackTrace(); // Imprime o erro no console
+        }
     }
+
 }

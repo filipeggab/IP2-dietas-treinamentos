@@ -1,6 +1,9 @@
 package br.ufrpe.treinos_dietas.negocio.beans.dietas;
 
-public class Comida {
+import java.io.Serializable;
+
+public class Comida implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nome;
     private final String qtdEmGramas;
     private final double proteinas;

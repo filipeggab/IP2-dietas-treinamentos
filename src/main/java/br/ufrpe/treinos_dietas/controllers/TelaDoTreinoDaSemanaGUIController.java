@@ -65,7 +65,7 @@ public class TelaDoTreinoDaSemanaGUIController {
     }
 
     public void alocadorLabelsTreinos() {
-        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
 
         Treino treinoA = treinosAtuais.get(0);

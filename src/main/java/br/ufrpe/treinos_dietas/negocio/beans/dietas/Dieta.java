@@ -2,11 +2,13 @@ package br.ufrpe.treinos_dietas.negocio.beans.dietas;
 
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dieta {
+public class Dieta implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nome;
     private List<Refeicao> refeicoes;
     private LocalDate dataInicio;

@@ -1,8 +1,10 @@
 package br.ufrpe.treinos_dietas.negocio.beans.dietas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Refeicao {
+public class Refeicao implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nome;
     private ArrayList<Comida> comidas = new ArrayList();
 

@@ -1,8 +1,10 @@
 package br.ufrpe.treinos_dietas.negocio.beans.usuario;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Metrica {
+public class Metrica implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Integer altura;
     private Double peso;
     private LocalDate dataDaMetrica;

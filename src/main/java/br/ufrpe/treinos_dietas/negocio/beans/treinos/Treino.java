@@ -1,9 +1,11 @@
 package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Treino {
+public class Treino implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nome;
     private List<ExercicioPratico> exercicioList;
 

@@ -35,6 +35,9 @@ public class CadastroUsuarios {
             throw new EmailInvalidoException();
         }
     }
+    public void cadastrarUsuario(Usuario usuario) {
+        repo.criarUsuario(usuario);
+    }
     public void removerUsuario(String email, String senha) throws FalhaDeAuthException, UsuarioNaoCadastradoException {
         try{
             Usuario user = repo.buscarUsuario(email);

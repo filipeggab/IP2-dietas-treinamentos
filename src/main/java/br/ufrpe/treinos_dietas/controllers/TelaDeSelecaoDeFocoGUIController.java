@@ -2,10 +2,7 @@ package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.dados.*;
 import br.ufrpe.treinos_dietas.exceptions.*;
-import br.ufrpe.treinos_dietas.negocio.CadastroComidas;
-import br.ufrpe.treinos_dietas.negocio.CadastroDietas;
-import br.ufrpe.treinos_dietas.negocio.CadastroPlanoDeTreino;
-import br.ufrpe.treinos_dietas.negocio.CadastroTreinos;
+import br.ufrpe.treinos_dietas.negocio.*;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumObjetivoDaDieta;
@@ -100,6 +97,8 @@ public class TelaDeSelecaoDeFocoGUIController {
 
         CadastrarDieta(cbFocoDaDieta, null);
         CadastrarTreino(cbFocoDoTreino, null);
+        CadastroUsuarios cadastroUsuarios = new CadastroUsuarios();
+        cadastroUsuarios.cadastrarUsuario(usuario);
     }
 
     public void CadastrarDieta(ChoiceBox<String> escolha, String nome) throws DietaNaoCadastradaException, ComidaNaoCadastradaException {

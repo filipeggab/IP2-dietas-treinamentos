@@ -1,6 +1,9 @@
 package br.ufrpe.treinos_dietas.negocio.beans.treinos;
 
-public class ExPraticoSerieTempo extends ExPraticoSerie{
+import java.io.Serializable;
+
+public class ExPraticoSerieTempo extends ExPraticoSerie implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int tempoDeExec;
 
     public ExPraticoSerieTempo(Exercicio exercicio, int numDeSeries, int tempoDescanso, int tempoEmSec) {

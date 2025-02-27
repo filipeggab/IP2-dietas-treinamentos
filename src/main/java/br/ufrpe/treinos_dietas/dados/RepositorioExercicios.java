@@ -4,10 +4,13 @@ package br.ufrpe.treinos_dietas.dados;
 import br.ufrpe.treinos_dietas.exceptions.ExercicioNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Exercicio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioExercicios {
+public class RepositorioExercicios implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     List<Exercicio> exercicios;
 
     public RepositorioExercicios(){
