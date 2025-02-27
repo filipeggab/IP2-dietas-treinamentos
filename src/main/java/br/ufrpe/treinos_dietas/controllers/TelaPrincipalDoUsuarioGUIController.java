@@ -229,14 +229,7 @@ public class TelaPrincipalDoUsuarioGUIController {
 
     @FXML
     public void btnDietaSemanalActionPerformed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDaDieta.fxml"));
-        Parent root = loader.load();
-
-        TelaDaDietaGUIController controller = loader.getController();
-        controller.alocadorLabelsDietas();
-        Stage stage = (Stage) btnDietaSemanal.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        MetasEstatisticasGUIController.VoltarParaTelaDaDieta(btnDietaSemanal);
     }
 
     @FXML

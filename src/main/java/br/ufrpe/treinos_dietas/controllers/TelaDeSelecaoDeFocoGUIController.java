@@ -74,32 +74,50 @@ public class TelaDeSelecaoDeFocoGUIController {
     void btnConfirmarSelecaoActionPerformed() throws IOException, ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException {
         try {
             ContinuarCadastroDoUsuario();
+            TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnConfirmarSelecao);
         } catch (NumberFormatException | NullPointerException | ComidaNaoCadastradaException e) {
             lblErroCadastro.setText("Preencha todos os campos corretamente!!");
         }
-
-        TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnConfirmarSelecao);
     }
 
     public void ContinuarCadastroDoUsuario() throws ExercicioNaoCadastradoException, PlanoNaoCadastradoException, DietaNaoCadastradaException, TreinoNaoCadastradoException, ComidaNaoCadastradaException {
+        try {
+            if (txtAltura.getText().isEmpty() || txtPeso.getText().isEmpty() || cbSexo.getSelectionModel().isEmpty() || dpDataDeNascimento.getValue() == null) {
+                lblErroCadastro.setText("Preencha todos os campos corretamente!");
+                throw new IllegalArgumentException();
+            }
 
-        int altura = Integer.parseInt(txtAltura.getText());
-        double peso = Double.parseDouble(txtPeso.getText());
-        EnumSexo sexo =  EnumSexo.valueOf(cbSexo.getSelectionModel().getSelectedItem().toString());
-        LocalDate dataDeNascimento = dpDataDeNascimento.getValue();
+            int altura = Integer.parseInt(txtAltura.getText());
+            double peso = Double.parseDouble(txtPeso.getText());
+            EnumSexo sexo = EnumSexo.valueOf(cbSexo.getSelectionModel().getSelectedItem().toString());
+            LocalDate dataDeNascimento = dpDataDeNascimento.getValue();
 
-        Metrica metricas = new Metrica(altura, peso, LocalDate.now());
+            Metrica metricas = new Metrica(altura, peso, LocalDate.now());
 
-        Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
-        usuario.setSexo(sexo);
-        usuario.setDataNasc(dataDeNascimento);
-        usuario.adicionarMetrica(metricas);
+            Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+            usuario.setSexo(sexo);
+            usuario.setDataNasc(dataDeNascimento);
+            usuario.adicionarMetrica(metricas);
 
-        CadastrarDieta(cbFocoDaDieta, null);
-        CadastrarTreino(cbFocoDoTreino, null);
-        CadastroUsuarios cadastroUsuarios = new CadastroUsuarios();
-        cadastroUsuarios.cadastrarUsuario(usuario);
+            CadastrarDieta(cbFocoDaDieta, null);
+            CadastrarTreino(cbFocoDoTreino, null);
+            CadastroUsuarios cadastroUsuarios = new CadastroUsuarios();
+            cadastroUsuarios.cadastrarUsuario(usuario);
+
+        } catch (NumberFormatException e) {
+            lblErroCadastro.setText("Altura e peso devem ser números válidos.");
+            throw e;
+        } catch (IllegalArgumentException e) {
+            lblErroCadastro.setText("Selecione uma data de nascimento válida.");
+            throw e;
+        } catch (ExercicioNaoCadastradoException e) {
+            lblErroCadastro.setText("Exercício não cadastrado.");
+            throw e;
+        }
     }
+
+
+
 
     public void CadastrarDieta(ChoiceBox<String> escolha, String nome) throws DietaNaoCadastradaException, ComidaNaoCadastradaException {
         Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
@@ -316,7 +334,6 @@ public class TelaDeSelecaoDeFocoGUIController {
         ExercicioPratico mobilizacaoDeTornozeloSerie = new ExPraticoSerieReps(mobilizacaoDeTornozelo,  1, 0, 15);
         repositorioExPratico.criarExercicio(mobilizacaoDeTornozeloSerie);
     }
-//encontrar por que quando voce escolhe um foco de treino ja escolhido anteriormente o codigo nao compila
     public void AlocarTreino(ChoiceBox<String> escolha) throws ExercicioNaoCadastradoException, TreinoNaoCadastradoException, PlanoNaoCadastradoException {
         CriarExercicios();
         CadastroTreinos cadastroTreinos = new CadastroTreinos(repositorioTreinos);

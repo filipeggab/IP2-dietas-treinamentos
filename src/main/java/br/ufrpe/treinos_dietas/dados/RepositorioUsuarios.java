@@ -33,7 +33,7 @@ public class RepositorioUsuarios implements Serializable {
         if (usuarios.contains(usuario)) {
             usuarios.remove(usuario);
         } else {
-            throw new UsuarioNaoCadastradoException(usuario.getEmail());
+            throw new UsuarioNaoCadastradoException("usuario não encontrado");
         }
     }
 
@@ -58,7 +58,7 @@ public class RepositorioUsuarios implements Serializable {
         if (e != null) {
             return e;
         } else {
-            throw new UsuarioNaoCadastradoException(email);
+            throw new UsuarioNaoCadastradoException("Usuario não encontrado");
         }
     }
 
