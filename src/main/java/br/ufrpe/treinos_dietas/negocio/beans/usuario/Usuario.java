@@ -141,7 +141,7 @@ public class Usuario implements Serializable {
     }
 
     public void AdicionarListaADieta(String nome, List<Refeicao> lista) throws DietaNaoCadastradaException {
-        Dieta dieta = repositorioDietas.retornarDieta(nome);
+        Dieta dieta = getDietaAtual();
         if (dieta == null) {
             throw new DietaNaoCadastradaException(nome);
         }

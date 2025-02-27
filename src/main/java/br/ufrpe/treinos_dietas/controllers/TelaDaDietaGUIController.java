@@ -29,6 +29,10 @@ public class TelaDaDietaGUIController {
     private Label lblData;
 
     @FXML
+    private Button btnAcompanharMetas;
+
+
+    @FXML
     private List<Label> dietaCafeDaManha;
     @FXML
     private List<Label> almoco;
@@ -101,10 +105,6 @@ public void labelsEmBranco(List<Label> lista){
             labels.setText(" ");
         }
 }
-
-
-    @FXML
-    private Button btnAcompanharMetas;
 
     @FXML
     public void btnVoltarTelaPrincipalActionPerformed() throws IOException {

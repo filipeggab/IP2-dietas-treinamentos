@@ -10,7 +10,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaDaDietaGUIController">
    <center>
-      <HBox prefHeight="576.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="400.0" prefWidth="1000.0" BorderPane.alignment="TOP_CENTER">
          <children>
             <VBox fx:id="vboxCafe" alignment="TOP_CENTER" prefHeight="567.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 3;">
                <children>
@@ -174,24 +174,29 @@
       </HBox>
    </center>
    <bottom>
-      <Button fx:id="btnVoltarTelaPrincipal" mnemonicParsing="false" onAction="#btnVoltarTelaPrincipalActionPerformed" prefHeight="41.0" prefWidth="1015.0" style="-fx-background-color: orange;" text="Voltar para tela principal" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font></Button>
+      <VBox alignment="CENTER" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAcompanharMetas" mnemonicParsing="false" onAction="#btnAcompanharMetasActionPerformed" prefHeight="52.0" prefWidth="455.0" style="-fx-background-color: orange;" text="Acompanhar Metas">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnVoltarTelaPrincipal" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnVoltarTelaPrincipalActionPerformed" prefHeight="52.0" prefWidth="455.0" style="-fx-background-color: orange;" text="Voltar para tela principal">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
    </bottom>
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblData" alignment="CENTER" prefHeight="108.0" prefWidth="946.0" style="-fx-border-color: orange; -fx-border-width: 3;" text="Semana X:" underline="true">
+            <Label fx:id="lblData" alignment="CENTER" prefHeight="100.0" prefWidth="1014.0" style="-fx-border-color: orange; -fx-border-width: 3;" text="Semana X:" underline="true">
                <font>
                   <Font name="System Bold Italic" size="64.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="105.0" prefWidth="54.0" style="-fx-background-color: orange;" text="Editar">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
          </children>
       </HBox>
    </top>

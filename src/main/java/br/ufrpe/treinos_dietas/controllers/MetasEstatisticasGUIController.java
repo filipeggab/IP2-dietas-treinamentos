@@ -6,6 +6,8 @@ import br.ufrpe.treinos_dietas.exceptions.RefeicaoNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.CadastroRefeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
+import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
+import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -23,6 +25,7 @@ import java.io.IOException;
 
 public class MetasEstatisticasGUIController {
 
+    private Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
     @FXML
     private Button btnTelaDieta;
 
@@ -69,7 +72,7 @@ public class MetasEstatisticasGUIController {
 
     private void carregarDieta() {
         RepositorioDietas repositorioDietas = RepositorioDietas.getInstance();
-        dietaAtual = repositorioDietas.retornarDieta();
+        dietaAtual = usuario.getDietaAtual();
     }
 
     private void carregarRefeicoes() {
