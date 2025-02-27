@@ -17,11 +17,24 @@ public class TelaDaDietaGUIController {
     private Button btnVoltarTelaPrincipal;
 
     @FXML
+    private Button btnAcompanharMetas;
+
+    @FXML
     public void btnVoltarTelaPrincipalActionPerformed() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaPrincipalDoUsuario.fxml"));
         Parent root = loader.load();
 
         Stage stage = (Stage) btnVoltarTelaPrincipal.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    public void btnAcompanharMetasActionPerformed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/MetasEstatisticas.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) btnAcompanharMetas.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }

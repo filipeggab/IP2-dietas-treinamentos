@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Refeicao {
     private String nome;
     private ArrayList<Comida> comidas = new ArrayList();
+    private boolean realizada = false;
 
     public Refeicao(String nome) {
         this.nome = nome;
@@ -52,12 +53,20 @@ public class Refeicao {
         return total;
     }
 
+    public boolean isRealizada() {
+        return realizada;
+    }
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setRealizada(boolean realizada) {
+        this.realizada = realizada;
     }
 
 }

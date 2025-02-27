@@ -63,7 +63,9 @@ public class CadastroDietas {
         if (novaDataFim != null) {
             dieta.setDataFim(novaDataFim);
         }
+
     }
+
 
     public void adicionarRefeicao(String nomeDieta, Refeicao refeicao) throws DietaNaoCadastradaException {
         Dieta dieta = repo.buscarDieta(nomeDieta);

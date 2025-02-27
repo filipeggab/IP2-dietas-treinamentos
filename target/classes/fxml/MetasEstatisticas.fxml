@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.MetasEstatisticasGUIController">
 
     <top>
         <HBox alignment="CENTER" prefHeight="79.0" prefWidth="786.0" style="-fx-border-color: orange;">
@@ -20,7 +26,7 @@
     </top>
 
     <center>
-        <HBox alignment="TOP_CENTER" spacing="30.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+        <HBox alignment="TOP_CENTER" maxHeight="-Infinity" prefHeight="504.0" prefWidth="1077.0" spacing="30.0" style="-fx-border-color: orange; -fx-border-width: 3;" BorderPane.alignment="TOP_CENTER">
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
@@ -106,7 +112,7 @@
                             <Label fx:id="lblCalCafe" text="0 kcal" />
                             <Label text="Proteínas:" />
                             <Label fx:id="lblProtCafe" text="0g" />
-                     <CheckBox mnemonicParsing="false" text="realizada" />
+                     <CheckBox fx:id="chkCafe" mnemonicParsing="false" text="realizada" />
                         </HBox>
                     </VBox>
 
@@ -125,7 +131,7 @@
                             <Label fx:id="lblCalAlmoco" text="0 kcal" />
                             <Label text="Proteínas:" />
                             <Label fx:id="lblProtAlmoco" text="0g" />
-                     <CheckBox mnemonicParsing="false" text="realizada" />
+                     <CheckBox fx:id="chkAlmoco" mnemonicParsing="false" text="realizada" />
                         </HBox>
                     </VBox>
 
@@ -144,7 +150,7 @@
                             <Label fx:id="lblCalLanche" text="0 kcal" />
                             <Label text="Proteínas:" />
                             <Label fx:id="lblProtLanche" text="0g" />
-                     <CheckBox mnemonicParsing="false" text="realizada" />
+                     <CheckBox fx:id="chkLanche" mnemonicParsing="false" text="realizada" />
                         </HBox>
                     </VBox>
 
@@ -163,12 +169,23 @@
                             <Label fx:id="lblCalJantar" text="0 kcal" />
                             <Label text="Proteínas:" />
                             <Label fx:id="lblProtJantar" text="0g" />
-                     <CheckBox mnemonicParsing="false" text="realizada" />
+                     <CheckBox fx:id="chkJantar" mnemonicParsing="false" text="realizada" />
                         </HBox>
                     </VBox>
                 </VBox>
             </VBox>
         </HBox>
     </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1058.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnTelaDieta" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnTelaDietaActionPerformed" prefWidth="1050.0" style="-fx-background-color: orange;" text="Voltar Para Tela de Dieta" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
 
 </BorderPane>

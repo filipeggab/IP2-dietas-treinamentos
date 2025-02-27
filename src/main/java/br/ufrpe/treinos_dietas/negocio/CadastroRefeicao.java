@@ -5,6 +5,7 @@ import br.ufrpe.treinos_dietas.dados.RepositorioRefeicao;
 import br.ufrpe.treinos_dietas.exceptions.RefeicaoNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Comida;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
+import java.text.Normalizer;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -44,14 +45,29 @@ public class CadastroRefeicao {
         }
     }
 
-    public void editarRefeicao(String nome, String novoNome) throws RefeicaoNaoCadastradaException {
-        Refeicao refeicao = repo.buscarRefeicao(nome);
+    public void editarRefeicao(String nome, String novoNome, boolean realizada) throws RefeicaoNaoCadastradaException {
+        List<Refeicao> refeicoes = repo.listarRefeicoes();
 
-        if (novoNome != null && !novoNome.trim().isEmpty()) {
-            refeicao.setNome(novoNome);
+        for (Refeicao r : refeicoes) {
+            // Comparação sem acentos e espaços extras
+            if (removerAcentos(r.getNome()).equalsIgnoreCase(removerAcentos(nome))) {
+                if (novoNome != null && !novoNome.trim().isEmpty()) {
+                    r.setNome(novoNome);
+                }
+                r.setRealizada(realizada);
+                return;
+            }
         }
-
+        throw new RefeicaoNaoCadastradaException(nome);
     }
+
+    // remover acentos
+    private String removerAcentos(String texto) {
+        return Normalizer.normalize(texto, Normalizer.Form.NFD)
+                .replaceAll("[^\\p{ASCII}]", "")
+                .trim();
+    }
+
 
     public void adicionarComida(String nomeRefeicao, Comida comida) throws RefeicaoNaoCadastradaException {
         Refeicao refeicao = repo.buscarRefeicao(nomeRefeicao);

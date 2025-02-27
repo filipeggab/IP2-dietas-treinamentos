@@ -190,12 +190,12 @@
    <bottom>
       <VBox alignment="CENTER" prefHeight="134.0" prefWidth="1008.0" spacing="11.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnAcompanharMetas" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="461.0" style="-fx-background-color: orange;" text="Acompanhar Metas" textAlignment="CENTER">
+            <Button fx:id="btnAcompanharMetas" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnAcompanharMetasActionPerformed" prefHeight="51.0" prefWidth="461.0" style="-fx-background-color: orange;" text="Acompanhar Metas" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="btnVoltarTelaPrincipal1" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnVoltarTelaPrincipalActionPerformed" prefHeight="51.0" prefWidth="461.0" style="-fx-background-color: orange;" text="Voltar para tela principal">
+            <Button fx:id="btnVoltarTelaPrincipal" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnVoltarTelaPrincipalActionPerformed" prefHeight="51.0" prefWidth="461.0" style="-fx-background-color: orange;" text="Voltar para tela principal">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
