@@ -29,9 +29,6 @@ public class TelaDeLoginGUIController {
     private Label lblErroLogin;
 
     @FXML
-    private CheckBox chkLembrarDeMim;
-
-    @FXML
     private Button btnIrParaTelaDeCadastro;
 
 
@@ -52,7 +49,6 @@ public class TelaDeLoginGUIController {
         stage.show();
     }
 
-    //Consertar depois
     public void login() {
         try {
             List<Usuario> listaDeUsuarios = repositorioUsuarios.getUsuarios();
@@ -68,7 +64,7 @@ public class TelaDeLoginGUIController {
             throw new IOException("Login falhou: Usuário ou senha inválidos.");
 
         } catch (IOException e) {
-            e.printStackTrace(); // Imprime o erro no console
+            e.printStackTrace();
         }
     }
 
