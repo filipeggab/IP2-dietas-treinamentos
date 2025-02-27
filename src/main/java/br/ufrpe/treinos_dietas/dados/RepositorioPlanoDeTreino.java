@@ -22,6 +22,15 @@ public class RepositorioPlanoDeTreino {
         return instancia;
     }
 
+    public boolean planoDeTreinoExiste(String nome){
+        for (PlanoDeTreino p : planos) {
+            if (p.getNome().equals(nome)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void criarPlanoDeTreino(PlanoDeTreino planoDeTreino) {
         if (planoDeTreino == null) {
             throw new IllegalArgumentException("O plano não pode ser nulo.");

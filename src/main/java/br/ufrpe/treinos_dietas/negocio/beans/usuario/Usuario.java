@@ -21,9 +21,11 @@ public class Usuario {
     private String senha;
     private EnumSexo sexo;
     private LocalDate dataNasc;
-    private List<Metrica> metricas;
+    private final List<Metrica> metricas;
     private List<PlanoDeTreino> planoDeTreinoList;
     private List<Dieta> dietaList;
+    private Dieta dietaAtual;
+    private PlanoDeTreino planoDeTreinoAtual;
     private int contador = 0;
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
     RepositorioDietas repositorioDietas = RepositorioDietas.getInstance();
@@ -48,6 +50,22 @@ public class Usuario {
             return null; // null se não houver métricas
         }
         return metricas.getLast();
+    }
+
+    public List<Dieta> getListDietas(){
+        return dietaList;
+    }
+    public List<PlanoDeTreino> getPlanoDeTreinoList(){
+        return planoDeTreinoList;
+    }
+    public PlanoDeTreino getPlanoDeTreinoAtual(){
+        return planoDeTreinoAtual;
+    }
+    public void setPlanoDeTreinoAtual(PlanoDeTreino planoAtual){
+        this.planoDeTreinoAtual = planoAtual;
+    }
+    public void setDietaAtual(Dieta dietaAtual){
+        this.dietaAtual = dietaAtual;
     }
 
 
@@ -152,4 +170,7 @@ public class Usuario {
     }
 
 
+    public Dieta getDietaAtual() {
+        return dietaAtual;
+    }
 }

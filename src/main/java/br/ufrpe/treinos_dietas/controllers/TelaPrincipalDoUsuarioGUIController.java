@@ -80,7 +80,7 @@ public class TelaPrincipalDoUsuarioGUIController {
 
         labelData.setText("Dia " + dataAtualizada.toString());
 
-        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
         Treino treinoA = treinosAtuais.get(0);
         Treino treinoB = treinosAtuais.get(1);
@@ -91,7 +91,7 @@ public class TelaPrincipalDoUsuarioGUIController {
         List<ExercicioPratico> exerciciosTreinoC = treinoC.getExercicioList();
         int selector = checarData();
 
-        Dieta dietaAtual = repositorioDietas.retornarDieta();
+        Dieta dietaAtual = usuario.getDietaAtual();
         List<Refeicao> listaDeRefeicoes= dietaAtual.getRefeicoes();
         alocadorCafeDaManhaEAlmoco(listaDeRefeicoes.get(0).getComidas(), listaDeRefeicoes.get(1).getComidas());
         alocadorLancheEJanta(listaDeRefeicoes.get(2).getComidas(), listaDeRefeicoes.get(3).getComidas());
