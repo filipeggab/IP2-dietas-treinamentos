@@ -42,10 +42,6 @@
                         <Insets left="6.0" />
                      </HBox.margin>
                   </Label>
-                  <CheckBox fx:id="chkCafeDaManha" mnemonicParsing="false">
-                     <font>
-                        <Font size="16.0" />
-                     </font></CheckBox>
                </children>
             </HBox>
             <Label fx:id="lblCafe1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx" textAlignment="RIGHT">
@@ -74,11 +70,6 @@
                         <Insets left="6.0" />
                      </HBox.margin>
                   </Label>
-                  <CheckBox fx:id="chkAlmoco" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </CheckBox>
                </children>
             </HBox>
             <Label fx:id="lblAlmoco1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
@@ -107,10 +98,6 @@
                         <Insets left="6.0" />
                      </HBox.margin>
                   </Label>
-                  <CheckBox fx:id="chkLanche" mnemonicParsing="false" prefHeight="27.0" prefWidth="21.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font></CheckBox>
                </children>
             </HBox>
             <Label fx:id="lblLanche1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
@@ -139,10 +126,6 @@
                         <Insets left="6.0" />
                      </HBox.margin>
                   </Label>
-                  <CheckBox fx:id="chkJantar" mnemonicParsing="false">
-                     <font>
-                        <Font size="15.0" />
-                     </font></CheckBox>
                </children>
             </HBox>
             <Label fx:id="lblJantar1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">

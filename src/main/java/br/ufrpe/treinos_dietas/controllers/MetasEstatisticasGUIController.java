@@ -2,26 +2,23 @@ package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
-import br.ufrpe.treinos_dietas.exceptions.RefeicaoNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.CadastroRefeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
 import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.Button;
-
-import java.text.Normalizer;
-import java.util.List;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class MetasEstatisticasGUIController {
 
@@ -57,9 +54,14 @@ public class MetasEstatisticasGUIController {
 
     @FXML
     public void btnTelaDietaActionPerformed() throws IOException {
+        VoltarParaTelaDaDieta(btnTelaDieta);
+    }
+
+    public static void VoltarParaTelaDaDieta(Button btnTelaDieta) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDaDieta.fxml"));
         Parent root = loader.load();
-
+        TelaDaDietaGUIController controller = loader.getController();
+        controller.alocadorLabelsDietas();
         Stage stage = (Stage) btnTelaDieta.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
