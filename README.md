@@ -10,7 +10,6 @@ Ideias que inspiram o projeto:
 
 ## Integrantes do grupo 
  * Matheus Guilherme Moreira de Lima - matheus.guilherme@ufrpe.br
- * Enzo Lourenço Rodrigues Veras - enzo.veras06@gmail.com
  * Gabriel Leal de Queiroz - 2006gabrielleal@gmail.com
  * Victor Hugo Gomes Couto - victor.couto@ufrpe.br
 
