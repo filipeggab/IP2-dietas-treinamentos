@@ -72,4 +72,7 @@ public abstract class PlanoDeTreino {
             treinoRealizadoList.add(treinoRealizado);
         }
     }
+    public List<TreinoRealizado> getTreinoRealizadoList() {
+        return treinoRealizadoList;
+    }
 }
