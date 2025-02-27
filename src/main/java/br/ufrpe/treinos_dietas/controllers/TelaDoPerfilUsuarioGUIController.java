@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,7 +23,11 @@ public class TelaDoPerfilUsuarioGUIController {
     @FXML
     private Label lblDataMetrica, lblAltura, lblPeso, lblIMC;
     @FXML
+    private Label lblDiferencaPeso, lblIMCIDeal;
+    @FXML
     private Button btnVoltarTelaPrincipal, btnEditarPerfil;
+    @FXML
+    private ProgressBar progressBarIMC, progressBarPeso;
 
     @FXML
     public void btnVoltarTelaPrincipalActionPerformed() throws IOException {
@@ -64,10 +69,22 @@ public class TelaDoPerfilUsuarioGUIController {
 
             Metrica ultimaMetrica = usuario.ultimaMetrica();
             if (ultimaMetrica != null) {
+                double alturaEmMetros = ultimaMetrica.getAltura() / 100.0; // Converter cm para metros
+                double pesoAtual = ultimaMetrica.getPeso();
+                double pesoIdeal = 22 * (alturaEmMetros * alturaEmMetros);
+                double diferencaPeso = pesoIdeal - pesoAtual;
+                lblIMCIDeal.setText("IMC ideal: 22.0");
+                lblDiferencaPeso.setText(String.format("%+.2f kg", diferencaPeso));
                 lblDataMetrica.setText(ultimaMetrica.getDataDaMetrica().toString());
                 lblAltura.setText(ultimaMetrica.getAltura() + " cm");
                 lblPeso.setText(ultimaMetrica.getPeso() + " kg");
                 lblIMC.setText(String.format("%.2f", ultimaMetrica.calcularIMC()));
+                double imc = ultimaMetrica.calcularIMC();
+                double progresso = calcularProgresso(imc);
+                progressBarIMC.setProgress(progresso);
+                double progressoPeso = calcularProgressoPeso(pesoAtual, pesoIdeal);
+                progressBarPeso.setProgress(progressoPeso);
+
             } else {
                 lblDataMetrica.setText("-");
                 lblAltura.setText("-");
@@ -89,6 +106,22 @@ public class TelaDoPerfilUsuarioGUIController {
 
         }
     }
+    private double calcularProgresso(double imc) {
+        double metaIMC = 22.0;
+        double diferenca = Math.abs(imc - metaIMC);
+        double maxDiferenca = 10.0;
+
+        double progresso = 1.0 - (diferenca / maxDiferenca);
+        return Math.max(0, Math.min(1, progresso));
+    }
+    private double calcularProgressoPeso(double pesoAtual, double pesoIdeal) {
+        double diferenca = Math.abs(pesoAtual - pesoIdeal);
+        double maxDiferenca = 20.0; // Define um limite para escala
+
+        double progresso = 1.0 - (diferenca / maxDiferenca);
+        return Math.max(0, Math.min(1, progresso)); // Garante que fique entre 0 e 1
+    }
+
 
 }
 
