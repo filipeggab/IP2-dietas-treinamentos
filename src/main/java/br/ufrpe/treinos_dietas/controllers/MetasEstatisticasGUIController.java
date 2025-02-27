@@ -63,7 +63,6 @@ public class MetasEstatisticasGUIController {
     }
 
     public void initialize() {
-        cadastroRefeicao = new CadastroRefeicao();
         carregarDieta();
         carregarRefeicoes();
     }
@@ -81,102 +80,53 @@ public class MetasEstatisticasGUIController {
         double metaCarboidratos = dietaAtual.carboidratosDoDia();
         double metaGorduras = dietaAtual.gordurasDoDia();
 
-        lblCalorias.setText("0/" + String.format("%.1f", metaCalorias) + " kcal");
-        lblProteinas.setText("0/" + String.format("%.1f", metaProteinas) + "g");
-        lblCarboidratos.setText("0/" + String.format("%.1f", metaCarboidratos) + "g");
-        lblGorduras.setText("0/" + String.format("%.1f", metaGorduras) + "g");
+        lblCalorias.setText("0/" + formatarNumero(metaCalorias) + " kcal");
+        lblProteinas.setText("0/" + formatarNumero(metaProteinas) + "g");
+        lblCarboidratos.setText("0/" + formatarNumero(metaCarboidratos) + "g");
+        lblGorduras.setText("0/" + formatarNumero(metaGorduras) + "g");
 
-        for (Refeicao refeicao : refeicoes) {
-            configurarRefeicao(refeicao);
+        if (refeicoes.size() >= 4) {
+            configurarRefeicao(refeicoes.get(0), lblCalCafe, lblProtCafe, chkCafe);
+            configurarRefeicao(refeicoes.get(1), lblCalAlmoco, lblProtAlmoco, chkAlmoco);
+            configurarRefeicao(refeicoes.get(2), lblCalLanche, lblProtLanche, chkLanche);
+            configurarRefeicao(refeicoes.get(3), lblCalJantar, lblProtJantar, chkJantar);
         }
     }
 
-    private void configurarRefeicao(Refeicao refeicao) {
-        String nomeRefeicao = refeicao.getNome().toLowerCase();
+    private void configurarRefeicao(Refeicao refeicao, Label lblCal, Label lblProt, CheckBox chk) {
         double calorias = refeicao.caloriasTotais();
         double proteinas = refeicao.proteinasTotais();
-        double carboidratos = refeicao.carboidratosTotais();
-        double gorduras = refeicao.gordurasTotais();
-        boolean realizada = refeicao.isRealizada();
 
-        String caloriasFormatadas = String.format("%.2f", calorias).replace(".", ",");
-        String proteinasFormatadas = String.format("%.2f", proteinas).replace(".", ",");
-
-        if (nomeRefeicao.contains("café da manhã")) {
-            lblCalCafe.setText(caloriasFormatadas + " kcal");
-            lblProtCafe.setText(proteinasFormatadas + "g");
-            chkCafe.setSelected(realizada);
-            chkCafe.setOnAction(event -> atualizarProgresso(refeicao, calorias, proteinas, carboidratos, gorduras));
-        } else if (nomeRefeicao.contains("almoço")) {
-            lblCalAlmoco.setText(caloriasFormatadas + " kcal");
-            lblProtAlmoco.setText(proteinasFormatadas + "g");
-            chkAlmoco.setSelected(realizada);
-            chkAlmoco.setOnAction(event -> atualizarProgresso(refeicao, calorias, proteinas, carboidratos, gorduras));
-        } else if (nomeRefeicao.contains("lanche")) {
-            lblCalLanche.setText(caloriasFormatadas + " kcal");
-            lblProtLanche.setText(proteinasFormatadas + "g");
-            chkLanche.setSelected(realizada);
-            chkLanche.setOnAction(event -> atualizarProgresso(refeicao, calorias, proteinas, carboidratos, gorduras));
-        } else if (nomeRefeicao.contains("jantar")) {
-            lblCalJantar.setText(caloriasFormatadas + " kcal");
-            lblProtJantar.setText(proteinasFormatadas + "g");
-            chkJantar.setSelected(realizada);
-            chkJantar.setOnAction(event -> atualizarProgresso(refeicao, calorias, proteinas, carboidratos, gorduras));
-        }
+        lblCal.setText(formatarNumero(calorias) + " kcal");
+        lblProt.setText(formatarNumero(proteinas) + "g");
+        chk.setOnAction(event -> atualizarProgresso(refeicao, chk.isSelected()));
     }
 
-    private void atualizarProgresso(Refeicao refeicao, double calorias, double proteinas, double carboidratos, double gorduras) {
-        try {
-            // Busca a refeição pelo nome sem acentos
-            String nomeFormatado = removerAcentos(refeicao.getNome());
-            Refeicao refeicaoAtualizada = buscarRefeicaoNoRepositorio(nomeFormatado);
+    private void atualizarProgresso(Refeicao refeicao, boolean adicionando) {
+        double fator = adicionando ? 1 : -1;
 
-            if (refeicaoAtualizada == null) {
-                System.out.println("Erro ao atualizar refeição: " + refeicao.getNome() + " não encontrada.");
-                return;
-            }
+        progressoCalorias += fator * refeicao.caloriasTotais();
+        progressoProteinas += fator * refeicao.proteinasTotais();
+        progressoCarboidratos += fator * refeicao.carboidratosTotais();
+        progressoGorduras += fator * refeicao.gordurasTotais();
 
-            boolean realizada = chkCafe.isSelected() || chkAlmoco.isSelected() || chkLanche.isSelected() || chkJantar.isSelected();
-            cadastroRefeicao.editarRefeicao(nomeFormatado, null, realizada);
+        double metaCalorias = dietaAtual.caloriasDoDia();
+        double metaProteinas = dietaAtual.proteinasDoDia();
+        double metaCarboidratos = dietaAtual.carboidratosDoDia();
+        double metaGorduras = dietaAtual.gordurasDoDia();
 
-            if (realizada) {
-                progressoCalorias += calorias;
-                progressoProteinas += proteinas;
-                progressoCarboidratos += carboidratos;
-                progressoGorduras += gorduras;
-            } else {
-                progressoCalorias -= calorias;
-                progressoProteinas -= proteinas;
-                progressoCarboidratos -= carboidratos;
-                progressoGorduras -= gorduras;
-            }
+        pbCalorias.setProgress(progressoCalorias / metaCalorias);
+        pbProteinas.setProgress(progressoProteinas / metaProteinas);
+        pbCarboidratos.setProgress(progressoCarboidratos / metaCarboidratos);
+        pbGorduras.setProgress(progressoGorduras / metaGorduras);
 
-            atualizarBarrasELabels();
-        } catch (RefeicaoNaoCadastradaException e) {
-            System.out.println("Erro ao atualizar refeição: " + e.getMessage());
-        }
+        lblCalorias.setText(formatarNumero(progressoCalorias) + "/" + formatarNumero(metaCalorias) + " kcal");
+        lblProteinas.setText(formatarNumero(progressoProteinas) + "/" + formatarNumero(metaProteinas) + "g");
+        lblCarboidratos.setText(formatarNumero(progressoCarboidratos) + "/" + formatarNumero(metaCarboidratos) + "g");
+        lblGorduras.setText(formatarNumero(progressoGorduras) + "/" + formatarNumero(metaGorduras) + "g");
     }
 
-    private Refeicao buscarRefeicaoNoRepositorio(String nome) {
-        try {
-            List<Refeicao> refeicoes = dietaAtual.getRefeicoes();
-            for (Refeicao r : refeicoes) {
-                if (removerAcentos(r.getNome()).equalsIgnoreCase(nome)) {
-                    return r;
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Erro ao buscar refeição: " + e.getMessage());
-        }
-        return null;
+    private String formatarNumero(double numero) {
+        return String.format("%.2f", numero).replace(".", ",");
     }
-
-    // remover acentos
-    private String removerAcentos(String texto) {
-        return Normalizer.normalize(texto, Normalizer.Form.NFD)
-                .replaceAll("[^\\p{ASCII}]", "")
-                .trim();
-    }
-
-
 }

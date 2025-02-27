@@ -45,20 +45,13 @@ public class CadastroRefeicao {
         }
     }
 
-    public void editarRefeicao(String nome, String novoNome, boolean realizada) throws RefeicaoNaoCadastradaException {
-        List<Refeicao> refeicoes = repo.listarRefeicoes();
+    public void editarRefeicao(String nome, String novoNome) throws RefeicaoNaoCadastradaException {
+        Refeicao refeicao = repo.buscarRefeicao(nome);
 
-        for (Refeicao r : refeicoes) {
-            // Comparação sem acentos e espaços extras
-            if (removerAcentos(r.getNome()).equalsIgnoreCase(removerAcentos(nome))) {
-                if (novoNome != null && !novoNome.trim().isEmpty()) {
-                    r.setNome(novoNome);
-                }
-                r.setRealizada(realizada);
-                return;
-            }
+        if (novoNome != null && !novoNome.trim().isEmpty()) {
+            refeicao.setNome(novoNome);
         }
-        throw new RefeicaoNaoCadastradaException(nome);
+
     }
 
     // remover acentos
