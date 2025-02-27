@@ -1,7 +1,5 @@
 package br.ufrpe.treinos_dietas.negocio.beans.usuario;
 
-import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
-import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
 import br.ufrpe.treinos_dietas.exceptions.DietaNaoCadastradaException;
 import br.ufrpe.treinos_dietas.exceptions.PlanoNaoCadastradoException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
@@ -9,7 +7,6 @@ import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
-import br.ufrpe.treinos_dietas.negocio.beans.treinos.TreinoRealizado;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -31,8 +28,6 @@ public class Usuario implements Serializable {
     private Dieta dietaAtual;
     private PlanoDeTreino planoDeTreinoAtual;
     private int contador = 0;
-    RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
-    RepositorioDietas repositorioDietas = RepositorioDietas.getInstance();
 
     public Usuario(String nome, String email, String senha, EnumSexo sexo, LocalDate dataNasc) {
         this.nome = nome;
@@ -75,6 +70,8 @@ public class Usuario implements Serializable {
     public void setDietaAtual(Dieta dietaAtual){
         this.dietaAtual = dietaAtual;
     }
+
+
 
 
     public void addMetrica (Metrica metrica){

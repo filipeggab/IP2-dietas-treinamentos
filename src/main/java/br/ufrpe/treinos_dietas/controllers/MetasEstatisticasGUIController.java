@@ -1,7 +1,6 @@
 package br.ufrpe.treinos_dietas.controllers;
 
 import br.ufrpe.treinos_dietas.Main;
-import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
 import br.ufrpe.treinos_dietas.negocio.CadastroRefeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
@@ -19,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.prefs.Preferences;
 
 public class MetasEstatisticasGUIController {
 
@@ -52,6 +52,16 @@ public class MetasEstatisticasGUIController {
     private CadastroRefeicao cadastroRefeicao;
 
 
+    private final Preferences prefs = Preferences.userNodeForPackage(MetasEstatisticasGUIController.class);
+
+    private void salvarEstadoCheckbox(String chave, boolean estado) {
+        prefs.putBoolean(chave, estado);
+    }
+
+    private boolean recuperarEstadoCheckbox(String chave) {
+        return prefs.getBoolean(chave, false); // false é o valor padrão caso não exista
+    }
+
     @FXML
     public void btnTelaDietaActionPerformed() throws IOException {
         VoltarParaTelaDaDieta(btnTelaDieta);
@@ -70,10 +80,36 @@ public class MetasEstatisticasGUIController {
     public void initialize() {
         carregarDieta();
         carregarRefeicoes();
+
+        chkCafe.setSelected(recuperarEstadoCheckbox("chkCafe"));
+        chkAlmoco.setSelected(recuperarEstadoCheckbox("chkAlmoco"));
+        chkLanche.setSelected(recuperarEstadoCheckbox("chkLanche"));
+        chkJantar.setSelected(recuperarEstadoCheckbox("chkJantar"));
+
+        atualizarProgressoGeral();
+
+        chkCafe.setOnAction(event -> {
+            salvarEstadoCheckbox("chkCafe", chkCafe.isSelected());
+            atualizarProgresso(dietaAtual.getRefeicoes().get(0), chkCafe.isSelected());
+        });
+
+        chkAlmoco.setOnAction(event -> {
+            salvarEstadoCheckbox("chkAlmoco", chkAlmoco.isSelected());
+            atualizarProgresso(dietaAtual.getRefeicoes().get(1), chkAlmoco.isSelected());
+        });
+
+        chkLanche.setOnAction(event -> {
+            salvarEstadoCheckbox("chkLanche", chkLanche.isSelected());
+            atualizarProgresso(dietaAtual.getRefeicoes().get(2), chkLanche.isSelected());
+        });
+
+        chkJantar.setOnAction(event -> {
+            salvarEstadoCheckbox("chkJantar", chkJantar.isSelected());
+            atualizarProgresso(dietaAtual.getRefeicoes().get(3), chkJantar.isSelected());
+        });
     }
 
     private void carregarDieta() {
-        RepositorioDietas repositorioDietas = RepositorioDietas.getInstance();
         dietaAtual = usuario.getDietaAtual();
     }
 
@@ -130,6 +166,26 @@ public class MetasEstatisticasGUIController {
         lblCarboidratos.setText(formatarNumero(progressoCarboidratos) + "/" + formatarNumero(metaCarboidratos) + "g");
         lblGorduras.setText(formatarNumero(progressoGorduras) + "/" + formatarNumero(metaGorduras) + "g");
     }
+    private void atualizarProgressoGeral() {
+        progressoCalorias = 0;
+        progressoProteinas = 0;
+        progressoCarboidratos = 0;
+        progressoGorduras = 0;
+
+        if (chkCafe.isSelected()) {
+            atualizarProgresso(dietaAtual.getRefeicoes().get(0), true);
+        }
+        if (chkAlmoco.isSelected()) {
+            atualizarProgresso(dietaAtual.getRefeicoes().get(1), true);
+        }
+        if (chkLanche.isSelected()) {
+            atualizarProgresso(dietaAtual.getRefeicoes().get(2), true);
+        }
+        if (chkJantar.isSelected()) {
+            atualizarProgresso(dietaAtual.getRefeicoes().get(3), true);
+        }
+    }
+
 
     private String formatarNumero(double numero) {
         return String.format("%.2f", numero).replace(".", ",");
