@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.prefs.Preferences;
 
 
 public class TelaPrincipalDoUsuarioGUIController {
@@ -60,6 +61,41 @@ public class TelaPrincipalDoUsuarioGUIController {
 
     @FXML
     private Label labelData;
+
+    private Preferences prefs = Preferences.userNodeForPackage(TelaPrincipalDoUsuarioGUIController.class);
+
+    private void salvarEstadoCheckbox(String chave, boolean estado) {
+        prefs.putBoolean(chave, estado);
+    }
+
+    private boolean recuperarEstadoCheckbox(String chave) {
+        return prefs.getBoolean(chave, false);
+    }
+
+    public void initialize() {
+        atualizarLabels();
+
+        // Restaurar estados das checkboxes
+        chkMobilidade.setSelected(recuperarEstadoCheckbox("chkMobilidade"));
+        chkCardio.setSelected(recuperarEstadoCheckbox("chkCardio"));
+        chkForca.setSelected(recuperarEstadoCheckbox("chkForca"));
+
+        // Configurar eventos de clique para salvar estado e verificar treino concluído
+        chkMobilidade.setOnAction(event -> {
+            salvarEstadoCheckbox("chkMobilidade", chkMobilidade.isSelected());
+            verificarTreinoConcluido();
+        });
+
+        chkCardio.setOnAction(event -> {
+            salvarEstadoCheckbox("chkCardio", chkCardio.isSelected());
+            verificarTreinoConcluido();
+        });
+
+        chkForca.setOnAction(event -> {
+            salvarEstadoCheckbox("chkForca", chkForca.isSelected());
+            verificarTreinoConcluido();
+        });
+    }
 
 
     public void atualizarLabels(){
