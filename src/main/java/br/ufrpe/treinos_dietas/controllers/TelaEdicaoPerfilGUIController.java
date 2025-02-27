@@ -50,8 +50,8 @@ public class TelaEdicaoPerfilGUIController {
     @FXML
     public void initialize() {
         usuario = SessaoUsuario.getInstancia().getUsuario();
-        String nomeDieta = repositorioDietas.retornarDieta().getNome();
-        String nomeTreino = repositorioPlanoDeTreino.retornarPlanos().getNome();
+        String nomeDieta = usuario.getDietaAtual().getNome();
+        String nomeTreino = usuario.getPlanoDeTreinoAtual().getNome();
 
         cbFocoDaDieta.setValue(nomeDieta);
         cbFocoDoTreino.setValue(nomeTreino);

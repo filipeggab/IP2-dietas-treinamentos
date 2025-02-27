@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaDoPerfilUsuarioGUIController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaDoPerfilUsuarioGUIController">
 
     <top>
         <HBox alignment="CENTER" prefHeight="79.0" prefWidth="1047.0" style="-fx-border-color: orange;">
@@ -130,7 +126,7 @@
                 </Label>
 
                 <HBox spacing="20.0">
-                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Data:">
+                    <Label prefHeight="25.0" prefWidth="113.0" style="-fx-font-weight: bold;" text="Data:">
                         <font>
                             <Font size="16.0" />
                         </font>
@@ -143,7 +139,7 @@
                 </HBox>
 
                 <HBox spacing="20.0">
-                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Altura:">
+                    <Label prefHeight="25.0" prefWidth="113.0" style="-fx-font-weight: bold;" text="Altura:">
                         <font>
                             <Font size="16.0" />
                         </font>
@@ -156,29 +152,33 @@
                 </HBox>
 
                 <HBox spacing="20.0">
-                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="Peso:">
+                    <Label prefHeight="25.0" prefWidth="125.0" style="-fx-font-weight: bold;" text="Peso:">
                         <font>
                             <Font size="16.0" />
                         </font>
                     </Label>
-                    <Label fx:id="lblPeso" prefWidth="400.0" text="[Peso]">
+                    <Label fx:id="lblPeso" prefHeight="25.0" prefWidth="90.0" text="[Peso]">
                         <font>
                             <Font size="16.0" />
                         </font>
                     </Label>
+               <Label fx:id="lblDiferencaPeso" prefHeight="29.0" prefWidth="114.0" />
+               <ProgressBar fx:id="progressBarPeso" prefHeight="30.0" prefWidth="246.0" progress="0.0" />
                 </HBox>
 
                 <HBox spacing="20.0">
-                    <Label prefWidth="120.0" style="-fx-font-weight: bold;" text="IMC:">
+                    <Label prefHeight="25.0" prefWidth="118.0" style="-fx-font-weight: bold;" text="IMC:">
                         <font>
                             <Font size="16.0" />
                         </font>
                     </Label>
-                    <Label fx:id="lblIMC" prefWidth="400.0" text="[IMC]">
+                    <Label fx:id="lblIMC" prefHeight="25.0" prefWidth="87.0" text="[IMC]">
                         <font>
                             <Font size="16.0" />
                         </font>
                     </Label>
+               <Label fx:id="lblIMCIDeal" prefHeight="29.0" prefWidth="106.0" />
+               <ProgressBar fx:id="progressBarIMC" prefHeight="30.0" prefWidth="240.0" progress="0.0" />
                 </HBox>
             </VBox>
         </VBox>
