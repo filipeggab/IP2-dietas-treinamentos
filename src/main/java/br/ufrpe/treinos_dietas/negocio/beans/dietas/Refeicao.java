@@ -54,6 +54,7 @@ public class Refeicao implements Serializable {
         return total;
     }
 
+
     public String getNome() {
         return nome;
     }
@@ -61,5 +62,6 @@ public class Refeicao implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
 
 }

@@ -1,4 +1,5 @@
 br\ufrpe\treinos_dietas\controllers\TelaDoPerfilUsuarioGUIController.class
+br\ufrpe\treinos_dietas\controllers\MetasEstatisticasGUIController.class
 br\ufrpe\treinos_dietas\negocio\CadastroDietas.class
 br\ufrpe\treinos_dietas\controllers\TelaDoTreinoDaSemanaGUIController.class
 br\ufrpe\treinos_dietas\controllers\TelaDeSelecaoDeFocoGUIController.class

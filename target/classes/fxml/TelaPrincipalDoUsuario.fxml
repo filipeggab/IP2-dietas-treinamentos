@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaPrincipalDoUsuarioGUIController">
+   <top>
+      <HBox alignment="TOP_RIGHT" prefHeight="79.0" prefWidth="786.0" style="-fx-border-color: orange;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="labelData" alignment="CENTER" prefHeight="77.0" prefWidth="676.0" text="Dia dd/MM/YYYY">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Button fx:id="btnPerfil" mnemonicParsing="false" onAction="#btnPerfilActionPerformed" prefHeight="76.0" prefWidth="66.0" style="-fx-background-color: orange;" text="foto aqui" />
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="528.0" prefWidth="400.0" style="-fx-border-color: orange; -fx-border-width: 3;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" text="Dieta do dia:">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="7.0" prefWidth="325.0">
+               <children>
+                  <Label text="(07:45) Café da manhã: ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <CheckBox fx:id="chkCafeDaManha" mnemonicParsing="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font></CheckBox>
+               </children>
+            </HBox>
+            <Label fx:id="lblCafe1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx" textAlignment="RIGHT">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblCafe2" alignment="CENTER" prefHeight="18.0" prefWidth="268.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="...">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="429.0" />
+            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="325.0">
+               <children>
+                  <Label text="(12:30) Almoço: ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <CheckBox fx:id="chkAlmoco" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <Label fx:id="lblAlmoco1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblAlmoco2" alignment="CENTER" prefHeight="18.0" prefWidth="348.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="...">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label />
+            <HBox alignment="CENTER" prefHeight="16.0" prefWidth="325.0">
+               <children>
+                  <Label text="(16:00) Lanche da tarde: ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <CheckBox fx:id="chkLanche" mnemonicParsing="false" prefHeight="27.0" prefWidth="21.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font></CheckBox>
+               </children>
+            </HBox>
+            <Label fx:id="lblLanche1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblLanche2" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblLanche3" alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label />
+            <HBox alignment="CENTER" prefHeight="19.0" prefWidth="325.0">
+               <children>
+                  <Label text="(19:00) Jantar: ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <CheckBox fx:id="chkJantar" mnemonicParsing="false">
+                     <font>
+                        <Font size="15.0" />
+                     </font></CheckBox>
+               </children>
+            </HBox>
+            <Label fx:id="lblJantar1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblJantar2" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblJantar3" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="...">
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
+            </Label>
+            <Label />
+            <Button fx:id="btnDietaSemanal" mnemonicParsing="false" onAction="#btnDietaSemanalActionPerformed" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Expandir dieta">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="528.0" prefWidth="400.0" style="-fx-border-color: orange; -fx-border-width: 3;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Treino do dia:">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <VBox alignment="TOP_CENTER" prefHeight="481.0" prefWidth="760.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="7.0" prefWidth="325.0">
+                     <children>
+                        <Label text="Mobilidade: ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="6.0" />
+                           </HBox.margin>
+                        </Label>
+                        <CheckBox fx:id="chkMobilidade" mnemonicParsing="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font></CheckBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="labelM1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx" textAlignment="RIGHT">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelM2" alignment="CENTER" prefHeight="18.0" prefWidth="268.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelM3" alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="429.0" />
+                  <HBox alignment="CENTER" prefHeight="25.0" prefWidth="325.0">
+                     <children>
+                        <Label text="Cardiorespiratório:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="6.0" />
+                           </HBox.margin>
+                        </Label>
+                        <CheckBox fx:id="chkCardio" mnemonicParsing="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="labelC1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label />
+                  <HBox alignment="CENTER" prefHeight="16.0" prefWidth="325.0">
+                     <children>
+                        <Label text="Treino de força: ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="6.0" />
+                           </HBox.margin>
+                        </Label>
+                        <CheckBox fx:id="chkForca" mnemonicParsing="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font></CheckBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="labelF1" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelF2" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelF3" alignment="CENTER" prefHeight="18.0" prefWidth="342.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelF4" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelF5" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelF6" alignment="CENTER" prefHeight="18.0" prefWidth="325.0" text="xxxxxxxxxxxxxxxxxxxxxx">
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="83.0" prefWidth="33.0" />
+                  <Label />
+                  <Button fx:id="btnTreinoSemanal" mnemonicParsing="false" onAction="#btnTreinoSemanalActionPerformed" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Treino semanal">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

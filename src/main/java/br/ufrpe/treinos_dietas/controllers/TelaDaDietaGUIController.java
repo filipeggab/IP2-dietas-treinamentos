@@ -104,7 +104,20 @@ public void labelsEmBranco(List<Label> lista){
 
 
     @FXML
+    private Button btnAcompanharMetas;
+
+    @FXML
     public void btnVoltarTelaPrincipalActionPerformed() throws IOException {
         TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnVoltarTelaPrincipal);
+    }
+
+    @FXML
+    public void btnAcompanharMetasActionPerformed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/MetasEstatisticas.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) btnAcompanharMetas.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

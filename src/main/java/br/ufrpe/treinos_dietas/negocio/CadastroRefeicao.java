@@ -5,6 +5,7 @@ import br.ufrpe.treinos_dietas.dados.RepositorioRefeicao;
 import br.ufrpe.treinos_dietas.exceptions.RefeicaoNaoCadastradaException;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Comida;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
+import java.text.Normalizer;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -52,6 +53,14 @@ public class CadastroRefeicao {
         }
 
     }
+
+    // remover acentos
+    private String removerAcentos(String texto) {
+        return Normalizer.normalize(texto, Normalizer.Form.NFD)
+                .replaceAll("[^\\p{ASCII}]", "")
+                .trim();
+    }
+
 
     public void adicionarComida(String nomeRefeicao, Comida comida) throws RefeicaoNaoCadastradaException {
         Refeicao refeicao = repo.buscarRefeicao(nomeRefeicao);
