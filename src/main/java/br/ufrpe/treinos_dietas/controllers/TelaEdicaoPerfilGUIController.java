@@ -4,18 +4,20 @@ import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
 import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
 import br.ufrpe.treinos_dietas.exceptions.*;
-import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
-import br.ufrpe.treinos_dietas.negocio.beans.usuario.Metrica;
-import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
+import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
+import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
+import br.ufrpe.treinos_dietas.negocio.beans.usuario.Metrica;
+import br.ufrpe.treinos_dietas.negocio.beans.usuario.SessaoUsuario;
+import br.ufrpe.treinos_dietas.negocio.beans.usuario.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -96,15 +98,41 @@ public class TelaEdicaoPerfilGUIController {
             if (cbSexo.getValue() != null) {
                 usuario.setSexo(cbSexo.getValue());
             }
-            String nomeDieta = repositorioDietas.retornarDieta().getNome();
+            String nomeDieta = usuario.getDietaAtual().getNome();
             if(!cbFocoDaDieta.getSelectionModel().getSelectedItem().equals(nomeDieta)){
-                TelaDeSelecaoDeFocoGUIController controller =  new TelaDeSelecaoDeFocoGUIController();
-                controller.CadastrarDieta(cbFocoDaDieta);
+                int checker = 0;
+                if(repositorioDietas.dietaExiste("Dieta de " + cbFocoDaDieta.getSelectionModel().getSelectedItem())){
+                    String novaDieta = "Dieta de " + cbFocoDaDieta.getSelectionModel().getSelectedItem();
+                    for(Dieta dietas: usuario.getListDietas()){;
+                        if(dietas.getNome().equals(novaDieta)){
+                            usuario.setDietaAtual(dietas);
+                            checker = 1;
+                            break;
+                        }
+                    }
+                }
+                if(checker == 0){
+                    TelaDeSelecaoDeFocoGUIController controller =  new TelaDeSelecaoDeFocoGUIController();
+                    controller.CadastrarDieta(cbFocoDaDieta, null);
+                }
             }
-            String nomeTreino = repositorioPlanoDeTreino.retornarPlanos().getNome();
+            String nomeTreino = usuario.getPlanoDeTreinoAtual().getNome();
             if(!cbFocoDoTreino.getSelectionModel().getSelectedItem().equals(nomeTreino)){
-                TelaDeSelecaoDeFocoGUIController controller = new TelaDeSelecaoDeFocoGUIController();
-                controller.CadastrarTreino(cbFocoDoTreino);
+                int checker = 0;
+                if(repositorioPlanoDeTreino.planoDeTreinoExiste("Plano para " + cbFocoDoTreino.getSelectionModel().getSelectedItem())){
+                    String novoPlano = "Plano para " + cbFocoDoTreino.getSelectionModel().getSelectedItem();
+                    for(PlanoDeTreino planos : usuario.getPlanoDeTreinoList()){
+                        if(planos.getNome().equals(novoPlano)){
+                            usuario.setPlanoDeTreinoAtual(planos);
+                            checker = 1;
+                            break;
+                        }
+                    }
+                }
+                if(checker == 0){
+                    TelaDeSelecaoDeFocoGUIController controller = new TelaDeSelecaoDeFocoGUIController();
+                    controller.CadastrarTreino(cbFocoDoTreino, null);
+                }
             }
 
             // Verifica se os valores de altura e peso foram alterados antes de criar uma nova métrica

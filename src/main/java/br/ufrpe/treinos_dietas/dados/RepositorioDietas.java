@@ -21,6 +21,14 @@ public class RepositorioDietas {
         }
         return instancia;
     }
+    public boolean dietaExiste(String nome){
+        for(Dieta dieta: dietas){
+            if(dieta.getNome().equals(nome)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public Dieta buscarDieta(String nome) throws DietaNaoCadastradaException {
         Dieta dieta = dietas.stream().filter(x -> nome.trim().equalsIgnoreCase(x.getNome().trim())).findFirst().orElse(null);

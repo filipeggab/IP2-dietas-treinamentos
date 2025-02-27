@@ -98,12 +98,20 @@ public class TelaDeSelecaoDeFocoGUIController {
         usuario.setDataNasc(dataDeNascimento);
         usuario.adicionarMetrica(metricas);
 
-        CadastrarDieta(cbFocoDaDieta);
-        CadastrarTreino(cbFocoDoTreino);
+        CadastrarDieta(cbFocoDaDieta, null);
+        CadastrarTreino(cbFocoDoTreino, null);
     }
 
-    public void CadastrarDieta(ChoiceBox<String> escolha) throws DietaNaoCadastradaException, ComidaNaoCadastradaException {
+    public void CadastrarDieta(ChoiceBox<String> escolha, String nome) throws DietaNaoCadastradaException, ComidaNaoCadastradaException {
         Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+        List<Dieta> listaAtualDeDietas = usuario.getListDietas();
+        for(Dieta dieta : listaAtualDeDietas){
+            if(dieta.getNome().equals(nome)){
+                usuario.setDietaAtual(dieta);
+                return;
+            }
+        }
+
         String nomeDaDieta = "Dieta de " + escolha.getSelectionModel().getSelectedItem();
         LocalDate inicioDaDieta = LocalDate.now();
         LocalDate fimDaDieta = LocalDate.now().plusWeeks(4);
@@ -111,16 +119,24 @@ public class TelaDeSelecaoDeFocoGUIController {
 
         CadastroDietas cadastroDietas = new CadastroDietas(repositorioDietas);
         cadastroDietas.cadastrarDieta(nomeDaDieta, inicioDaDieta,fimDaDieta,objetivoDaDieta);
-
         Dieta dieta = repositorioDietas.buscarDieta(nomeDaDieta);
         usuario.adicionarDieta(dieta);
+        usuario.setDietaAtual(dieta);
 
         CriarRefeicoes(escolha);
 
     }
 
-    public void CadastrarTreino(ChoiceBox<String> escolha) throws PlanoNaoCadastradoException, TreinoNaoCadastradoException, ExercicioNaoCadastradoException {
+    public void CadastrarTreino(ChoiceBox<String> escolha, String nome) throws PlanoNaoCadastradoException, TreinoNaoCadastradoException, ExercicioNaoCadastradoException {
         Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+        List<PlanoDeTreino> listaAtualDePlanos = usuario.getPlanoDeTreinoList();
+        for(PlanoDeTreino plano : listaAtualDePlanos){
+            if(plano.getNome().equals(nome)){
+                usuario.setPlanoDeTreinoAtual(plano);
+                return;
+            }
+        }
+
         String nomeDoPlano = "Plano para " +  escolha.getSelectionModel().getSelectedItem();
         EnumObjetivoDoPlano objetivoDoPlano = EnumObjetivoDoPlano.valueOf(escolha.getSelectionModel().getSelectedItem());
         LocalDate inicioDoPlano = LocalDate.now();
@@ -131,6 +147,7 @@ public class TelaDeSelecaoDeFocoGUIController {
 
         PlanoDeTreino planoDeTreino = repositorioPlanoDeTreino.retornarPlanoDeTreino(nomeDoPlano);
         usuario.adicionarPlanoDeTreino(planoDeTreino);
+        usuario.setPlanoDeTreinoAtual(planoDeTreino);
 
         AlocarTreino(escolha);
     }
