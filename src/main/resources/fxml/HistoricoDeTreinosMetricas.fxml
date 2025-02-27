@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.treinos_dietas.controllers.TelaDoCalendarioDeTreinosGUIController">
+   <top>
+      <Label alignment="CENTER" prefHeight="71.0" prefWidth="1006.0" style="-fx-border-color: orange;" text="Histórico de treinos e métricas" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="40.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="570.0" prefWidth="1000.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="562.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 0;">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="62.0" prefWidth="244.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="51.0" prefWidth="200.0" text="4 dias atrás">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" focusTraversable="true" prefHeight="61.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="41.0" prefWidth="200.0" text="métricas">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="13.0" prefHeight="30.0" prefWidth="240.0" text="altura:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="64.0" prefHeight="30.0" prefWidth="240.0" text="peso:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="94.0" prefHeight="30.0" prefWidth="240.0" text="IMC:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="507.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="295.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="362.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="392.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="562.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 0;">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="62.0" prefWidth="244.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="51.0" prefWidth="200.0" text="4 dias atrás">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" focusTraversable="true" prefHeight="61.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="41.0" prefWidth="200.0" text="métricas">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="13.0" prefHeight="30.0" prefWidth="240.0" text="altura:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="64.0" prefHeight="30.0" prefWidth="240.0" text="peso:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="94.0" prefHeight="30.0" prefWidth="240.0" text="IMC:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="507.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="295.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="362.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="392.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="260.0" layoutY="10.0" prefHeight="562.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 0;">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="62.0" prefWidth="244.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="51.0" prefWidth="200.0" text="4 dias atrás">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" focusTraversable="true" prefHeight="61.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="41.0" prefWidth="200.0" text="métricas">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="13.0" prefHeight="30.0" prefWidth="240.0" text="altura:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="64.0" prefHeight="30.0" prefWidth="240.0" text="peso:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="94.0" prefHeight="30.0" prefWidth="240.0" text="IMC:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="507.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="295.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="362.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="392.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="510.0" layoutY="10.0" prefHeight="562.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 0;">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="62.0" prefWidth="244.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="51.0" prefWidth="200.0" text="4 dias atrás">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" focusTraversable="true" prefHeight="61.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="41.0" prefWidth="200.0" text="métricas">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="13.0" prefHeight="30.0" prefWidth="240.0" text="altura:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="64.0" prefHeight="30.0" prefWidth="240.0" text="peso:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="94.0" prefHeight="30.0" prefWidth="240.0" text="IMC:">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="507.0" prefWidth="250.0" style="-fx-border-color: orange; -fx-border-width: 3;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="295.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="344.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="362.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="392.0" prefHeight="30.0" prefWidth="240.0" text="Label Treino">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets right="100.0" />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="1000.0">
+               <children>
+                  <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#btnVoltarParaTreinoDaSemanaActionPerformed" prefHeight="44.0" prefWidth="342.0" style="-fx-background-color: orange;" text="&lt;---   voltar">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnVoltarParaTreinoDaSemana" mnemonicParsing="false" onAction="#btnVoltarParaTreinoDaSemanaActionPerformed" prefHeight="44.0" prefWidth="599.0" style="-fx-background-color: orange;" text="Voltar para treino da semana">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnAvancar" mnemonicParsing="false" onAction="#btnVoltarParaTreinoDaSemanaActionPerformed" prefHeight="44.0" prefWidth="342.0" style="-fx-background-color: orange;" text="avançar   ---&gt;">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
