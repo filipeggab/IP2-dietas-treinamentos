@@ -37,10 +37,14 @@ public class TelaDeHistoricoTreinosMetricasGUIController {
     private VBox box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12;
 
     @FXML
-    private Button btnVoltar, btnVoltarParaTreinoDaSemana, btnAvancar;
+    private Button btnVoltarParaTreinoDaSemana;
 
     @FXML
     public void btnVoltarParaTreinoDaSemanaActionPerformed() throws IOException {
+        VoltarParaTreinoDaSemana(btnVoltarParaTreinoDaSemana);
+    }
+
+    public static void VoltarParaTreinoDaSemana(Button btnVoltarParaTreinoDaSemana) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDoTreinoDaSemana.fxml"));
         Parent root = loader.load();
 
@@ -52,15 +56,6 @@ public class TelaDeHistoricoTreinosMetricasGUIController {
         stage.show();
     }
 
-    @FXML
-    public void btnVoltarActionPerformed(){
-
-    }
-
-    @FXML
-    public void btnAvancarActionPerformed(){
-
-    }
 
     public List<Label> getLabelsVbox(VBox vbox) {
         List<Label> labels = new ArrayList<>();
@@ -76,7 +71,7 @@ public class TelaDeHistoricoTreinosMetricasGUIController {
         VBox[] vBoxList = new VBox[]{box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12};
         List<TreinoRealizado> treinosRealizados = usuario.getPlanoDeTreinoAtual().getTreinoRealizadoList();
         List<Metrica> metricas = usuario.getMetricaList();
-        setDias(1 + diasExtras);  // Usando o setter
+        setDias(1 + diasExtras);
 
         if (treinosRealizados == null || treinosRealizados.isEmpty()) {
             System.out.println("Nenhum treinoRealizado.");
@@ -88,10 +83,6 @@ public class TelaDeHistoricoTreinosMetricasGUIController {
 
         for (VBox vbox : vBoxList) {
             List<Label> labels = getLabelsVbox(vbox);
-
-            //System.out.println(getDias());
-
-            //System.out.println(labels.size());
 
             if (labels.size() == 1) {
                 labels.get(0).setText(getDias() + " Dia(s) atrás");
@@ -114,7 +105,7 @@ public class TelaDeHistoricoTreinosMetricasGUIController {
 
             } else if (labels.size() == 13) {
 
-                Treino treinoAtual = new Treino("vazio");
+                Treino treinoAtual;
                 if (treinosRealizados.size() - getDias() < 0) {
                     for (int i = 0; i < 13; i++) {
                         labels.get(i).setText("N/A");

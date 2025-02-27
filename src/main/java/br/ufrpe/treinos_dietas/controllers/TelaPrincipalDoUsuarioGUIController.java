@@ -227,15 +227,7 @@ public class TelaPrincipalDoUsuarioGUIController {
 
     @FXML
     public void btnTreinoSemanalActionPerformed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDoTreinoDaSemana.fxml"));
-        Parent root = loader.load();
-
-        TelaDoTreinoDaSemanaGUIController controller = loader.getController();
-        controller.alocadorLabelsTreinos();
-
-        Stage stage = (Stage) btnTreinoSemanal.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        TelaDeHistoricoTreinosMetricasGUIController.VoltarParaTreinoDaSemana(btnTreinoSemanal);
     }
 
     @FXML
