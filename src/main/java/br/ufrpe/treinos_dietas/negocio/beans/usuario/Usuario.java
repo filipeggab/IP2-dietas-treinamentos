@@ -131,7 +131,7 @@ public class Usuario implements Serializable {
     }
 
     public void AdicionarListaAoPlanoDeTreino(String nome, List<Treino> lista) throws PlanoNaoCadastradoException {
-        PlanoDeTreino plano = repositorioPlanoDeTreino.retornarPlanoDeTreino(nome);
+        PlanoDeTreino plano = getPlanoDeTreinoAtual();
 
         if (plano == null) {
             throw new PlanoNaoCadastradoException("Plano de treino " + nome + " não encontrado.");

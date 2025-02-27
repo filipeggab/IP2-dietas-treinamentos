@@ -113,6 +113,7 @@ public class TelaDoTreinoDaSemanaGUIController {
         TelaPrincipalDoUsuarioGUIController controller = loader.getController();
         controller.atualizarLabels();
 
+
         Stage stage = (Stage) btnVoltaTelaPrincipal.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();

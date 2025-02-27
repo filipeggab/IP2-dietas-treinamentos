@@ -24,10 +24,15 @@ public class SessaoUsuario implements Serializable {
 
     public static SessaoUsuario getInstancia() {
         if (instancia == null) {
-            instancia = new SessaoUsuario();
+            synchronized (SessaoUsuario.class) {
+                if (instancia == null) {
+                    instancia = new SessaoUsuario();
+                }
+            }
         }
         return instancia;
     }
+
 
     public Usuario getUsuario() {
         return usuario;

@@ -26,11 +26,11 @@ import java.util.List;
 
 
 public class TelaPrincipalDoUsuarioGUIController {
-    Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
-    RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
-    RepositorioDietas repositorioDietas =  RepositorioDietas.getInstance();
-    LocalDate dataAtualizada = LocalDate.now();
-    LocalDate dataAdicionada = LocalDate.now();
+    private Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+    private RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
+    private RepositorioDietas repositorioDietas =  RepositorioDietas.getInstance();
+    private static LocalDate dataAtualizada = LocalDate.now();
+    private static LocalDate dataAdicionada = dataAtualizada.minusDays(1);
 
 
 
@@ -42,18 +42,6 @@ public class TelaPrincipalDoUsuarioGUIController {
 
     @FXML
     private Button btnPerfil;
-
-    @FXML
-    private CheckBox chkCafeDaManha;
-
-    @FXML
-    private CheckBox chkAlmoco;
-
-    @FXML
-    private CheckBox chkLanche;
-
-    @FXML
-    private CheckBox chkJantar;
 
     @FXML
     private CheckBox chkMobilidade;
@@ -75,7 +63,6 @@ public class TelaPrincipalDoUsuarioGUIController {
 
 
     public void atualizarLabels(){
-        checarCheckBoxes();
         labelsEmBranco();
 
         labelData.setText("Dia " + dataAtualizada.toString());
@@ -189,17 +176,23 @@ public class TelaPrincipalDoUsuarioGUIController {
     }
 
 
-
-    public void checarCheckBoxes(){
+    @FXML
+    private void verificarTreinoConcluido() {
         dataAtualizada = LocalDate.now();
+        Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
+        PlanoDeTreino planoDeTreino = usuario.getPlanoDeTreinoAtual();
+        Treino treinoDoDia = planoDeTreino.getTreinoList().get(checarData());
 
-        if(chkMobilidade.isSelected() && chkCardio.isSelected() && chkForca.isSelected()){
+        if (chkMobilidade.isSelected() && chkCardio.isSelected() && chkForca.isSelected()) {
             if(dataAtualizada.isAfter(dataAdicionada)){
-            usuario.acrescentarContador();
-            dataAdicionada = LocalDate.now();
+                planoDeTreino.adicionarTreinoRealizado(treinoDoDia);
+                System.out.println("Treino completo adicionado ao plano!");
+                usuario.acrescentarContador();
+                dataAdicionada = LocalDate.now();
             }
         }
     }
+
 
     public int checarData(){
         int selector;

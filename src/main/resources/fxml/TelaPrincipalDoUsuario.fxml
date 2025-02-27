@@ -172,7 +172,7 @@
                               <Insets left="6.0" />
                            </HBox.margin>
                         </Label>
-                        <CheckBox fx:id="chkMobilidade" mnemonicParsing="false">
+                        <CheckBox fx:id="chkMobilidade" mnemonicParsing="false" onAction="#verificarTreinoConcluido">
                            <font>
                               <Font size="15.0" />
                            </font></CheckBox>
@@ -204,7 +204,7 @@
                               <Insets left="6.0" />
                            </HBox.margin>
                         </Label>
-                        <CheckBox fx:id="chkCardio" mnemonicParsing="false">
+                        <CheckBox fx:id="chkCardio" mnemonicParsing="false" onAction="#verificarTreinoConcluido">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -227,7 +227,7 @@
                               <Insets left="6.0" />
                            </HBox.margin>
                         </Label>
-                        <CheckBox fx:id="chkForca" mnemonicParsing="false">
+                        <CheckBox fx:id="chkForca" mnemonicParsing="false" onAction="#verificarTreinoConcluido">
                            <font>
                               <Font size="15.0" />
                            </font></CheckBox>

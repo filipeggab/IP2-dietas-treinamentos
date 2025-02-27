@@ -141,7 +141,6 @@ public class TelaEdicaoPerfilGUIController {
                 double novoPeso = Double.parseDouble(txtPeso.getText());
 
                 if (ultimaMetrica == null || ultimaMetrica.getAltura() != novaAltura || ultimaMetrica.getPeso() != novoPeso) {
-                    // Se não há uma métrica anterior OU os valores foram alterados, cria uma nova métrica
                     Metrica novaMetrica = new Metrica(novaAltura, novoPeso, LocalDate.now());
                     usuario.adicionarMetrica(novaMetrica);
                 }
@@ -151,7 +150,6 @@ public class TelaEdicaoPerfilGUIController {
             }
         }
 
-        // Voltar para a tela de perfil
         btnCancelarActionPerformed();
     }
 
