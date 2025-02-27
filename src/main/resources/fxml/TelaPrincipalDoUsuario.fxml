@@ -17,7 +17,10 @@
                   <Insets />
                </HBox.margin>
             </Label>
-            <Button fx:id="btnPerfil" mnemonicParsing="false" onAction="#btnPerfilActionPerformed" prefHeight="76.0" prefWidth="66.0" style="-fx-background-color: orange;" text="Perfil" />
+            <Button fx:id="btnPerfil" mnemonicParsing="false" onAction="#btnPerfilActionPerformed" prefHeight="76.0" prefWidth="66.0" style="-fx-background-color: orange;" text="Perfil">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
          </children>
       </HBox>
    </top>
