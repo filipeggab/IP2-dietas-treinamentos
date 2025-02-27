@@ -37,6 +37,7 @@ public class TelaDeLoginGUIController {
 
     @FXML
     public void btnIrParaTelaPrincipalActionPerformed() throws IOException {
+
         this.login();
         TelaDoTreinoDaSemanaGUIController.VoltarParaTelaPrincipalDoUsuario(btnIrParaTelaPrincipal);
     }
