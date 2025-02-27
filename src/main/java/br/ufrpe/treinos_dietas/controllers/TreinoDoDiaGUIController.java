@@ -30,6 +30,8 @@ public class TreinoDoDiaGUIController {
     Usuario usuario = SessaoUsuario.getInstancia().getUsuario();
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
 
+
+
     @FXML
     private Button btnVoltaTelaPrincipal;
 
@@ -39,12 +41,14 @@ public class TreinoDoDiaGUIController {
     private List<Label> cardioLabel;
     @FXML
     private List<Label> treinoForcaLabels;
-
+    @FXML
+    private Label treinoDoDia;
     @FXML
     private VBox vboxA, vboxB, vboxC;
 
     public TreinoDoDiaGUIController() throws IOException {
     }
+
 
     //Metodo para o botão btnVoltaTelaPrincipal ir para a tela principal
     @FXML
@@ -82,7 +86,9 @@ public class TreinoDoDiaGUIController {
             label.setText(" ");
         }
     }
-
+    public void mudarLabelTreino(String texto){
+        treinoDoDia.setText(texto);
+    }
     public void alocarExerciciosTreino(int i){
         criarListaDeLabels();
         labelsEmBranco(mobilidadesLabels);

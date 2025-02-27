@@ -28,6 +28,8 @@ public class TelaDoPerfilUsuarioGUIController {
     private Button btnVoltarTelaPrincipal, btnEditarPerfil;
     @FXML
     private ProgressBar progressBarIMC, progressBarPeso;
+    @FXML
+    private Label lblFeedback;
 
     @FXML
     public void btnVoltarTelaPrincipalActionPerformed() throws IOException {

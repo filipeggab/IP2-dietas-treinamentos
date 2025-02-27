@@ -4,6 +4,7 @@ import br.ufrpe.treinos_dietas.Main;
 import br.ufrpe.treinos_dietas.dados.RepositorioDietas;
 import br.ufrpe.treinos_dietas.dados.RepositorioPlanoDeTreino;
 import br.ufrpe.treinos_dietas.exceptions.*;
+import br.ufrpe.treinos_dietas.negocio.CadastroUsuarios;
 import br.ufrpe.treinos_dietas.negocio.beans.dietas.Dieta;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
@@ -29,7 +30,9 @@ public class TelaEdicaoPerfilGUIController {
     RepositorioPlanoDeTreino repositorioPlanoDeTreino = RepositorioPlanoDeTreino.getInstance();
 
     FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TelaDeSelecaoDeFocoGUIController.fxml"));
-
+    CadastroUsuarios cadastroUsuarios = new CadastroUsuarios();
+    @FXML
+    private Label lblFeedback;
     @FXML
     private TextField txtNome, txtEmail, txtAltura, txtPeso;
     @FXML
@@ -83,13 +86,14 @@ public class TelaEdicaoPerfilGUIController {
     }
 
     @FXML
-    public void btnSalvarActionPerformed() throws IOException, DietaNaoCadastradaException, ComidaNaoCadastradaException, TreinoNaoCadastradoException, PlanoNaoCadastradoException, ExercicioNaoCadastradoException {
+    public void btnSalvarActionPerformed() throws IOException, DietaNaoCadastradaException, ComidaNaoCadastradaException, TreinoNaoCadastradoException, PlanoNaoCadastradoException, ExercicioNaoCadastradoException, EmailInvalidoException, UsuarioNaoCadastradoException {
         if (usuario != null) {
             // Atualiza os dados básicos do usuário
             if (!txtNome.getText().isEmpty()) {
                 usuario.setNome(txtNome.getText());
             }
             if (!txtEmail.getText().isEmpty()) {
+
                 usuario.setEmail(txtEmail.getText());
             }
             if (dpDataDeNascimento.getValue() != null) {

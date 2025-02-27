@@ -52,9 +52,11 @@ public class RepositorioUsuarios implements Serializable {
             throw e;
         }
     }
-
+    public void editarEmailUsuario (Usuario usuario, String texto){
+        usuario.setEmail(texto);
+    }
     public Usuario buscarUsuario(String email) throws UsuarioNaoCadastradoException {
-        Usuario e = usuarios.stream().filter(x -> x.getEmail() == email).findFirst().orElse(null);
+        Usuario e = usuarios.stream().filter(x -> x.getEmail().equals(email)).findFirst().orElse(null);
         if (e != null) {
             return e;
         } else {

@@ -139,6 +139,7 @@
                         </font>
                     </Label>
                <TextField fx:id="txtAltura" />
+               <Label fx:id="lblFeedback" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="245.0" />
                 </HBox>
 
                 <HBox spacing="20.0">

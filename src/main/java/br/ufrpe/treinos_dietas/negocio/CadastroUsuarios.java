@@ -66,6 +66,7 @@ public class CadastroUsuarios {
             Usuario user = repo.buscarUsuario(email);
             if(!repo.emailUtilizado(novoEmail)){
                 user.setEmail(novoEmail);
+                repo.editarEmailUsuario(user, novoEmail);
             } else{
                 throw new EmailInvalidoException();
             }

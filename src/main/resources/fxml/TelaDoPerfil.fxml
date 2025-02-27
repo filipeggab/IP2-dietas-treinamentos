@@ -144,11 +144,12 @@
                             <Font size="16.0" />
                         </font>
                     </Label>
-                    <Label fx:id="lblAltura" prefWidth="400.0" text="[Altura]">
+                    <Label fx:id="lblAltura" prefHeight="25.0" prefWidth="156.0" text="[Altura]">
                         <font>
                             <Font size="16.0" />
                         </font>
                     </Label>
+               <Label fx:id="lblFeedback" prefHeight="24.0" prefWidth="248.0" />
                 </HBox>
 
                 <HBox spacing="20.0">

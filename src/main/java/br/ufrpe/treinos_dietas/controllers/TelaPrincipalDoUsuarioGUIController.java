@@ -102,7 +102,6 @@ public class TelaPrincipalDoUsuarioGUIController {
         labelsEmBranco();
 
         labelData.setText("Dia " + dataAtualizada.toString());
-        System.out.println(usuario);
 
         PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         if (planoAtual == null) {

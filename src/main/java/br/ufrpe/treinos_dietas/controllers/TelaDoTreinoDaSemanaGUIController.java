@@ -124,8 +124,8 @@ public class TelaDoTreinoDaSemanaGUIController {
     public void btnTreinoAActionPerformed() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TreinoDoDia.fxml"));
         Parent root = loader.load();
-
         TreinoDoDiaGUIController controller = loader.getController();
+        controller.mudarLabelTreino("Treino A");
         PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         if(planoAtual.getNome().equals("Plano para FLEXIBILIDADE")){
         controller.alocarExerciciosFlex(0);
@@ -146,6 +146,7 @@ public class TelaDoTreinoDaSemanaGUIController {
         Parent root = loader.load();
 
         TreinoDoDiaGUIController controller = loader.getController();
+        controller.mudarLabelTreino("Treino B");
         PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         if(planoAtual.getNome().equals("Plano para FLEXIBILIDADE")){
             controller.alocarExerciciosFlex(1);
@@ -164,8 +165,8 @@ public class TelaDoTreinoDaSemanaGUIController {
     public void btnTreinoCActionPerformed() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/TreinoDoDia.fxml"));
         Parent root = loader.load();
-
         TreinoDoDiaGUIController controller = loader.getController();
+        controller.mudarLabelTreino("Treino C");
         PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         if(planoAtual.getNome().equals("Plano para FLEXIBILIDADE")){
             controller.alocarExerciciosFlex(2);
