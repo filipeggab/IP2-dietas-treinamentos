@@ -74,4 +74,7 @@ public abstract class PlanoDeTreino implements Serializable {
             treinoRealizadoList.add(treinoRealizado);
         }
     }
+    public List<TreinoRealizado> getTreinoRealizadoList() {
+        return treinoRealizadoList;
+    }
 }

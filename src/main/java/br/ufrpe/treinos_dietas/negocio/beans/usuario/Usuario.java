@@ -9,6 +9,7 @@ import br.ufrpe.treinos_dietas.negocio.beans.dietas.Refeicao;
 import br.ufrpe.treinos_dietas.negocio.beans.enums.EnumSexo;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.PlanoDeTreino;
 import br.ufrpe.treinos_dietas.negocio.beans.treinos.Treino;
+import br.ufrpe.treinos_dietas.negocio.beans.treinos.TreinoRealizado;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -53,6 +54,10 @@ public class Usuario implements Serializable {
             return null; // null se não houver métricas
         }
         return metricas.getLast();
+    }
+
+    public List<Metrica> getMetricaList(){
+        return metricas;
     }
 
     public List<Dieta> getListDietas(){
@@ -114,6 +119,10 @@ public class Usuario implements Serializable {
 
     public LocalDate getDataNasc() {
         return dataNasc;
+    }
+
+    public void setPlanoDeTreinoList(List<PlanoDeTreino> planoDeTreinoList) {
+        this.planoDeTreinoList = planoDeTreinoList;
     }
 
     public void setDataNasc(LocalDate dataNasc) {

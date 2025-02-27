@@ -50,6 +50,7 @@ br\ufrpe\treinos_dietas\negocio\beans\treinos\Exercicio.class
 br\ufrpe\treinos_dietas\negocio\beans\treinos\ExPraticoCardio.class
 br\ufrpe\treinos_dietas\negocio\beans\treinos\TreinoRealizado.class
 br\ufrpe\treinos_dietas\dados\RepositorioExPratico.class
+br\ufrpe\treinos_dietas\controllers\TelaDeHistoricoTreinosMetricasGUIController.class
 br\ufrpe\treinos_dietas\dados\RepositorioComidas.class
 br\ufrpe\treinos_dietas\negocio\CadastroRefeicao.class
 br\ufrpe\treinos_dietas\negocio\beans\treinos\ExPraticoSerieReps.class

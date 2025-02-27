@@ -39,7 +39,7 @@ public class TelaDoTreinoDaSemanaGUIController {
     private Button btnTreinoC;
 
     @FXML
-    private Button btnIrParaCalendarioDeTreino;
+    private Button btnIrParaHistoricoTreinosMetricas;
 
     @FXML
     private Label lblData;
@@ -180,11 +180,14 @@ public class TelaDoTreinoDaSemanaGUIController {
         stage.show();
     }
     @FXML
-    public void btnIrParaCalendarioDeTreinoActionPerformed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/CalendarioDeTreinos.fxml"));
+    public void btnIrParaHistoricoTreinosMetricasActionPerformed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/HistoricoDeTreinosMetricas.fxml"));
         Parent root = loader.load();
 
-        Stage stage = (Stage) btnIrParaCalendarioDeTreino.getScene().getWindow();
+        TelaDeHistoricoTreinosMetricasGUIController controller = loader.getController();
+        controller.alocadorLabels(0);
+
+        Stage stage = (Stage) btnIrParaHistoricoTreinosMetricas.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
