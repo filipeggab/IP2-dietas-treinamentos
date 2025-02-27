@@ -90,7 +90,7 @@ public class TreinoDoDiaGUIController {
         labelsEmBranco(treinoForcaLabels);
 
 
-        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
 
         Treino treino = treinosAtuais.get(i);
@@ -115,7 +115,7 @@ public class TreinoDoDiaGUIController {
         labelsEmBranco(cardioLabel);
         labelsEmBranco(treinoForcaLabels);
 
-        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
 
         Treino treino = treinosAtuais.get(i);

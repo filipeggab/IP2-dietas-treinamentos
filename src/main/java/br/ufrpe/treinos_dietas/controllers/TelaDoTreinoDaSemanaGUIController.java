@@ -123,7 +123,7 @@ public class TelaDoTreinoDaSemanaGUIController {
         Parent root = loader.load();
 
         TreinoDoDiaGUIController controller = loader.getController();
-        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         if(planoAtual.getNome().equals("Plano para FLEXIBILIDADE")){
         controller.alocarExerciciosFlex(0);
         }
@@ -143,7 +143,7 @@ public class TelaDoTreinoDaSemanaGUIController {
         Parent root = loader.load();
 
         TreinoDoDiaGUIController controller = loader.getController();
-        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         if(planoAtual.getNome().equals("Plano para FLEXIBILIDADE")){
             controller.alocarExerciciosFlex(1);
         }
@@ -163,7 +163,7 @@ public class TelaDoTreinoDaSemanaGUIController {
         Parent root = loader.load();
 
         TreinoDoDiaGUIController controller = loader.getController();
-        PlanoDeTreino planoAtual = repositorioPlanoDeTreino.retornarPlanos();
+        PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         if(planoAtual.getNome().equals("Plano para FLEXIBILIDADE")){
             controller.alocarExerciciosFlex(2);
         }
