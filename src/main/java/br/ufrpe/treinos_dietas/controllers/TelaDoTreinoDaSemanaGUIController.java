@@ -64,6 +64,8 @@ public class TelaDoTreinoDaSemanaGUIController {
         return labels;
     }
 
+
+
     public void alocadorLabelsTreinos() {
         PlanoDeTreino planoAtual = usuario.getPlanoDeTreinoAtual();
         List<Treino> treinosAtuais = planoAtual.getTreinoList();
@@ -92,7 +94,7 @@ public class TelaDoTreinoDaSemanaGUIController {
     public void alocarExerciciosNasLabels(List<Label> listaLabels, List<ExercicioPratico> listaExercicios) {
 
         int tamanho = Math.min(listaExercicios.size(), listaLabels.size());
-        for (int i = 0; i < tamanho; i++){
+        for (int i = 0; i < tamanho; i++) {
             listaLabels.get(i).setText(listaExercicios.get(i).toString());
         }
     }
